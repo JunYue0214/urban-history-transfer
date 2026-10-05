@@ -1,0 +1,41 @@
+{
+  "execution_id": "1005-2",
+  "timestamp": "2026-10-05T04:50:10.569732+00:00",
+  "project_root": "<PROJECT_ROOT>",
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "python_version_info": [
+    3,
+    11,
+    16,
+    "final",
+    0
+  ],
+  "python_executable": "<USER_HOME>\\Miniconda3\\envs\\py311\\python.exe",
+  "sys_prefix": "<USER_HOME>\\Miniconda3\\envs\\py311",
+  "conda_default_env": "py311",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "system": "Windows",
+  "release": "10",
+  "machine": "AMD64",
+  "git": {
+    "git_available": false,
+    "is_git_repository": false,
+    "commit_hash": null
+  },
+  "package_versions": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3",
+    "geopandas": "1.2.0",
+    "shapely": "2.1.2",
+    "pyproj": "3.7.2",
+    "rasterio": "1.4.4",
+    "xarray": "2026.9.0",
+    "rioxarray": "0.19.0",
+    "scikit-learn": "1.9.1",
+    "pytest": "9.1.1"
+  }
+}

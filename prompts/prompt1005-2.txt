@@ -1,0 +1,1144 @@
+PROMPT ID: 1005-2
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+SOURCE PROMPT:
+prompts/prompt1005-2.txt
+
+PREVIOUS EXECUTION:
+1005-1
+
+PREVIOUS REPORT:
+reports/report1005-1.md
+
+EXPECTED REPORT:
+reports/report1005-2.md
+
+MACHINE-READABLE RESULTS:
+results/1005-2/
+
+FIGURES:
+figures/1005-2/
+
+======================================================================
+1. ROLE
+======================================================================
+
+You remain the execution-oriented Research Engineer.
+
+This execution is an ENVIRONMENT AND VERSION-CONTROL execution.
+
+It is NOT a scientific analysis execution.
+
+Do not make scientific decisions.
+
+Do not begin scientific study design.
+
+Do not download research datasets.
+
+Do not proceed to execution 1005-3.
+
+======================================================================
+2. CONTEXT FROM PREVIOUS EXECUTION
+======================================================================
+
+Execution 1005-1 established the project governance, provenance,
+reporting, and minimal reproducibility infrastructure.
+
+The previous environment inspection observed a Python interpreter that
+was not the intended long-term project environment.
+
+The user has now explicitly specified that an existing Anaconda
+environment named:
+
+py311
+
+must be used for this project.
+
+This user instruction supersedes any assumption that the Python
+interpreter observed in execution 1005-1 should be used for future
+scientific computation.
+
+Do NOT alter historical records from 1005-1.
+
+The fact that 1005-1 observed another interpreter is part of the audit
+trail and must remain unchanged.
+
+======================================================================
+3. OBJECTIVE
+======================================================================
+
+The objectives of execution 1005-2 are:
+
+1. verify the existing Anaconda/conda installation;
+
+2. verify that the existing environment `py311` exists;
+
+3. verify its actual Python version;
+
+4. formally designate `py311` as the project's authorized Python
+   environment;
+
+5. audit the currently installed scientific/GIS packages in `py311`;
+
+6. install only missing packages required for the current project
+   foundation;
+
+7. verify that the scientific/GIS stack actually imports and performs
+   minimal in-memory operations;
+
+8. establish reproducible environment documentation;
+
+9. establish safeguards against accidentally running future project
+   analyses with the wrong Python interpreter;
+
+10. inspect Git availability and, if safely possible, establish local
+    Git version control;
+
+11. produce a standardized execution report;
+
+12. stop.
+
+No scientific hypothesis may be tested.
+
+======================================================================
+4. OFFICIAL PROJECT ENVIRONMENT
+======================================================================
+
+The intended official project environment is:
+
+Conda environment:
+py311
+
+Required Python major/minor:
+
+3.11
+
+First verify this rather than assuming it.
+
+Run appropriate commands such as:
+
+conda --version
+
+conda env list
+
+conda run -n py311 python --version
+
+conda run -n py311 python -c "import sys; print(sys.executable)"
+
+Record the actual outputs.
+
+If `py311` does not exist:
+
+STOP before installing Python packages.
+
+Do NOT create a replacement environment.
+
+Report:
+
+BLOCKED_ENVIRONMENT_NOT_FOUND
+
+If `py311` exists but Python is not 3.11.x:
+
+STOP before installing packages.
+
+Do NOT recreate or modify the Python major/minor version automatically.
+
+Report:
+
+BLOCKED_UNEXPECTED_PYTHON_VERSION
+
+If py311 exists and uses Python 3.11.x:
+
+continue.
+
+======================================================================
+5. EXECUTION RULE FOR FUTURE PYTHON COMMANDS
+======================================================================
+
+For this execution, prefer explicit commands of the form:
+
+conda run -n py311 python ...
+
+and:
+
+conda run -n py311 python -m pytest ...
+
+rather than relying only on shell activation state.
+
+Reason:
+
+the execution environment must be explicit and auditable.
+
+Do not assume that:
+
+conda activate py311
+
+persists reliably across independent shell invocations.
+
+Record:
+
+- sys.executable
+- sys.prefix
+- Python version
+- detected conda environment where available
+
+======================================================================
+6. CREATE ENVIRONMENT POLICY
+======================================================================
+
+Create:
+
+docs/ENVIRONMENT_POLICY.md
+
+It must state at minimum:
+
+# Official Python Environment
+
+Conda environment:
+
+py311
+
+Required Python major/minor:
+
+3.11
+
+# Execution Rule
+
+Project Python commands should be executed explicitly through:
+
+conda run -n py311 ...
+
+or through an independently verified active py311 environment.
+
+# Wrong Environment Protection
+
+Scientific/project computation must not silently continue when the
+interpreter is not the authorized project environment.
+
+# Package Installation
+
+Project Python packages must be installed into py311.
+
+Do not install project dependencies into base merely for convenience.
+
+# Environment Changes
+
+Material dependency changes must be documented in the corresponding
+execution report.
+
+# Reproducibility
+
+Environment specifications must be exportable and versioned.
+
+======================================================================
+7. CREATE ENVIRONMENT GUARD
+======================================================================
+
+Create:
+
+src/urban_history_transfer/environment.py
+
+Implement a small, transparent environment validation function.
+
+It should be able to verify at minimum:
+
+- Python major version == 3
+- Python minor version == 11
+
+Where reliably available, also record/inspect:
+
+- sys.executable
+- sys.prefix
+- CONDA_DEFAULT_ENV
+
+Do NOT make the package unusable merely because CONDA_DEFAULT_ENV is
+absent when execution occurs through `conda run`.
+
+The primary hard requirement is Python 3.11.
+
+The environment guard should provide a clear diagnostic message.
+
+Create tests for it.
+
+Also create a CLI/check script if useful, for example:
+
+scripts/verify_project_environment.py
+
+The script should exit non-zero when the Python major/minor requirement
+is violated.
+
+When run correctly using py311, it must succeed.
+
+======================================================================
+8. PACKAGE AUDIT — DO NOT INSTALL FIRST
+======================================================================
+
+Before installing anything, audit the current py311 environment.
+
+Check at minimum:
+
+numpy
+pandas
+scipy
+matplotlib
+pyarrow
+yaml / PyYAML
+pytest
+geopandas
+shapely
+pyproj
+rasterio
+xarray
+rioxarray
+
+For every package record:
+
+- requested package name
+- import name
+- installed/not installed
+- installed version if available
+
+Write BEFORE-install audit to:
+
+results/1005-2/package_audit_before.json
+
+Do not infer package availability from the base environment.
+
+Audit specifically inside py311.
+
+======================================================================
+9. PACKAGE INSTALLATION POLICY
+======================================================================
+
+Only after completing the BEFORE audit:
+
+install packages from the approved list that are missing.
+
+Approved current foundation list:
+
+numpy
+pandas
+scipy
+matplotlib
+pyarrow
+PyYAML
+pytest
+geopandas
+shapely
+pyproj
+rasterio
+xarray
+rioxarray
+
+Do not install packages outside this list unless required as automatic
+dependencies of approved packages.
+
+Do not install:
+
+tensorflow
+torch
+pytorch-lightning
+jax
+dask
+distributed
+pyspark
+earthengine-api
+geemap
+GDAL Python bindings as a separately requested package
+or unrelated large frameworks
+
+unless they arrive automatically as dependencies of an approved package
+and the package manager determines they are required.
+
+Do not upgrade already working packages merely to obtain the newest
+version.
+
+Do not perform broad commands such as upgrading every package.
+
+Prefer compatibility and stability over novelty.
+
+======================================================================
+10. INSTALLATION METHOD
+======================================================================
+
+Because GIS Python packages can contain compiled/geospatial
+dependencies, inspect the existing py311 environment and available
+package-management setup before deciding the installation command.
+
+Use a conservative installation strategy.
+
+You may use conda-compatible package management when available and
+appropriate.
+
+If pip is used, it MUST be invoked through py311, e.g.:
+
+conda run -n py311 python -m pip ...
+
+Never use an ambiguous bare:
+
+pip install ...
+
+Do not install into base.
+
+Record exactly:
+
+- package manager used
+- command(s) used
+- packages installed
+- packages already present
+- any dependency resolution warnings/errors
+
+If installation encounters a serious dependency conflict:
+
+do not repeatedly force installations with increasingly aggressive
+options.
+
+Stop the affected installation path and report the conflict.
+
+Do not use --force-reinstall or equivalent destructive dependency
+operations unless explicitly authorized by a future prompt.
+
+======================================================================
+11. PACKAGE AUDIT AFTER INSTALLATION
+======================================================================
+
+After authorized installation attempts, repeat the audit.
+
+Write:
+
+results/1005-2/package_audit_after.json
+
+Record the actual versions.
+
+The report must distinguish:
+
+ALREADY_PRESENT
+
+INSTALLED_THIS_EXECUTION
+
+FAILED_TO_INSTALL
+
+UNAVAILABLE
+
+Do not call the environment ready merely because an installation command
+returned exit code 0.
+
+Imports and smoke tests are required.
+
+======================================================================
+12. GIS / SCIENTIFIC STACK SMOKE TEST
+======================================================================
+
+Create:
+
+scripts/smoke_test_scientific_stack.py
+
+Run it using py311.
+
+The smoke test must use only synthetic/in-memory/local temporary data.
+
+Do NOT download external research data.
+
+At minimum test:
+
+A. numpy
+
+Create a small numeric array and perform a simple deterministic
+operation.
+
+B. pandas
+
+Create a small DataFrame and perform a simple aggregation.
+
+C. scipy
+
+Perform one basic deterministic numerical operation.
+
+D. matplotlib
+
+Create a minimal non-interactive plot in memory or temporary output and
+close it.
+
+Do not create a scientific result figure in figures/1005-2.
+
+E. shapely
+
+Create simple geometry objects and perform a basic geometry operation.
+
+F. pyproj
+
+Perform a simple known CRS coordinate transformation or CRS
+construction sanity check.
+
+G. geopandas
+
+Create an in-memory GeoDataFrame with an explicit CRS and verify it can
+be transformed to another CRS.
+
+H. rasterio
+
+Create or manipulate a very small synthetic raster in memory or a
+temporary local file, including CRS and affine transform metadata.
+
+I. xarray
+
+Create a tiny DataArray/Dataset and perform a simple aggregation.
+
+J. rioxarray
+
+Verify import and perform a minimal CRS-related operation on a synthetic
+xarray object where technically reasonable.
+
+K. pyarrow
+
+Create or round-trip a tiny in-memory/local temporary tabular object.
+
+The purpose is not performance benchmarking.
+
+The purpose is to prove that the installed stack actually functions
+together.
+
+Write machine-readable results to:
+
+results/1005-2/scientific_stack_smoke_test.json
+
+For each component record:
+
+- component
+- status
+- version
+- test performed
+- error if any
+
+======================================================================
+13. PYTEST
+======================================================================
+
+From this execution onward, pytest should be available in py311.
+
+Run project tests using:
+
+conda run -n py311 python -m pytest
+
+Add tests for the new environment guard and relevant infrastructure.
+
+Do not delete previous tests merely to make pytest pass.
+
+If older tests require small compatibility adjustments to run under
+pytest, such engineering changes are allowed but must be documented.
+
+Save:
+
+results/1005-2/test_summary.json
+
+with actual:
+
+execution_id
+total
+passed
+failed
+warnings
+
+======================================================================
+14. ENVIRONMENT SNAPSHOT
+======================================================================
+
+Create:
+
+environment/
+
+if it does not already exist.
+
+Generate an environment snapshot sufficient for future reconstruction.
+
+Create at least:
+
+environment/py311-conda-explicit.txt
+
+using an appropriate conda explicit export if supported.
+
+Also create:
+
+environment/py311-packages.txt
+
+containing a human-readable package/version inventory from the actual
+py311 environment.
+
+If practical, also create:
+
+environment/py311-environment.yml
+
+using an environment export suitable for reproducibility.
+
+IMPORTANT:
+
+Inspect exported YAML for machine-specific or unnecessary prefix paths.
+
+Do not expose secrets.
+
+If a `prefix:` line contains a machine-specific absolute local path,
+remove that line from the version-controlled reproducibility file.
+
+Do not manually fabricate dependency versions.
+
+Exports must reflect the actual environment.
+
+======================================================================
+15. UPDATE ENVIRONMENT CHECK SCRIPT
+======================================================================
+
+Review:
+
+scripts/check_environment.py
+
+from execution 1005-1.
+
+Do not falsify the historical 1005-1 output.
+
+Update the script only if necessary so that future runs can record:
+
+- Python version
+- Python executable
+- sys.prefix
+- conda environment where detectable
+- platform
+- Git availability
+- Git commit
+- relevant package versions
+
+Run the current environment check through py311.
+
+Write the new execution's environment information to:
+
+results/1005-2/environment.json
+
+Do NOT overwrite:
+
+results/1005-1/environment.json
+
+======================================================================
+16. GIT AUDIT
+======================================================================
+
+Check whether Git is available now.
+
+Run an appropriate version check.
+
+If Git is available:
+
+- record version
+- determine whether project is already a repository
+- initialize locally if it is not already a repository and doing so is
+  safe
+- do not configure any remote
+- do not push
+- do not request credentials
+- do not modify global Git configuration
+
+If Git is unavailable:
+
+first determine whether Git is available through the user's existing
+Anaconda/conda setup or another already-installed safe mechanism.
+
+You may install Git into the user's existing conda tooling/environment
+ONLY if this can be done safely without changing Python away from 3.11
+and without requiring administrator privileges.
+
+However:
+
+Git is a project/version-control tool, not a scientific Python package.
+Do not perform invasive system-level installation.
+
+Do not use administrator elevation.
+
+Do not alter operating-system security settings.
+
+If Git cannot be safely established:
+
+report:
+
+GIT_UNAVAILABLE
+
+and continue the remaining environment tasks.
+
+Lack of Git alone does not invalidate the entire execution.
+
+======================================================================
+17. GIT INITIALIZATION AND COMMIT
+======================================================================
+
+If Git is available and repository initialization is safe:
+
+initialize the repository if needed.
+
+Before committing:
+
+inspect `.gitignore`.
+
+Ensure that raw research data and transient files are ignored where
+appropriate.
+
+Ensure that audit-trail materials are not broadly ignored:
+
+prompts/
+reports/
+docs/
+configs/
+src/
+tests/
+environment/
+
+Do not commit sensitive credentials.
+
+Do not commit large research datasets.
+
+Do not configure a remote.
+
+If Git user identity is already configured and a commit can safely be
+made, create a commit after all authorized 1005-2 work is complete.
+
+Suggested commit message:
+
+1005-2: establish py311 scientific environment
+
+If Git exists but commit is blocked because user.name/user.email is not
+configured:
+
+do NOT invent an identity.
+
+do NOT change global configuration.
+
+Record:
+
+GIT_COMMIT_BLOCKED_IDENTITY
+
+and continue.
+
+======================================================================
+18. UPDATE PYPROJECT
+======================================================================
+
+Review:
+
+pyproject.toml
+
+Update the Python compatibility requirement to reflect the project's
+official Python version policy.
+
+Use a sensible Python 3.11-compatible requirement.
+
+Do not claim compatibility with versions that have not been tested in
+this project.
+
+Record foundation dependencies in a clean and maintainable way if this
+fits the existing project configuration.
+
+Avoid unnecessary dependency complexity.
+
+Do not add ML/DL dependencies.
+
+======================================================================
+19. UPDATE README
+======================================================================
+
+Update README.md to document:
+
+Official project Python environment:
+
+Anaconda / conda environment `py311`
+
+Required Python:
+
+3.11.x
+
+Recommended explicit execution pattern:
+
+conda run -n py311 ...
+
+Explain that the environment was established during execution 1005-2.
+
+Do NOT change the core hypothesis status.
+
+It remains:
+
+UNTESTED
+
+State clearly:
+
+No real research dataset has yet been analyzed.
+
+======================================================================
+20. UPDATE GOVERNANCE / PROTOCOL ONLY WHERE NECESSARY
+======================================================================
+
+Do not rewrite governance documents unnecessarily.
+
+Add only minimal cross-references necessary to establish:
+
+docs/ENVIRONMENT_POLICY.md
+
+as the authoritative environment policy.
+
+Do not change scientific governance principles from 1005-1.
+
+======================================================================
+21. MACHINE-READABLE RUN METADATA
+======================================================================
+
+Create:
+
+results/1005-2/run_metadata.json
+
+Include at minimum:
+
+execution_id
+source_prompt
+previous_execution
+report
+results_directory
+figures_directory
+status
+started_at
+completed_at
+
+official_conda_environment
+expected_python_major_minor
+actual_python_version
+actual_python_executable
+
+real_research_data_used
+scientific_hypothesis_tested
+scientific_analysis_performed
+unauthorized_scope_deviation
+
+packages_already_present
+packages_installed
+packages_failed
+
+gis_smoke_test_status
+
+git_available
+git_version
+git_repository_initialized
+git_commit_created
+git_commit_hash
+
+tests_passed
+tests_failed
+warnings_count
+
+outputs
+
+Use actual values.
+
+Do not fabricate successful Git/package/test status.
+
+======================================================================
+22. NO SCIENTIFIC FIGURES
+======================================================================
+
+Create or ensure:
+
+figures/1005-2/
+
+No scientific figures are authorized.
+
+If matplotlib smoke testing requires writing a temporary image, use a
+temporary location and remove it after verification.
+
+Do not populate figures/1005-2 with decorative or scientific plots.
+
+======================================================================
+23. PROJECT MANIFEST UPDATE
+======================================================================
+
+Update:
+
+reports/PROJECT_MANIFEST.md
+
+Do not remove 1005-1 history.
+
+Add:
+
+1005-2
+
+to completed executions only if this execution reaches a completed or
+documented partially-completed state.
+
+Record environment status accurately.
+
+If py311 validation and core stack validation succeed, record something
+equivalent to:
+
+OFFICIAL_PYTHON_ENVIRONMENT:
+py311
+
+PYTHON_POLICY:
+3.11.x
+
+ENVIRONMENT_STATUS:
+VALIDATED
+
+If unresolved package failures remain, use:
+
+ENVIRONMENT_STATUS:
+PARTIALLY_VALIDATED
+
+If py311 is absent/wrong Python:
+
+ENVIRONMENT_STATUS:
+BLOCKED
+
+Project scientific status remains:
+
+NO_SCIENTIFIC_ANALYSIS
+
+Core hypothesis remains:
+
+UNTESTED
+
+At end set project status:
+
+AWAITING_SCIENTIFIC_REVIEW
+
+======================================================================
+24. HARD PROHIBITIONS
+======================================================================
+
+DO NOT:
+
+- create a new conda environment
+- replace py311 with another environment
+- use base for project scientific package installation
+- install project packages into an unrelated interpreter
+- change py311's Python major/minor version automatically
+- delete the existing py311 environment
+- broadly upgrade every installed package
+- use force reinstall strategies without authorization
+- install deep-learning frameworks
+- download GHSL
+- download MODIS
+- download ERA5
+- download DEM
+- download research datasets
+- call Google Earth Engine for research data
+- select pilot cities
+- define final S
+- define final H
+- define final R
+- define D_S
+- define D_H
+- define D_R
+- run regressions
+- run correlations
+- run significance tests
+- run clustering
+- run machine learning
+- run deep learning
+- run optimization
+- conduct scientific literature review
+- test the scientific hypothesis
+- modify historical 1005-1 records
+- create prompt1005-3
+- execute any future scientific step
+
+======================================================================
+25. REQUIRED OUTPUTS
+======================================================================
+
+At minimum, if not blocked before package work, produce:
+
+prompts/prompt1005-2.txt
+
+reports/report1005-2.md
+
+results/1005-2/run_metadata.json
+
+results/1005-2/environment.json
+
+results/1005-2/package_audit_before.json
+
+results/1005-2/package_audit_after.json
+
+results/1005-2/scientific_stack_smoke_test.json
+
+results/1005-2/test_summary.json
+
+docs/ENVIRONMENT_POLICY.md
+
+src/urban_history_transfer/environment.py
+
+scripts/verify_project_environment.py
+
+scripts/smoke_test_scientific_stack.py
+
+environment/py311-packages.txt
+
+environment/py311-conda-explicit.txt
+
+and, if technically appropriate:
+
+environment/py311-environment.yml
+
+======================================================================
+26. COMPLETION CHECK
+======================================================================
+
+Before completion verify:
+
+[ ] prompts/prompt1005-2.txt exists
+[ ] original 1005-1 prompt/report/results remain intact
+[ ] py311 existence was verified
+[ ] Python version inside py311 was verified
+[ ] Python executable was recorded
+[ ] package audit before installation exists
+[ ] only approved missing packages were intentionally installed
+[ ] package audit after installation exists
+[ ] environment policy exists
+[ ] environment guard exists
+[ ] environment guard succeeds under py311
+[ ] scientific/GIS smoke test actually ran
+[ ] rasterio functionality was tested
+[ ] geopandas/CRS functionality was tested
+[ ] xarray/rioxarray functionality was tested
+[ ] pytest actually ran under py311
+[ ] environment snapshot exists
+[ ] Git status was actually checked
+[ ] no real research data were downloaded
+[ ] no scientific analysis was performed
+[ ] no future prompt was created
+[ ] report1005-2.md exists
+
+Any failed item must be explicitly reported.
+
+======================================================================
+27. REPORT
+======================================================================
+
+Create:
+
+reports/report1005-2.md
+
+Follow the project's REPORT_TEMPLATE.md.
+
+The report must begin with:
+
+Execution ID:
+1005-2
+
+Source Prompt:
+prompts/prompt1005-2.txt
+
+Previous Execution:
+1005-1
+
+Report:
+reports/report1005-2.md
+
+Results:
+results/1005-2/
+
+Figures:
+figures/1005-2/
+
+In addition to the standard report structure, explicitly report:
+
+1. Was py311 found?
+
+2. Exact Python version in py311.
+
+3. Exact Python executable.
+
+4. Which approved packages were already installed?
+
+5. Which packages were installed during 1005-2?
+
+6. Which package installations failed?
+
+7. Did every scientific/GIS smoke-test component pass?
+
+8. Did pytest pass under py311?
+
+9. Was Git available?
+
+10. Was a repository initialized?
+
+11. Was a commit created?
+
+12. If not, exactly why not?
+
+13. Were any real scientific data downloaded?
+
+14. Was any scientific hypothesis tested?
+
+15. Were any scientific definitions finalized?
+
+======================================================================
+28. INTEGRITY REQUIREMENT
+======================================================================
+
+The final report must explicitly state whether:
+
+- any package was installed outside py311
+- base was modified for scientific Python dependencies
+- another conda environment was created
+- py311's Python version was changed
+- previous execution artifacts were overwritten
+- real research data were used
+- scientific analysis was performed
+- future prompt work was started
+
+Any violation must be clearly disclosed.
+
+======================================================================
+29. FINAL STOP
+======================================================================
+
+After completing execution 1005-2:
+
+STOP.
+
+Do not propose scientific definitions.
+
+Do not begin pilot design.
+
+Do not download data.
+
+Do not create prompt1005-3.
+
+Return only a concise completion summary:
+
+PROMPT 1005-2 completed / partially completed / blocked.
+
+Source prompt:
+prompts/prompt1005-2.txt
+
+Report:
+reports/report1005-2.md
+
+Environment:
+py311
+
+Python:
+3.11.x / actual version
+
+Scientific/GIS stack:
+PASS / PARTIAL / FAIL
+
+Tests:
+X passed, Y failed
+
+Git:
+status
+
+Real scientific data analyzed:
+No
+
+Core scientific hypothesis tested:
+No
+
+Status:
+AWAITING_SCIENTIFIC_REVIEW

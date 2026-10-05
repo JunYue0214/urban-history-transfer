@@ -1,0 +1,99 @@
+{
+  "label": "after",
+  "timestamp": "2026-10-05T04:41:25.592768+00:00",
+  "python_executable": "<USER_HOME>\\Miniconda3\\envs\\py311\\python.exe",
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "packages": [
+    {
+      "requested_package": "numpy",
+      "import_name": "numpy",
+      "installed": true,
+      "version": "2.4.6",
+      "error": null
+    },
+    {
+      "requested_package": "pandas",
+      "import_name": "pandas",
+      "installed": true,
+      "version": "3.0.6",
+      "error": null
+    },
+    {
+      "requested_package": "scipy",
+      "import_name": "scipy",
+      "installed": true,
+      "version": "1.17.1",
+      "error": null
+    },
+    {
+      "requested_package": "matplotlib",
+      "import_name": "matplotlib",
+      "installed": true,
+      "version": "3.11.2",
+      "error": null
+    },
+    {
+      "requested_package": "pyarrow",
+      "import_name": "pyarrow",
+      "installed": true,
+      "version": "25.0.1",
+      "error": null
+    },
+    {
+      "requested_package": "PyYAML",
+      "import_name": "yaml",
+      "installed": true,
+      "version": "6.0.3",
+      "error": null
+    },
+    {
+      "requested_package": "pytest",
+      "import_name": "pytest",
+      "installed": true,
+      "version": "9.1.1",
+      "error": null
+    },
+    {
+      "requested_package": "geopandas",
+      "import_name": "geopandas",
+      "installed": true,
+      "version": "1.2.0",
+      "error": null
+    },
+    {
+      "requested_package": "shapely",
+      "import_name": "shapely",
+      "installed": true,
+      "version": "2.1.2",
+      "error": null
+    },
+    {
+      "requested_package": "pyproj",
+      "import_name": "pyproj",
+      "installed": true,
+      "version": "3.7.2",
+      "error": null
+    },
+    {
+      "requested_package": "rasterio",
+      "import_name": "rasterio",
+      "installed": true,
+      "version": "1.4.4",
+      "error": null
+    },
+    {
+      "requested_package": "xarray",
+      "import_name": "xarray",
+      "installed": true,
+      "version": "2026.9.0",
+      "error": null
+    },
+    {
+      "requested_package": "rioxarray",
+      "import_name": "rioxarray",
+      "installed": true,
+      "version": "0.19.0",
+      "error": null
+    }
+  ]
+}

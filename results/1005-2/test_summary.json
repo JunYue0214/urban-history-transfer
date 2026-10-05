@@ -1,0 +1,9 @@
+{
+  "execution_id": "1005-2",
+  "total": 16,
+  "passed": 16,
+  "failed": 0,
+  "warnings": 0,
+  "test_command": "conda run -n py311 python -m pytest -v",
+  "notes": "Includes the 11 pre-existing infrastructure tests from execution 1005-1 (tests/test_infrastructure.py, unmodified, run via pytest without compatibility changes since unittest.TestCase classes are natively pytest-collectible) plus 5 new tests for the environment guard (tests/test_environment.py). No scientific analysis is tested."
+}

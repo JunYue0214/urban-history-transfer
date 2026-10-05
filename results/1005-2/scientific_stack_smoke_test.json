@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-10-05T04:42:11.514350+00:00",
+  "python_executable": "<USER_HOME>\\Miniconda3\\envs\\py311\\python.exe",
+  "overall_status": "PASS",
+  "components": [
+    {
+      "component": "numpy",
+      "status": "PASS",
+      "version": "2.4.6",
+      "test_performed": "np.array([1,2,3,4]).sum() == 10.0",
+      "error": null
+    },
+    {
+      "component": "pandas",
+      "status": "PASS",
+      "version": "3.0.6",
+      "test_performed": "groupby('group').sum() == {'a': 3, 'b': 3}",
+      "error": null
+    },
+    {
+      "component": "scipy",
+      "status": "PASS",
+      "version": "1.17.1",
+      "test_performed": "scipy.stats.zscore([1,2,3]) == [np.float64(-1.224744871391589), np.float64(0.0), np.float64(1.224744871391589)]",
+      "error": null
+    },
+    {
+      "component": "matplotlib",
+      "status": "PASS",
+      "version": "3.11.2",
+      "test_performed": "created and saved a minimal non-interactive plot to a temporary file, then closed it",
+      "error": null
+    },
+    {
+      "component": "shapely",
+      "status": "PASS",
+      "version": "2.1.2",
+      "test_performed": "Polygon.contains(Point(0,0)) == True",
+      "error": null
+    },
+    {
+      "component": "pyproj",
+      "status": "PASS",
+      "version": "3.7.2",
+      "test_performed": "EPSG:4326->EPSG:3857 transform of (0,0) == (0.0, 0.0)",
+      "error": null
+    },
+    {
+      "component": "geopandas",
+      "status": "PASS",
+      "version": "1.2.0",
+      "test_performed": "GeoDataFrame created with EPSG:4326 and reprojected to EPSG:3857",
+      "error": null
+    },
+    {
+      "component": "rasterio",
+      "status": "PASS",
+      "version": "1.4.4",
+      "test_performed": "wrote/read a synthetic 2-band 4x4 uint8 GeoTIFF with CRS EPSG:4326 and an affine transform",
+      "error": null
+    },
+    {
+      "component": "xarray",
+      "status": "PASS",
+      "version": "2026.9.0",
+      "test_performed": "xr.DataArray(2x3).sum() == 15.0",
+      "error": null
+    },
+    {
+      "component": "rioxarray",
+      "status": "PASS",
+      "version": "0.19.0",
+      "test_performed": "assigned CRS EPSG:4326 and an affine transform to a synthetic xarray DataArray via rioxarray",
+      "error": null
+    },
+    {
+      "component": "pyarrow",
+      "status": "PASS",
+      "version": "25.0.1",
+      "test_performed": "round-tripped a 3-row pyarrow Table through a temporary local Parquet file",
+      "error": null
+    }
+  ]
+}

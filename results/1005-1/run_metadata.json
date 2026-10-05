@@ -1,0 +1,38 @@
+{
+  "execution_id": "1005-1",
+  "source_prompt": "prompts/prompt1005-1.txt",
+  "report": "reports/report1005-1.md",
+  "results_directory": "results/1005-1/",
+  "figures_directory": "figures/1005-1/",
+  "status": "COMPLETED",
+  "started_at": "2026-10-05T04:16:52Z",
+  "completed_at": "2026-10-05T04:21:56Z",
+  "random_seed": null,
+  "real_research_data_used": false,
+  "scientific_hypothesis_tested": false,
+  "scientific_analysis_performed": false,
+  "unauthorized_scope_deviation": false,
+  "tests_passed": 11,
+  "tests_failed": 0,
+  "warnings_count": 1,
+  "warnings": [
+    "Git is not installed/available on this system; repository initialization and commit (prompt Section 19) were skipped and documented rather than attempted."
+  ],
+  "outputs": [
+    { "path": "docs/PROVENANCE_PROTOCOL.md", "type": "doc" },
+    { "path": "docs/SCIENTIFIC_GOVERNANCE.md", "type": "doc" },
+    { "path": "docs/EXPERIMENT_PROTOCOL.md", "type": "doc" },
+    { "path": "reports/PROJECT_MANIFEST.md", "type": "doc" },
+    { "path": "reports/REPORT_TEMPLATE.md", "type": "doc" },
+    { "path": "reports/report1005-1.md", "type": "report" },
+    { "path": "results/1005-1/run_metadata.json", "type": "json" },
+    { "path": "results/1005-1/environment.json", "type": "json" },
+    { "path": "results/1005-1/test_summary.json", "type": "json" },
+    { "path": "scripts/check_environment.py", "type": "script" },
+    { "path": "src/urban_history_transfer/__init__.py", "type": "code" },
+    { "path": "tests/test_infrastructure.py", "type": "test" },
+    { "path": "README.md", "type": "doc" },
+    { "path": "pyproject.toml", "type": "config" },
+    { "path": ".gitignore", "type": "config" }
+  ]
+}

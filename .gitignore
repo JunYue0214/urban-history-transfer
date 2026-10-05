@@ -1,0 +1,61 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Raw / large research datasets (fetched separately, not committed)
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Secrets / credentials (none present as of this commit; guard against
+# future accidents)
+.env
+.env.*
+*.pem
+*.key
+*.ppk
+id_rsa
+id_ed25519
+credentials.json
+client_secret*.json
+service-account*.json
+
+# Notebook checkpoints (if notebooks are added later)
+.ipynb_checkpoints/
+
+# Local databases (if added later)
+*.sqlite
+*.db

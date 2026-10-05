@@ -1,0 +1,32 @@
+{
+  "execution_id": "1005-1",
+  "timestamp": "2026-10-05T04:19:55.662926+00:00",
+  "project_root": "D:\\claudecode\\urban-history-transfer",
+  "python_version": "3.14.7 | packaged by Anaconda, Inc. | (main, Aug 14 2026, 10:12:46) [MSC v.1942 64 bit (AMD64)]",
+  "python_version_info": [
+    3,
+    14,
+    7,
+    "final",
+    0
+  ],
+  "platform": "Windows-10-10.0.19045-SP0",
+  "system": "Windows",
+  "release": "10",
+  "machine": "AMD64",
+  "git": {
+    "git_available": false,
+    "is_git_repository": false,
+    "commit_hash": null
+  },
+  "package_versions": {
+    "numpy": "2.5.3",
+    "pandas": null,
+    "scipy": "1.18.1",
+    "matplotlib": null,
+    "geopandas": null,
+    "rasterio": null,
+    "scikit-learn": null,
+    "pytest": null
+  }
+}

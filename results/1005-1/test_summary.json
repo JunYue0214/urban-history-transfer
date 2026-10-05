@@ -1,0 +1,9 @@
+{
+  "execution_id": "1005-1",
+  "total": 11,
+  "passed": 11,
+  "failed": 0,
+  "warnings": 0,
+  "test_command": "python -m unittest discover -s tests -v",
+  "notes": "All tests verify infrastructure only (package import, environment checker, JSON parsing of environment.json and run_metadata.json, existence of governance/protocol/report-template documents, required directory structure, and execution ID path consistency). No scientific analysis is tested."
+}

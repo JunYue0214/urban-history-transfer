@@ -1,0 +1,979 @@
+PROMPT ID: 1005-1
+DATE: 2026-10-05
+PROJECT: Urban Development History and Environmental Response Transferability
+
+SOURCE PROMPT:
+prompts/prompt1005-1.txt
+
+EXPECTED REPORT:
+reports/report1005-1.md
+
+MACHINE-READABLE RESULTS:
+results/1005-1/
+
+FIGURES:
+figures/1005-1/
+
+THIS PROMPT IS THE ONLY AUTHORIZED SCIENTIFIC/ENGINEERING TASK FOR THIS RUN.
+
+======================================================================
+1. ROLE AND EXECUTION MODEL
+======================================================================
+
+You are the execution-oriented Research Engineer for this project.
+
+You are not authorized to independently determine the scientific direction.
+
+The project follows this workflow:
+
+Scientific design
+→ authorized prompt
+→ Claude Code execution
+→ persisted results
+→ standardized report
+→ human scientific review
+→ next authorized prompt
+
+For this execution:
+
+Execution ID = 1005-1
+
+You must execute only this prompt.
+
+After completing it, STOP.
+
+Do not create or execute the next prompt.
+
+======================================================================
+2. PERMANENT GOVERNANCE PRINCIPLES
+======================================================================
+
+The following principles apply to this project.
+
+1. Execute only explicitly authorized tasks.
+
+2. Do not autonomously proceed to subsequent scientific tasks.
+
+3. Do not modify the primary scientific hypothesis based on observed results.
+
+4. Do not conduct unauthorized model searches.
+
+5. Do not conduct unauthorized parameter searches.
+
+6. Do not search for statistical significance.
+
+7. Do not selectively report favorable results.
+
+8. Negative, null, failed, and unexpected results must be preserved.
+
+9. Warnings and errors must be reported.
+
+10. Do not exclude observations merely because they weaken a hypothesis.
+
+11. Do not redefine scientific variables after observing associations unless
+    explicitly authorized by a later prompt.
+
+12. Do not claim causality from observational associations.
+
+13. Do not silently alter thresholds, datasets, spatial scales, temporal
+    scales, or outcomes.
+
+14. Do not download large research datasets unless explicitly authorized.
+
+15. Unresolved scientific decisions must be labeled:
+
+PENDING_SCIENTIFIC_DECISION
+
+16. Engineering decisions required to complete an authorized task are allowed,
+    but must be documented.
+
+17. Important outputs must be persisted to disk.
+
+18. Results must not exist only in terminal output or conversation history.
+
+19. Every execution must be reproducible from recorded code/configuration/
+    commands where technically possible.
+
+20. Previously executed prompts, reports, and reviewed results must not be
+    silently overwritten.
+
+======================================================================
+3. SCIENTIFIC CONTEXT
+======================================================================
+
+Working project title:
+
+Urban Development History and Environmental Response Transferability
+
+Current high-level scientific hypothesis:
+
+Two urban systems may occupy similar present states but exhibit different
+environmental responses because they arrived at those states through
+different developmental histories.
+
+A possible future conceptual relationship is:
+
+D_R = f(D_S, D_H)
+
+where:
+
+D_S = present-state distance
+
+D_H = developmental-history distance
+
+D_R = environmental-response distance
+
+STATUS:
+
+UNTESTED
+
+Do not test this hypothesis during execution 1005-1.
+
+Potential future topics may include:
+
+- large-scale remote sensing
+- GIS
+- urban environmental change
+- urban heat
+- vegetation
+- developmental trajectories
+- cross-city transferability
+- historical analogue hindcasting
+- sensing/evidence allocation
+- optimization
+- crowdsensing
+- wireless sensing
+
+These are contextual possibilities only.
+
+They are not authorized analyses in execution 1005-1.
+
+======================================================================
+4. SCIENTIFIC PRIORITIES
+======================================================================
+
+Project priorities are:
+
+1. Scientific validity
+2. Falsifiability
+3. Reproducibility
+4. Auditability
+5. Interpretability
+6. Robustness
+7. Computational efficiency
+8. Predictive performance
+
+Predictive performance must not override the preceding priorities.
+
+Higher predictive accuracy alone is not a scientific discovery.
+
+======================================================================
+5. OBJECTIVE OF EXECUTION 1005-1
+======================================================================
+
+This is an INFRASTRUCTURE-ONLY execution.
+
+The objective is to establish:
+
+- repository structure
+- prompt provenance
+- scientific governance
+- experiment protocol
+- reproducibility infrastructure
+- minimal Python package
+- environment checking
+- automated tests
+- standardized reporting
+
+This execution must not perform real scientific analysis.
+
+======================================================================
+6. INSPECT CURRENT ENVIRONMENT FIRST
+======================================================================
+
+Before modifying the project beyond the already-created prompts directory
+and prompt file, inspect the current working directory.
+
+Record:
+
+- current project path
+- existing files/directories
+- Git availability
+- whether the directory is already a Git repository
+- Python availability
+- Python version
+- OS/platform
+- readily identifiable environment manager
+- relevant existing configuration
+
+Do not delete existing user files.
+
+Do not overwrite unrelated existing project material.
+
+Document any conflict.
+
+======================================================================
+7. REQUIRED PROJECT STRUCTURE
+======================================================================
+
+Create or ensure the following structure:
+
+prompts/
+
+reports/
+
+results/
+    1005-1/
+
+figures/
+    1005-1/
+
+configs/
+
+data/
+    raw/
+    interim/
+    processed/
+
+docs/
+
+src/
+    urban_history_transfer/
+
+scripts/
+
+tests/
+
+README.md
+
+pyproject.toml
+
+.gitignore
+
+Do not create unnecessary scientific modules.
+
+======================================================================
+8. PROVENANCE PROTOCOL
+======================================================================
+
+Create:
+
+docs/PROVENANCE_PROTOCOL.md
+
+Define the permanent mapping:
+
+prompts/promptXXXX-X.txt
+        ↓
+execution XXXX-X
+        ↓
+reports/reportXXXX-X.md
+results/XXXX-X/
+figures/XXXX-X/
+
+Rules must include:
+
+1. Each execution has a unique ID.
+
+2. Prompt, report, results, and figures use the same ID.
+
+3. Executed prompts are immutable.
+
+4. Reviewed reports/results are not silently overwritten.
+
+5. Corrections require a new execution ID.
+
+6. A correction must identify the execution it corrects.
+
+7. Every report identifies its source prompt.
+
+8. Machine-readable outputs should contain execution_id where practical.
+
+9. If an expected report already exists before execution, stop rather than
+   overwrite it unless a future authorized prompt explicitly defines a
+   reproducibility rerun procedure.
+
+======================================================================
+9. SCIENTIFIC GOVERNANCE
+======================================================================
+
+Create:
+
+docs/SCIENTIFIC_GOVERNANCE.md
+
+Include:
+
+## Human scientific reviewer responsibilities
+
+- determine scientific definitions
+- evaluate scientific validity
+- review results
+- make go/no-go decisions
+- authorize future prompts
+
+## Claude Code responsibilities
+
+- execute authorized tasks
+- perform engineering work
+- preserve outputs
+- report faithfully
+- expose failures and uncertainty
+- stop after authorized execution
+
+## Prohibited autonomous scientific actions
+
+Without authorization, do not:
+
+- change the hypothesis
+- choose outcomes based on significance
+- remove observations to improve results
+- alter thresholds after inspecting results
+- try many models and report only the best
+- redefine variables after seeing associations
+- expand datasets solely to rescue failed hypotheses
+- claim causality from association
+- suppress null results
+- suppress failed experiments
+- start future prompts
+
+## Negative results
+
+Negative/null results must be retained.
+
+## Scientific uncertainty
+
+Use:
+
+PENDING_SCIENTIFIC_DECISION
+
+for unresolved scientific choices.
+
+======================================================================
+10. EXPERIMENT PROTOCOL
+======================================================================
+
+Create:
+
+docs/EXPERIMENT_PROTOCOL.md
+
+Specify at least:
+
+- unique execution IDs
+- source prompt tracking
+- explicit objectives
+- authorized-scope enforcement
+- random seed recording
+- parameter recording
+- input/output traceability
+- persisted outputs
+- reproducible figures
+- reporting of warnings/errors
+- reporting of failed runs
+- reporting of significant and non-significant findings
+- distinction between exploratory and confirmatory analysis
+- explicit labeling of post-hoc exploration
+- predefinition of exclusion rules where applicable
+- ISO 8601 timestamps where practical
+- Git commit/hash tracking where available
+- no automatic progression to subsequent prompts
+
+For future statistical analyses, require reporting at minimum:
+
+- analysis/test
+- sample size
+- effect estimate
+- uncertainty where applicable
+- p-value where applicable
+- relevant parameters
+
+======================================================================
+11. PROJECT MANIFEST
+======================================================================
+
+Create:
+
+reports/PROJECT_MANIFEST.md
+
+Include:
+
+# Project Manifest
+
+## Project
+
+Urban Development History and Environmental Response Transferability
+
+## Current Execution
+
+1005-1
+
+## Project Status
+
+INITIALIZATION
+
+## Core Scientific Hypothesis
+
+Record the current hypothesis.
+
+Status:
+
+UNTESTED
+
+## Completed Executions
+
+Initially None.
+
+Update at completion.
+
+## Current Data Status
+
+NO_REAL_RESEARCH_DATA
+
+## Current Scientific Analysis Status
+
+NO_SCIENTIFIC_ANALYSIS
+
+## Current Authorized Scope
+
+Infrastructure and reproducibility only.
+
+## Pending Scientific Decisions
+
+At minimum:
+
+- pilot city selection
+- number of pilot cities
+- spatial analysis unit
+- spatial resolution
+- temporal epochs
+- study period
+- urban boundary definition
+- rural/background definition
+- primary environmental outcome
+- present-state representation S
+- historical representation H
+- response representation R
+- D_S definition
+- D_H definition
+- D_R definition
+- vegetation metric
+- built-up metric
+- climate controls
+- Northern/Southern Hemisphere seasonality treatment
+- statistical model
+- falsification tests
+- historical window lengths
+- go/no-go criteria
+- external validation strategy
+- scaling strategy
+
+Mark each unresolved item:
+
+PENDING_SCIENTIFIC_DECISION
+
+At completion:
+
+Completed Executions:
+- 1005-1
+
+Project Status:
+
+AWAITING_SCIENTIFIC_REVIEW
+
+The scientific hypothesis remains:
+
+UNTESTED
+
+======================================================================
+12. STANDARD REPORT TEMPLATE
+======================================================================
+
+Create:
+
+reports/REPORT_TEMPLATE.md
+
+Use this structure:
+
+# Execution Report XXXX-X
+
+Source Prompt:
+prompts/promptXXXX-X.txt
+
+Report:
+reports/reportXXXX-X.md
+
+Results:
+results/XXXX-X/
+
+Figures:
+figures/XXXX-X/
+
+## 1. Execution Metadata
+
+- Execution ID
+- Date
+- Prompt file
+- Start time
+- Completion time
+- Status
+- Git commit/hash if available
+
+## 2. Objective
+
+## 3. Authorized Scope
+
+## 4. Inputs
+
+## 5. Methods / Actions Performed
+
+## 6. Outputs
+
+Use:
+
+| Output ID | Path | Type | Description |
+
+## 7. Quantitative Results
+
+If no scientific numerical results exist, explicitly state:
+
+No scientific quantitative results were produced in this execution.
+
+## 8. Figures
+
+Use:
+
+| Figure ID | Path | Purpose | Generated by |
+
+If none:
+
+None.
+
+## 9. Validation / Tests
+
+Include:
+
+- tests run
+- passed
+- failed
+- warnings
+
+## 10. Data Quality
+
+For execution 1005-1 state:
+
+No real research dataset was analyzed in this execution.
+
+## 11. Deviations from Authorized Plan
+
+If none:
+
+None.
+
+## 12. Failures / Unexpected Results
+
+If none:
+
+None.
+
+## 13. Scientific Decisions Made
+
+For execution 1005-1 this should normally be:
+
+None.
+
+## 14. Engineering Decisions Made
+
+## 15. Decisions NOT Made
+
+## 16. Pending Scientific Review
+
+## 17. Reproduction Commands
+
+## 18. Environment
+
+## 19. Integrity Statement
+
+Explicitly answer:
+
+- Was real scientific data analyzed?
+- Was the core hypothesis tested?
+- Was unauthorized parameter search performed?
+- Were negative/failed results suppressed?
+- Was a subsequent prompt executed?
+- Were previous prompt/report/results overwritten?
+
+======================================================================
+13. MACHINE-READABLE EXECUTION METADATA
+======================================================================
+
+Create:
+
+results/1005-1/run_metadata.json
+
+Valid JSON containing at least:
+
+execution_id
+source_prompt
+report
+results_directory
+figures_directory
+status
+started_at
+completed_at
+random_seed
+real_research_data_used
+scientific_hypothesis_tested
+scientific_analysis_performed
+unauthorized_scope_deviation
+tests_passed
+tests_failed
+warnings_count
+outputs
+
+Use actual values.
+
+Do not fabricate success.
+
+======================================================================
+14. ENVIRONMENT CHECK
+======================================================================
+
+Create:
+
+scripts/check_environment.py
+
+Collect only non-sensitive information:
+
+- timestamp
+- project root
+- Python version
+- platform
+- Git availability
+- Git repository status
+- Git commit if available
+- relevant installed package versions
+
+Write:
+
+results/1005-1/environment.json
+
+Do NOT collect:
+
+- passwords
+- tokens
+- API keys
+- SSH keys
+- credentials
+- unrelated personal data
+- secret environment variable values
+
+======================================================================
+15. MINIMAL PYTHON PACKAGE
+======================================================================
+
+Create a minimal importable package:
+
+src/urban_history_transfer/
+
+Do not implement scientific analysis modules yet.
+
+In particular, do not implement final:
+
+- state
+- history
+- response
+- distance
+- matching
+- statistics
+- optimization
+
+logic.
+
+Minimal package initialization/version information is sufficient.
+
+======================================================================
+16. TESTS
+======================================================================
+
+Create automated tests verifying at least:
+
+1. package import works
+2. environment checker runs
+3. environment.json parses
+4. run_metadata.json parses
+5. governance file exists
+6. experiment protocol exists
+7. provenance protocol exists
+8. report template exists
+9. required directory structure exists
+10. execution ID/path naming is internally consistent
+
+Run the tests.
+
+Create:
+
+results/1005-1/test_summary.json
+
+containing at least:
+
+execution_id
+total
+passed
+failed
+warnings
+
+Use actual results.
+
+======================================================================
+17. README
+======================================================================
+
+Create:
+
+README.md
+
+Include:
+
+- project title
+- scientific motivation
+- current high-level hypothesis
+- explicit UNTESTED status
+- current execution status
+- repository structure
+- execution model
+- provenance model
+- reproducibility approach
+- scientific governance reference
+- experiment protocol reference
+
+Clearly state:
+
+PROMPT 1005-1 is infrastructure only.
+
+No real scientific analysis has been performed.
+
+Scientific definitions including S, H, R, D_S, D_H and D_R are intentionally
+not finalized.
+
+Do not fabricate results.
+
+======================================================================
+18. GITIGNORE
+======================================================================
+
+Create a sensible .gitignore.
+
+Consider excluding:
+
+- Python cache
+- virtual environments
+- build artifacts
+- temporary files
+- OS metadata
+- raw research datasets
+- large generated artifacts where appropriate
+
+Do not broadly ignore:
+
+prompts/
+reports/
+configs/
+docs/
+src/
+tests/
+
+These are part of the audit trail.
+
+======================================================================
+19. OPTIONAL GIT INITIALIZATION
+======================================================================
+
+If safe and appropriate, initialize Git if it is not already initialized.
+
+Do not:
+
+- configure remotes
+- push
+- request credentials
+- alter global Git settings
+
+If appropriate, create a commit:
+
+1005-1: initialize reproducible research framework
+
+If commit is blocked by missing Git identity or another benign reason,
+document it rather than treating the entire execution as failed.
+
+======================================================================
+20. FINAL REPORT
+======================================================================
+
+Create:
+
+reports/report1005-1.md
+
+It must follow:
+
+reports/REPORT_TEMPLATE.md
+
+The beginning must clearly identify:
+
+Execution ID:
+1005-1
+
+Source Prompt:
+prompts/prompt1005-1.txt
+
+Report:
+reports/report1005-1.md
+
+Results:
+results/1005-1/
+
+Figures:
+figures/1005-1/
+
+The report must allow a reviewer who has not seen this conversation to
+determine:
+
+- what was done
+- whether execution completed
+- whether it is reproducible
+- test status
+- failures
+- scope deviations
+- whether scientific analysis occurred
+- whether scientific decisions were made
+- what remains unresolved
+
+======================================================================
+21. FIGURES
+======================================================================
+
+No scientific figures are authorized in execution 1005-1.
+
+figures/1005-1/
+
+may remain empty.
+
+Do not generate decorative figures merely to populate it.
+
+======================================================================
+22. HARD PROHIBITIONS
+======================================================================
+
+During execution 1005-1 DO NOT:
+
+- download GHSL
+- download MODIS
+- download ERA5
+- download DEM
+- download other research datasets
+- call Google Earth Engine for research data
+- select pilot cities
+- calculate real LST
+- calculate real NDVI/EVI
+- define urban/rural rings
+- finalize spatial resolution
+- finalize temporal epochs
+- finalize S
+- finalize H
+- finalize R
+- finalize D_S
+- finalize D_H
+- finalize D_R
+- run scientific correlation
+- run scientific regression
+- run significance testing
+- cluster cities
+- train ML models
+- train DL models
+- run optimization
+- run historical analogue analysis
+- run cross-city transfer analysis
+- generate scientific result figures
+- test the core hypothesis
+- conduct literature searches to redefine the project
+- create prompt1005-2
+- execute future tasks
+
+======================================================================
+23. COMPLETION CHECK
+======================================================================
+
+Before completion verify:
+
+[ ] prompts/prompt1005-1.txt exists
+[ ] reports/ exists
+[ ] results/1005-1/ exists
+[ ] figures/1005-1/ exists
+[ ] docs/SCIENTIFIC_GOVERNANCE.md exists
+[ ] docs/EXPERIMENT_PROTOCOL.md exists
+[ ] docs/PROVENANCE_PROTOCOL.md exists
+[ ] reports/PROJECT_MANIFEST.md exists
+[ ] reports/REPORT_TEMPLATE.md exists
+[ ] reports/report1005-1.md exists
+[ ] results/1005-1/run_metadata.json exists and parses
+[ ] results/1005-1/environment.json exists and parses
+[ ] results/1005-1/test_summary.json exists and parses
+[ ] Python package imports
+[ ] tests actually ran
+[ ] README accurately describes status
+[ ] no real research data were downloaded
+[ ] no scientific hypothesis was tested
+[ ] no subsequent prompt was created or executed
+
+If any check fails:
+
+report it.
+
+Do not silently claim completion.
+
+======================================================================
+24. FINAL STOP
+======================================================================
+
+After all authorized work is complete:
+
+update:
+
+reports/PROJECT_MANIFEST.md
+
+results/1005-1/run_metadata.json
+
+results/1005-1/test_summary.json
+
+and create:
+
+reports/report1005-1.md
+
+Then STOP.
+
+Do not start another task.
+
+Do not propose a new scientific analysis.
+
+Do not create prompt1005-2.
+
+Return only a concise completion message:
+
+PROMPT 1005-1 completed / partially completed.
+
+Source prompt:
+prompts/prompt1005-1.txt
+
+Report:
+reports/report1005-1.md
+
+Results:
+results/1005-1/
+
+Tests:
+X passed, Y failed.
+
+Real scientific data analyzed:
+No.
+
+Core scientific hypothesis tested:
+No.
+
+Status:
+AWAITING_SCIENTIFIC_REVIEW

@@ -1,0 +1,83 @@
+{
+  "execution_id": "1005-2",
+  "source_prompt": "prompts/prompt1005-2.txt",
+  "previous_execution": "1005-1",
+  "report": "reports/report1005-2.md",
+  "results_directory": "results/1005-2/",
+  "figures_directory": "figures/1005-2/",
+  "status": "COMPLETED",
+  "started_at": "2026-10-05T04:30:00Z",
+  "completed_at": "2026-10-05T04:59:10Z",
+
+  "official_conda_environment": "py311",
+  "expected_python_major_minor": "3.11",
+  "actual_python_version": "3.11.16",
+  "actual_python_executable": "<USER_HOME>\\Miniconda3\\envs\\py311\\python.exe",
+
+  "real_research_data_used": false,
+  "scientific_hypothesis_tested": false,
+  "scientific_analysis_performed": false,
+  "unauthorized_scope_deviation": false,
+
+  "packages_already_present": [
+    "numpy==2.4.6",
+    "pandas==3.0.6",
+    "scipy==1.17.1",
+    "matplotlib==3.11.2",
+    "PyYAML==6.0.3",
+    "geopandas==1.2.0",
+    "shapely==2.1.2",
+    "pyproj==3.7.2",
+    "rasterio==1.4.4"
+  ],
+  "packages_installed": [
+    "pyarrow==25.0.1",
+    "pytest==9.1.1",
+    "xarray==2026.9.0",
+    "rioxarray==0.19.0"
+  ],
+  "packages_failed": [],
+
+  "gis_smoke_test_status": "PASS",
+
+  "git_available": true,
+  "git_version": "2.55.0.windows.1",
+  "git_repository_initialized": true,
+  "git_commit_created": false,
+  "git_commit_hash": null,
+
+  "tests_passed": 16,
+  "tests_failed": 0,
+  "warnings_count": 2,
+  "warnings": [
+    "Git was not available via system PATH at the start of this execution and was installed into the conda 'base' environment (not py311, not a new environment) to obtain local version control; installing the 'git' conda package also triggered an automatic dependency-resolution update of 'conda' itself (26.7.1 -> 26.7.3) and of 'ca-certificates'/'openssl' in 'base'. py311 was not touched by this installation.",
+    "No Git user identity (user.name/user.email) is configured, globally or locally. No identity was invented and no commit was created; this is recorded as GIT_COMMIT_BLOCKED_IDENTITY."
+  ],
+
+  "outputs": [
+    { "path": "docs/ENVIRONMENT_POLICY.md", "type": "doc" },
+    { "path": "src/urban_history_transfer/environment.py", "type": "code" },
+    { "path": "scripts/verify_project_environment.py", "type": "script" },
+    { "path": "scripts/audit_packages.py", "type": "script" },
+    { "path": "scripts/smoke_test_scientific_stack.py", "type": "script" },
+    { "path": "scripts/check_environment.py", "type": "script", "note": "updated, not overwritten historically" },
+    { "path": "tests/test_environment.py", "type": "test" },
+    { "path": "results/1005-2/run_metadata.json", "type": "json" },
+    { "path": "results/1005-2/environment.json", "type": "json" },
+    { "path": "results/1005-2/package_audit_before.json", "type": "json" },
+    { "path": "results/1005-2/package_audit_after.json", "type": "json" },
+    { "path": "results/1005-2/scientific_stack_smoke_test.json", "type": "json" },
+    { "path": "results/1005-2/test_summary.json", "type": "json" },
+    { "path": "results/1005-2/pip_install_log.txt", "type": "log" },
+    { "path": "results/1005-2/git_install_log.txt", "type": "log" },
+    { "path": "environment/py311-conda-explicit.txt", "type": "snapshot" },
+    { "path": "environment/py311-packages.txt", "type": "snapshot" },
+    { "path": "environment/py311-environment.yml", "type": "snapshot" },
+    { "path": "environment/py311-environment-export-warnings.txt", "type": "log" },
+    { "path": "reports/report1005-2.md", "type": "report" },
+    { "path": "reports/PROJECT_MANIFEST.md", "type": "doc", "note": "updated" },
+    { "path": "pyproject.toml", "type": "config", "note": "updated" },
+    { "path": "README.md", "type": "doc", "note": "updated" },
+    { "path": "prompts/prompt1005-2.txt", "type": "prompt" }
+  ]
+}
