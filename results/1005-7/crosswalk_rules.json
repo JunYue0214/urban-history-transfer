@@ -1,0 +1,45 @@
+{
+  "revision_history": [
+    {
+      "stage": "1005-6 provisional",
+      "strict_min_iou": null,
+      "overlap_ge": 0.5,
+      "area_ratio": [
+        0.25,
+        4.0
+      ],
+      "max_unsupported_km": 10
+    },
+    {
+      "stage": "1005-7 final (set after geometry-only inspection, before any response look)",
+      "change": "Added IoU>=0.25 for strict 1:1 (IoU>=0.5 would have rejected ~75% of otherwise clean 1:1 pairs because Natural Earth 1:10m urban polygons and GHSL DoU centres are different ontologies; median 1:1 IoU=0.39). 'Overlap>=0.5' redefined as overlap/min(area) to define a substantive link, since containment of a small object in a large one is the expected relation. IoU>=0.5 reported as tight sensitivity flag."
+    }
+  ],
+  "rules": {
+    "link_threshold_overlap_over_min_area": 0.5,
+    "strict_min_iou": 0.25,
+    "tight_min_iou": 0.5,
+    "strict_area_ratio_range": [
+      0.25,
+      4.0
+    ],
+    "dominant_min_share_of_cluster_ucdb_overlap": 0.8,
+    "dominant_min_cluster_coverage": 0.5,
+    "aggregate_min_cluster_coverage": 0.5,
+    "max_centroid_distance_km_for_strict": 25.0
+  },
+  "classes": {
+    "A_strict_1to1": "isolated link component (1 UCDB, 1 YCEO), IoU>=0.25, area ratio in [0.25,4], centroid distance<=25km",
+    "B_dominant_1to1": "cluster holds >=2 UCDB centres but one holds >=80% of UCDB-overlap area and covers >=50% of cluster",
+    "C_ambiguous_one_to_many": "one UCDB centre substantively overlaps >=2 clusters",
+    "D_many_to_one_ambiguous / D_minor_of_dominant": "several UCDB centres in one cluster with no dominant one / minor centres beside a dominant one",
+    "E_cross_country_cluster": "UCDB centres of a cluster belong to different countries",
+    "F_spatially_unmatched": "no substantive link",
+    "G_*": "QC/response-missing excluded",
+    "H_footprint_mismatch_1to1": "isolated 1:1 link failing IoU/area-ratio/centroid-distance test",
+    "J_complex_many_to_many": "component with >=2 UCDB and >=2 clusters"
+  },
+  "unit_rule": "Recommended primary unit = YCEO cluster. A cluster is a unit iff star-shaped (all its UCDB centres link only to it), single-country, response valid, all linked centres in the 10,915 sample, and UCDB centres cover >=50% of cluster area. Each cluster appears once; S/H are aggregated over its UCDB centres.",
+  "name_and_country_use": "YCEO has no name or country field; cross-country consistency among UCDB centres of one cluster is the only country QA possible. Names are not used.",
+  "tight_sensitivity": "restrict to units whose all links have IoU>=0.5"
+}

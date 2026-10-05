@@ -1,0 +1,16 @@
+{
+  "execution_id": "1005-7",
+  "started_at": "2026-10-05T11:10:22.053518+00:00",
+  "completed_at": "2026-10-05T11:10:27.183902+00:00",
+  "raw_zip_sha256_before": "d5575541de2c8972d62f9dbd86888869bf568679bab75194495492dddceee364",
+  "raw_zip_sha256_after": "d5575541de2c8972d62f9dbd86888869bf568679bab75194495492dddceee364",
+  "raw_zip_unchanged": true,
+  "network_access": "none",
+  "new_research_data_downloaded": false,
+  "random_seed": null,
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "geopandas": "1.2.0",
+  "pandas": "3.0.6",
+  "numpy": "2.4.6"
+}

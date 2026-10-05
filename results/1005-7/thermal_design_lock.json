@@ -1,0 +1,34 @@
+{
+  "execution_id": "1005-7",
+  "THERMAL_DESIGN": "PROVISIONAL",
+  "GATE_2_EXECUTION": "NOT YET",
+  "raw_file": {"valid": true, "bytes": 5074854, "sha256": "d5575541de2c8972d62f9dbd86888869bf568679bab75194495492dddceee364", "modified": false},
+  "primary_R": {"field": "Annual_nig", "valid_n": 9995, "missing_n": 141, "verified_directly": true,
+                "period_basis": "SEDAC documentation (bundled in the ZIP): UHI_all_averaged = cluster-mean composite averaged over 2003-2018; the shapefile has one value per cluster and no year/month fields"},
+  "secondary_R": {"field": "Summer_day", "valid_n": 9995, "missing_n": 141},
+  "ontology_decision": "C: cluster-level response requiring aggregation of the UCDB centres inside a cluster (units = YCEO clusters)",
+  "recommended_unit": "YCEO_CLUSTER",
+  "recommended_sample_N_units": 2192,
+  "units_single_city": 2046,
+  "units_multi_city_aggregate": 146,
+  "ucdb_cities_covered": 2459,
+  "ucdb_primary_sample": 10915,
+  "why_not_LOCKED": [
+    "Only 2,192 cluster units (2,459 of 10,915 UCDB cities, 22.5%) are defensibly matchable; 5,848 sample cities have no substantive YCEO cluster (YCEO uses fixed Natural Earth 1:10m urban polygons, which omit most small GHSL centres). This is below the 3,000-city minimum pre-registered in 1005-6 (section 5), which would downgrade the primary claim to 'underpowered' before any model is fit.",
+    "Matching selection is strong: matched cities are larger (SMD of log10 population = 1.03; log10 built-up = 1.28) and older (YOB median 1975 vs 1985, SMD = -0.56; share urbanized after 1975 = 35% vs 59%). Asia drops from 57.5% to 47.0% of the sample, South America and North America roughly double their share, Oceania has 28 cities. Bias is not 'manageable' without an explicit PI-approved handling rule.",
+    "Footprint ontologies differ: median IoU of clean 1:1 pairs is 0.39, only 944 strict pairs reach IoU>=0.5; R is measured within the YCEO polygon while S/H are measured within the GHSL polygon.",
+    "Response period (2003-2018) overlaps H and precedes S(2020): predictive-association only (unchanged from 1005-6)."
+  ],
+  "what_is_resolved": [
+    "ZIP valid, shapefile complete (.shp .shx .dbf .prj + cpg/sbn/sbx/fix), 10,136 polygons, EPSG:4326, 0 invalid/empty/duplicate geometries",
+    "Primary and secondary R fields exist as single, unambiguous columns; 98.6% valid; no -999 or sentinel values",
+    "Documentation bundled in the ZIP answers 1005-6 open questions: Natural Earth 1:10m urban extents (not Landscan), ESA CCI land cover, rural reference = non-urban non-water pixels within the cluster with elevation within 50 m of the urban median, Terra+Aqua combined for day/night, summer defined by hemisphere (JJA north, DJF south), v4 has 10,136 clusters, MODIS LST error <=3 C",
+    "No raster processing and no further research data are needed"
+  ],
+  "decision_needed_from_PI": [
+    "Accept a reduced primary sample (~2,200 cluster units) and amend the 3,000 threshold, or define a looser primary rule",
+    "Choose bias handling: pre-registered inverse-probability reweighting / size-and-region-stratified analysis / restriction to common-support",
+    "Confirm cluster-level S/H aggregation as the primary unit (single-city clusters are the majority, 93%)"
+  ],
+  "claude_authorized_download": false
+}

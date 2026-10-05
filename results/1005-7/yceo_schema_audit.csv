@@ -1,0 +1,13 @@
+field,dbf_type,width,decimals,pandas_dtype,n,missing_n,missing_pct,n_unique,n_duplicated,n_minus999,n_minus1,identifier_candidate,role_note
+Annual_nig,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+Annual_day,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+hasPlace,N,2,0,int32,10136,0,0.0,8,10128,0,761,False,
+Winter_nig,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+Winter_day,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+Summer_nig,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+Summer_day,N,22,15,float64,10136,141,1.391,9993,142,0,0,False,
+FeatureCla,C,10,0,str,10136,0,0.0,1,10135,0,0,False,
+Lon,N,21,15,float64,10136,0,0.0,10136,0,0,0,True,
+Code,N,5,0,int32,10136,0,0.0,10136,0,0,0,True,"unique integer, 10136 unique"
+Lat,N,21,15,float64,10136,0,0.0,10136,0,0,0,True,
+FID_1,C,5,0,str,10136,0,0.0,10136,0,0,0,True,"unique string, 10136 unique"

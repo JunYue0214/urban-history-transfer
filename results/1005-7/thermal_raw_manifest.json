@@ -1,0 +1,78 @@
+{
+  "path": "D:\\claudecode\\urban-history-transfer\\data\\raw\\thermal_response\\sdei-yceo-sfc-uhi-v4-urban-cluster-means-shp.zip",
+  "exists": true,
+  "bytes": 5074854,
+  "sha256": "d5575541de2c8972d62f9dbd86888869bf568679bab75194495492dddceee364",
+  "mtime_utc": "2026-10-05T10:50:51.044935+00:00",
+  "zip_valid": true,
+  "first_bad_member": null,
+  "members": [
+    {
+      "name": "sdei-yceo-sfc-uhi-v4-documentation.pdf",
+      "bytes": 540972,
+      "modified": "2023-09-05T18:43:10"
+    },
+    {
+      "name": "All_shp.cpg",
+      "bytes": 5,
+      "modified": "2022-02-16T18:14:30"
+    },
+    {
+      "name": "All_shp.dbf",
+      "bytes": 1997209,
+      "modified": "2022-02-16T18:14:30"
+    },
+    {
+      "name": "All_shp.fix",
+      "bytes": 121645,
+      "modified": "2022-02-16T18:14:30"
+    },
+    {
+      "name": "All_shp.prj",
+      "bytes": 335,
+      "modified": "2022-02-16T18:14:30"
+    },
+    {
+      "name": "All_shp.sbn",
+      "bytes": 101580,
+      "modified": "2022-02-16T18:02:12"
+    },
+    {
+      "name": "All_shp.sbx",
+      "bytes": 4996,
+      "modified": "2022-02-16T18:02:12"
+    },
+    {
+      "name": "All_shp.shp",
+      "bytes": 4910116,
+      "modified": "2022-02-16T18:14:30"
+    },
+    {
+      "name": "All_shp.shx",
+      "bytes": 81188,
+      "modified": "2022-02-16T18:14:30"
+    }
+  ],
+  "shapefile": {
+    "stems": [
+      "all_shp"
+    ],
+    "required_present": {
+      ".shp": true,
+      ".shx": true,
+      ".dbf": true,
+      ".prj": true
+    },
+    "optional_present": {
+      ".cpg": true,
+      ".sbn": true,
+      ".sbx": true,
+      ".fix": true,
+      ".qix": false,
+      ".xml": false
+    },
+    "complete": true
+  },
+  "human_downloaded": true,
+  "extracted_to": "data\\interim\\1005-7\\yceo_suhi_v4"
+}

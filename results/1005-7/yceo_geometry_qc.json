@@ -1,0 +1,37 @@
+{
+  "feature_count": 10136,
+  "dbf_record_count": 10136,
+  "geometry_types": {
+    "Polygon": 10135,
+    "MultiPolygon": 1
+  },
+  "crs": "EPSG:4326",
+  "bounds_wgs84": [
+    -157.9781570649004,
+    -49.982581325827994,
+    178.03340064127312,
+    69.70091624251017
+  ],
+  "invalid_geometries": 0,
+  "empty_geometries": 0,
+  "multipart_count": 1,
+  "zero_area_count": 0,
+  "duplicate_geometry_count": 0,
+  "area_km2_equal_area_ESRI54009": {
+    "count": 10136.0,
+    "mean": 99.13055461814123,
+    "std": 383.3502775904752,
+    "min": 0.02504167259680014,
+    "1%": 6.368955869007625,
+    "50%": 33.77840966667685,
+    "99%": 1187.5629751681781,
+    "max": 18789.087310123068
+  },
+  "lon_lat_fields_vs_polygon_representative_point_max_abs_deg": [
+    0.7103699273307305,
+    0.19927417037050787
+  ],
+  "coordinates_within_valid_range": true,
+  "pyogrio_encoding": "UTF-8",
+  "extent_sanity": "lon -158..178, lat -50..70: consistent with land urban areas; no polar/ocean outliers"
+}

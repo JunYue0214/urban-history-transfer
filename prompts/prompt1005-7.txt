@@ -1,0 +1,732 @@
+PROMPT ID: 1005-7
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Thermal Data Validation + UCDB Crosswalk Gate
+
+==================================================
+0. AUTHORIZATION AND EXECUTION CONTRACT
+==================================================
+
+This prompt is the sole authorization for execution 1005-7.
+
+Before doing any work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1005-7.txt
+
+2. Read back the saved prompt and confirm exact match.
+
+3. Use the official environment:
+   conda environment: py311
+   Python: 3.11.x
+
+4. Do NOT modify any historical artifact from executions 1005-1 through 1005-6.
+
+5. No research-data download is authorized.
+
+The human operator has manually downloaded the official NASA/SEDAC YCEO SUHI v4 urban-cluster-level Shapefile ZIP to:
+
+D:\claudecode\urban-history-transfer\data\raw\thermal_response\sdei-yceo-sfc-uhi-v4-urban-cluster-means-shp.zip
+
+This file is now HUMAN_DOWNLOADED.
+
+Claude Code is authorized to:
+
+- read the local ZIP;
+- compute hashes;
+- inspect ZIP integrity;
+- extract a working copy;
+- inspect Shapefile schema;
+- inspect geometry;
+- calculate QC statistics;
+- design and execute the UCDB↔YCEO crosswalk;
+- create validation outputs and report.
+
+Claude Code is NOT authorized to:
+
+- download any additional research data;
+- access any research-data URL;
+- replace or overwrite the human-downloaded ZIP;
+- modify the original ZIP;
+- run Gate 2 outcome models.
+
+==================================================
+1. SCIENTIFIC PURPOSE
+==================================================
+
+Execution 1005-6 produced:
+
+THERMAL DESIGN = PROVISIONAL
+
+because the exact YCEO v4 urban-cluster-level file schema, geometry, feature count, field names, missingness, and UCDB matchability had not yet been directly verified.
+
+The official NASA/SEDAC documentation has now been manually reviewed.
+
+It confirms:
+
+- dataset: YCEO Surface Urban Heat Islands v4, 2003–2018;
+- annual, summertime, and wintertime SUHI;
+- daytime and nighttime;
+- >10,000 global urban extents;
+- urban cluster-level summaries;
+- SUE algorithm;
+- primary response candidate:
+  annual-mean nighttime SUHI climatology;
+- official urban-cluster Shapefile download:
+  sdei-yceo-sfc-uhi-v4-urban-cluster-means-shp.
+
+The sole purpose of 1005-7 is therefore:
+
+1. validate the manually downloaded file;
+2. determine its exact scientific schema;
+3. determine whether the intended primary R is truly present;
+4. establish a conservative UCDB↔YCEO crosswalk;
+5. decide whether the thermal design can move from PROVISIONAL to LOCKED.
+
+Do NOT run Gate 2 predictive/history-response experiments.
+
+==================================================
+2. RAW FILE INTEGRITY
+==================================================
+
+Treat the following file as immutable raw research data:
+
+data/raw/thermal_response/sdei-yceo-sfc-uhi-v4-urban-cluster-means-shp.zip
+
+Compute and record:
+
+- exact file size in bytes;
+- SHA-256;
+- ZIP integrity;
+- contained filenames;
+- timestamps if available;
+- Shapefile required component presence:
+  .shp
+  .shx
+  .dbf
+  .prj
+- optional components if present.
+
+Create:
+
+results/1005-7/thermal_raw_manifest.json
+
+Do not alter the ZIP.
+
+Extract only to a derived/interim directory such as:
+
+data/interim/1005-7/yceo_suhi_v4/
+
+Do not extract into data/raw.
+
+==================================================
+3. SHAPEFILE SCHEMA AUDIT
+==================================================
+
+Inspect the actual Shapefile directly.
+
+Record:
+
+- feature count;
+- geometry type;
+- CRS;
+- spatial bounds;
+- all field names;
+- data types;
+- field widths/precision where available;
+- missingness per field;
+- unique identifier candidates;
+- duplicate identifier counts;
+- duplicate geometry counts;
+- any obvious sentinel/fill values;
+- any -999 or related missing codes;
+- coordinate validity;
+- invalid geometries;
+- empty geometries;
+- multipart geometry count;
+- zero-area geometry count if polygons;
+- spatial extent sanity.
+
+Create:
+
+results/1005-7/yceo_schema_audit.csv
+results/1005-7/yceo_field_summary.csv
+results/1005-7/yceo_geometry_qc.json
+
+==================================================
+4. PRIMARY RESPONSE VERIFICATION
+==================================================
+
+Directly determine whether the Shapefile contains fields corresponding to:
+
+- annual daytime SUHI;
+- annual nighttime SUHI;
+- summer daytime SUHI;
+- summer nighttime SUHI;
+- winter daytime SUHI;
+- winter nighttime SUHI;
+
+and any additional long-term mean fields.
+
+Do not infer names from documentation.
+
+Use actual fields.
+
+Identify exactly ONE field that corresponds to the pre-registered primary R:
+
+annual-mean nighttime SUHI climatology, 2003–2018.
+
+Report:
+
+- exact field name;
+- unit;
+- valid N;
+- missing N;
+- min;
+- p01;
+- p05;
+- median;
+- mean;
+- p95;
+- p99;
+- max;
+- number < 0;
+- number = 0;
+- number > 0.
+
+Repeat summary for the pre-registered secondary:
+
+summer daytime SUHI.
+
+Do NOT interpret sign as error automatically.
+
+Negative SUHI may be physically plausible in some climates.
+
+Create:
+
+results/1005-7/thermal_response_qc.csv
+
+==================================================
+5. PRODUCT-ID / CITY-IDENTITY AUDIT
+==================================================
+
+Determine how YCEO identifies urban clusters.
+
+Inspect actual fields for:
+
+- stable ID;
+- cluster ID;
+- city name;
+- country;
+- region;
+- latitude;
+- longitude;
+- area;
+- population;
+- any other identity/matching field.
+
+Do not assume city-level administrative identity.
+
+The official documentation states that SUHI is calculated for urban clusters, not individual cities.
+
+Explicitly determine whether one YCEO cluster may plausibly overlap multiple GHSL urban centres.
+
+==================================================
+6. UCDB DATA TO USE
+==================================================
+
+Use the already-local official GHS-UCDB R2024A data from previous executions.
+
+Do NOT download anything.
+
+Primary UCDB sample remains the 1005-4 fixed-boundary sample:
+
+N = 10,915
+
+unless QC/crosswalk logic requires exclusions.
+
+Use:
+
+ID_UC_G0
+geometry
+country
+name
+centroid
+population(2020)
+built-up area(2020)
+
+and other identity/QC variables only as needed.
+
+Do NOT introduce environmental response modeling.
+
+==================================================
+7. CROSSWALK PRINCIPLE
+==================================================
+
+The crosswalk must be conservative and geometry-first.
+
+Do NOT use fuzzy city-name matching as the primary method.
+
+Preferred logic:
+
+1. reproject both datasets to an appropriate common equal-area or geographic CRS as needed;
+
+2. use geometry overlap / containment / centroid relations;
+
+3. distinguish:
+   one YCEO cluster ↔ one UCDB urban centre
+   one YCEO cluster ↔ multiple UCDB urban centres
+   multiple YCEO clusters ↔ one UCDB urban centre
+   unmatched;
+
+4. use country/name only for QA and disambiguation, not to manufacture matches.
+
+Because YCEO represents urban agglomeration clusters while UCDB represents GHSL urban centres, many-to-one or one-to-many relationships are scientifically possible and must not be silently forced to one-to-one.
+
+==================================================
+8. CROSSWALK METRICS
+==================================================
+
+For candidate pairings calculate, where meaningful:
+
+- intersection area;
+- overlap / UCDB area;
+- overlap / YCEO area;
+- Jaccard / IoU;
+- centroid distance;
+- country agreement;
+- name agreement as QA only;
+- area ratio;
+- population/size sanity if comparable.
+
+Pre-register and report exact accepted / ambiguous / rejected rules.
+
+The 1005-6 provisional rules were:
+
+- mutual one-to-one preference;
+- area ratio [0.25, 4];
+- overlap ≥ 0.5;
+- country agreement where available;
+- >10 km without geometric support rejected.
+
+These are NOT sacred.
+
+Inspect actual data first.
+
+If geometry semantics make those thresholds inappropriate, revise them transparently before final classification and justify the change.
+
+==================================================
+9. REQUIRED CROSSWALK CLASSES
+==================================================
+
+Every YCEO and UCDB object must be classifiable into a transparent category such as:
+
+A. accepted strict one-to-one
+
+B. accepted dominant one-to-one
+   (minor secondary overlaps but one clearly dominant match)
+
+C. ambiguous one-to-many
+
+D. ambiguous many-to-one
+
+E. country/name inconsistency
+
+F. spatially unmatched
+
+G. invalid/QC excluded
+
+Create a full audit table:
+
+results/1005-7/ucdb_yceo_crosswalk.csv
+
+Do not keep only accepted matches.
+
+==================================================
+10. PRIMARY ANALYSIS SAMPLE FEASIBILITY
+==================================================
+
+Report:
+
+N_YCEO_total
+N_YCEO_valid_primary_R
+N_UCDB_primary_sample
+N_strict_1to1_matched
+N_dominant_1to1_matched
+N_ambiguous
+N_unmatched
+N_final_recommended_primary_sample
+
+Also report regional distribution of:
+
+- source UCDB sample;
+- final matched sample.
+
+Quantify selection bias by comparing matched vs unmatched UCDB cities in:
+
+- region;
+- 2020 population;
+- 2020 built-up area;
+- development timing / H descriptor;
+- recent urbanization / birth year if available.
+
+Use effect sizes / distribution summaries rather than only p-values.
+
+==================================================
+11. CRITICAL SCIENTIFIC QUESTION:
+AGGLOMERATION VS CITY
+==================================================
+
+Explicitly answer:
+
+Does the YCEO urban-cluster ontology differ enough from GHSL urban centres that response R should be treated as:
+
+A. a city-level response;
+
+B. an agglomeration-level response assigned to one dominant city;
+
+C. a cluster-level response requiring aggregation of multiple UCDB urban centres;
+
+D. unsuitable for direct Gate 2 matching?
+
+This is a major scientific decision.
+
+Do NOT choose whichever option gives the largest N.
+
+If one YCEO cluster overlaps multiple UCDB urban centres substantially, investigate whether Gate 2 should aggregate S/H to the YCEO cluster level rather than duplicate the same R across several UCDB cities.
+
+Duplicating one cluster-level R to multiple cities without accounting for shared outcome is prohibited.
+
+==================================================
+12. H/S AGGREGATION FEASIBILITY IF NEEDED
+==================================================
+
+If YCEO clusters frequently contain multiple UCDB centres, test the feasibility of building cluster-level S and H.
+
+Possible aggregation principles:
+
+- total population;
+- total built-up area;
+- total built volume;
+- population-weighted or built-area-weighted H;
+- union geometry;
+- dominant-city sensitivity.
+
+Do NOT implement full Gate 2 analysis.
+
+Only determine whether aggregation is scientifically and computationally feasible.
+
+If aggregation is recommended, create a small derived feasibility table only.
+
+==================================================
+13. TEMPORAL DESIGN RECHECK
+==================================================
+
+Using the actual file fields, verify whether the response is:
+
+- a 2003–2018 climatological mean;
+- one value per cluster;
+- or whether multiple year/month attributes exist.
+
+Do not assume.
+
+If the Shapefile contains only composite fields, record this.
+
+If it contains yearly/monthly attributes, do not expand Gate 2 scope automatically.
+
+Primary remains the pre-registered climatological response unless evidence strongly invalidates it.
+
+==================================================
+14. QC FOR RESPONSE DISTRIBUTION
+==================================================
+
+For the primary and secondary R:
+
+- histogram;
+- robust distribution summary;
+- regional summary;
+- missingness map or region table;
+- identify extreme values;
+- inspect whether extremes correspond to geometry/QC problems;
+- do not trim or winsorize without explicit reason.
+
+Create 3–5 diagnostic figures only.
+
+No publication styling required.
+
+==================================================
+15. THERMAL DESIGN LOCK DECISION
+==================================================
+
+At the end assign exactly one:
+
+THERMAL DESIGN = LOCKED
+THERMAL DESIGN = PROVISIONAL
+THERMAL DESIGN = REJECTED
+
+LOCKED means:
+
+- raw file integrity valid;
+- primary R field verified directly;
+- geometry/schema understood;
+- crosswalk scientifically defensible;
+- sample sufficiently global;
+- no ontology mismatch prevents Gate 2;
+- major selection bias is manageable.
+
+PROVISIONAL means:
+
+- data are real/useful but crosswalk/ontology/sample questions remain unresolved.
+
+REJECTED means:
+
+- product cannot support the intended Gate 2 question without scientifically unacceptable assumptions.
+
+Do not bias toward LOCKED.
+
+==================================================
+16. GATE 2 EXECUTION AUTHORIZATION DECISION
+==================================================
+
+Also assign:
+
+GATE 2 EXECUTION = YES
+GATE 2 EXECUTION = NOT YET
+GATE 2 EXECUTION = NO
+
+YES means the next execution may run the pre-registered Gate 2 experiments.
+
+NOT YET means another narrowly scoped validation/design step is required.
+
+NO means thermal response should be abandoned/replaced.
+
+==================================================
+17. REQUIRED OUTPUTS
+==================================================
+
+Create at minimum:
+
+results/1005-7/thermal_raw_manifest.json
+results/1005-7/yceo_schema_audit.csv
+results/1005-7/yceo_field_summary.csv
+results/1005-7/yceo_geometry_qc.json
+results/1005-7/thermal_response_qc.csv
+results/1005-7/crosswalk_rules.json
+results/1005-7/ucdb_yceo_crosswalk.csv
+results/1005-7/crosswalk_summary.json
+results/1005-7/matched_sample_bias.csv
+results/1005-7/thermal_design_lock.json
+results/1005-7/run_metadata.json
+
+Figures:
+
+figures/1005-7/
+
+Report:
+
+reports/report1005-7.md
+
+==================================================
+18. TESTING
+==================================================
+
+Add tests for:
+
+- ZIP integrity handling;
+- Shapefile member detection;
+- CRS transformation;
+- overlap metric calculation;
+- one-to-one classification;
+- one-to-many classification;
+- no duplicate outcome assignment without explicit cluster handling;
+- missing-response exclusion;
+- raw ZIP immutability;
+- no network access;
+- primary-R field identification logic.
+
+Run the full test suite under py311.
+
+==================================================
+19. GIT
+==================================================
+
+Do NOT commit the raw ZIP.
+
+Ensure raw-data paths remain ignored by Git.
+
+Commit:
+
+- prompt;
+- code;
+- tests;
+- results;
+- figures;
+- report;
+
+if tests pass and generated artifacts are appropriately small.
+
+For GitHub push, use the current-shell Clash proxy:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+git push origin master
+
+Do not use setx.
+Do not modify global Git proxy.
+Do not alter GitHub authentication.
+
+==================================================
+20. REQUIRED REPORT SECTIONS
+==================================================
+
+reports/report1005-7.md must contain:
+
+1. Executive Summary
+2. Raw File Integrity
+3. Exact ZIP Contents
+4. Shapefile Schema
+5. Geometry / CRS
+6. Primary R Verification
+7. Secondary R Verification
+8. Response QC
+9. YCEO Urban-Cluster Ontology
+10. UCDB Crosswalk Method
+11. Crosswalk Results
+12. One-to-Many / Many-to-One Structure
+13. Recommended Gate 2 Analysis Unit
+14. Matched Sample
+15. Matched-vs-Unmatched Bias
+16. Regional Coverage
+17. Temporal Recheck
+18. Evidence FOR Thermal Design Lock
+19. Evidence AGAINST Thermal Design Lock
+20. Thermal Design Decision
+21. Gate 2 Execution Decision
+22. Exact Files Created/Modified
+23. Reproducibility / Integrity Statement
+24. Questions for PI Review
+
+==================================================
+21. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. Is the human-downloaded ZIP valid?
+
+Q2. What is its exact byte size and SHA-256?
+
+Q3. What files are inside?
+
+Q4. What is the actual Shapefile feature count?
+
+Q5. What is the geometry type?
+
+Q6. What is the CRS?
+
+Q7. What stable identifier fields exist?
+
+Q8. What is the exact field name for annual nighttime SUHI?
+
+Q9. Is that field truly a 2003–2018 climatological response?
+
+Q10. What is its valid N and missing N?
+
+Q11. What is its global distribution?
+
+Q12. What is the exact secondary summer-daytime field?
+
+Q13. How many UCDB centres can be strictly matched one-to-one?
+
+Q14. How many require dominant-match logic?
+
+Q15. How many YCEO clusters correspond to multiple UCDB centres?
+
+Q16. How many UCDB centres fall inside the same YCEO cluster as another UCDB centre?
+
+Q17. Would assigning one YCEO response to multiple UCDB cities create pseudo-replication?
+
+Q18. Should the primary analysis unit remain UCDB city or switch to YCEO cluster?
+
+Q19. If cluster-level aggregation is needed, is S/H aggregation feasible?
+
+Q20. What is the recommended final primary sample N?
+
+Q21. Is the final sample still globally distributed?
+
+Q22. What selection bias is introduced by matching?
+
+Q23. Are recently urbanized cities disproportionately lost?
+
+Q24. Does primary R have severe missingness or extreme-value problems?
+
+Q25. Is any raster processing required?
+
+Q26. Is any additional research data required before Gate 2?
+
+Q27. THERMAL DESIGN:
+LOCKED / PROVISIONAL / REJECTED?
+
+Q28. GATE 2 EXECUTION:
+YES / NOT YET / NO?
+
+==================================================
+22. FINAL CONSOLE RESPONSE
+==================================================
+
+Return only:
+
+PROMPT 1005-7 COMPLETED
+
+Raw ZIP:
+VALID / INVALID
+
+SHA256:
+<value>
+
+YCEO features:
+<N>
+
+Primary R:
+<exact field name>
+
+Valid primary R:
+<N>
+
+Strict 1:1 UCDB matches:
+<N>
+
+Dominant 1:1 matches:
+<N>
+
+Ambiguous cluster mappings:
+<N>
+
+Recommended Gate 2 unit:
+<UCDB CITY / YCEO CLUSTER / OTHER>
+
+Recommended Gate 2 sample:
+<N>
+
+Thermal design:
+<LOCKED / PROVISIONAL / REJECTED>
+
+Gate 2 execution:
+<YES / NOT YET / NO>
+
+Tests:
+<PASS/FAIL, count>
+
+Git push:
+<SUCCESS / FAILED / NOT ATTEMPTED>
+
+Report:
+reports/report1005-7.md
+
+Status:
+AWAITING_PI_REVIEW
