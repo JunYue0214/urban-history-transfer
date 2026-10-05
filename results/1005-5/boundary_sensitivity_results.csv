@@ -1,0 +1,14 @@
+variant,description,n,divergent_twin_rate_fixed,divergent_twin_rate_dynamic,relative_effect_fixed,relative_effect_dynamic,note
+A_conservative_one_to_one_only,Baseline: conservative one-to-one matched sample (ambiguous cases already excluded by construction),4739,0.16675105485232067,0.18734177215189873,0.31290828554413724,0.2359616501091688,
+B_confirm_ambiguous_excluded,Confirms variant A already excludes all mapping-ambiguous cases (same sample as A; no separate exclusion needed since ambiguous keys never enter the matched sample),4739,0.16675105485232067,0.18734177215189873,0.31290828554413724,0.2359616501091688,
+C_remove_smallest_10pct,Smallest 10% of cities (by endpoint population) removed from matched sample,4265,0.1551012753188297,0.1781695423855964,0.3106725696424303,0.23164675498680198,
+D_remove_extreme_jump_trajectories,Cities with an extreme (>2x or <0.5x) single-epoch jump in H_fixed's built-up trajectory removed,4711,0.16859083191850593,0.18930390492359933,0.31103613580714495,0.2335189370362915,
+E_region_Africa,Restricted to region=Africa,528,0.1573373676248109,0.19213313161875945,0.19896849474768416,0.153148479508219,
+E_region_Asia,Restricted to region=Asia,2857,0.16680660509375875,0.19535404422054295,0.3768246670275847,0.29821861349222994,
+E_region_Europe,Restricted to region=Europe,858,0.14259086672879775,0.18546132339235788,0.19890006323934953,0.12424875813615822,
+E_region_North_America,Restricted to region=North America,237,0.16498316498316498,0.2255892255892256,0.4095615206768101,0.20137644202582142,
+E_region_Oceania,Restricted to region=Oceania,16,,,,,"sample too small, skipped"
+E_region_South_America,Restricted to region=South America,243,0.125,0.11842105263157894,0.15120557912415322,0.126404458419681,
+F_alt_endpoint_T2015,"Alternative endpoint year T=2015 (H from 1975-2010), same matched sample",4739,0.16033755274261605,0.18075949367088606,0.31750288968075013,0.24099616917141084,
+G_alt_k_3,Alternative nearest-neighbour k=3 (primary is k=5),4739,0.16479190101237345,0.1906636670416198,0.3278400233688607,0.2474669557012206,
+G_alt_k_10,Alternative nearest-neighbour k=10 (primary is k=5),4739,0.1631361296311925,0.18727318761076883,0.29044769540160176,0.21423526436904133,

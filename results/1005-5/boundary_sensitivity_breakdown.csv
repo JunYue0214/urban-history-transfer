@@ -1,0 +1,14 @@
+stratum_type,stratum,mean_D_boundary,n
+size_tercile,small,0.13886265983697776,1580
+size_tercile,medium,0.17481366646942012,1579
+size_tercile,large,0.21835823858896483,1580
+region,Africa,0.17748790882833407,528
+region,Asia,0.174854074280409,2857
+region,Europe,0.16431304295704102,858
+region,North America,0.25804112268022744,237
+region,Oceania,0.29090669529513025,16
+region,South America,0.16616151741003105,243
+recently_urbanized_ucdb_yob_gt_1990,recent,,0
+recently_urbanized_ucdb_yob_gt_1990,established,0.1773453890838159,4739
+expansion_speed,rapidly_expanding_low_h1975,0.16627548070969078,2369
+expansion_speed,slowly_expanding_high_h1975,0.1884106266105258,2370

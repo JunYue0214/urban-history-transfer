@@ -1,0 +1,20 @@
+{
+  "execution_id": "1005-5",
+  "source_prompt": "prompts/prompt1005-5.txt",
+  "previous_execution": "1005-4",
+  "report": "reports/report1005-5.md",
+  "status": "COMPLETED",
+  "started_at": "2026-10-05T08:03:27.549736+00:00",
+  "completed_at": "2026-10-05T08:03:47.476024+00:00",
+  "random_seed": 42,
+  "new_research_data_downloaded": false,
+  "n_ucdb": 11422,
+  "n_mtuc": 11686,
+  "n_core_matched_sample": 4739,
+  "gate1b_classification": "MIXED",
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "sklearn_version": "1.9.1",
+  "pandas_version": "3.0.6",
+  "numpy_version": "2.4.6"
+}

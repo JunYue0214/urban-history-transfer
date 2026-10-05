@@ -1,0 +1,5 @@
+h_definition,threshold_approach,k,divergent_twin_rate,D_SC_cutoff,D_H_cutoff
+fixed,separate_per_definition,5,0.16675105485232067,0.09475111376474545,0.4356790945577024
+dynamic,separate_per_definition,5,0.18734177215189873,0.09475111376474545,0.5255696826073748
+fixed,fixed_boundary_threshold_held_fixed,5,0.16675105485232067,0.09475111376474545,0.4356790945577024
+dynamic,fixed_boundary_threshold_held_fixed,5,0.28202531645569623,0.09475111376474545,0.4356790945577024

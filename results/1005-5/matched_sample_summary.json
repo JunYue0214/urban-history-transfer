@@ -1,0 +1,22 @@
+{
+  "N_UCDB": 11422,
+  "N_MTUC": 11686,
+  "N_matched_one_to_one_name_country": 10744,
+  "N_ambiguous_many_sided": 165,
+  "N_ucdb_unmatched": 319,
+  "N_mtuc_unmatched": 268,
+  "N_numeric_corroboration_failed": 481,
+  "N_core_matched_sample": 4739,
+  "correspondence_method": "deterministic (normalized name + country) one-to-one match, corroborated by 2020 population and built-up-area ratio within [0.2, 5.0], further restricted to MTUC entities with complete (non-missing) 1975-2020 history (GC_UCB_YOB_2025 <= 1975) and UCDB endpoint validity (GC_UCB_YOB_2025 <= 2020, consistent with execution 1005-4's own sample definition)",
+  "no_official_crosswalk_field_found": true,
+  "no_documented_shared_identifier_found": true,
+  "no_documented_parent_child_lineage_field_found": true,
+  "region_distribution": {
+    "Asia": 2857,
+    "Europe": 858,
+    "Africa": 528,
+    "South America": 243,
+    "North America": 237,
+    "Oceania": 16
+  }
+}

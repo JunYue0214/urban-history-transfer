@@ -1,0 +1,677 @@
+PROMPT ID: 1005-5
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Gate 1B — Time-Varying Boundary Robustness Test
+
+==================================================
+0. AUTHORIZATION AND EXECUTION CONTRACT
+==================================================
+
+This prompt is the sole authorization for this execution.
+
+Before doing scientific work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1005-5.txt
+
+2. Read back the saved file and confirm that it matches this prompt.
+
+3. Execute only this task.
+
+4. Use the project's official Python environment:
+   conda environment: py311
+   Python: 3.11.x
+
+All Python execution must use the py311 environment.
+
+5. Do NOT modify any historical prompt, report, result, figure, or raw-data artifact from executions 1005-1 through 1005-4.
+
+6. Do NOT download any new research data.
+
+IMPORTANT NEW PROJECT RULE:
+
+Claude Code is NOT authorized to initiate any real research-data download in this or future scientific executions unless a future PI prompt explicitly overrides this rule.
+
+If additional research data appear necessary:
+
+- identify the exact dataset;
+- identify the official source;
+- document why it is needed;
+- if useful, write acquisition/download software;
+- if useful, test that software only with local/synthetic/mock inputs;
+- write the exact human-executable command;
+- STOP before making any real research-data network request.
+
+All real research-data downloads require explicit PI approval and human execution.
+
+For this execution, no new research data should be necessary because the required MTUC product was already downloaded during execution 1005-4.
+
+==================================================
+1. SCIENTIFIC PURPOSE
+==================================================
+
+Execution 1005-4 passed Gate 1 using the main GHS-UCDB R2024A product.
+
+However, the main UCDB historical variables are aggregated using an urban-centre boundary delineated at the 2025 reference epoch.
+
+This creates a serious methodological concern:
+
+historical trajectories may partly reflect conditioning on a future/reference boundary rather than the true historical evolution of the urban centre.
+
+Execution 1005-4 also acquired the official:
+
+GHS_UCDB_MTUC_GLOBE_R2024A
+
+Multi-Temporal Urban Centre product.
+
+MTUC uses genuinely time-varying urban-centre delineations.
+
+The sole scientific purpose of execution 1005-5 is therefore:
+
+Determine whether the core Gate 1 finding from execution 1005-4 survives when urban history is defined using time-varying historical urban-centre boundaries.
+
+This execution is a robustness gate.
+
+It is NOT Gate 2.
+
+Do NOT introduce an environmental response variable R.
+
+Do NOT test whether history affects environment.
+
+Do NOT make causal claims.
+
+==================================================
+2. PRIMARY SCIENTIFIC QUESTION
+==================================================
+
+Does the central Gate 1 conclusion:
+
+"cities with similar present-day states and contexts can retain substantially different development histories"
+
+remain supported when historical trajectories are measured using time-varying urban-centre boundaries rather than the fixed 2025-reference UCDB boundary?
+
+Formally compare, as far as scientifically valid:
+
+H_fixed
+
+versus
+
+H_dynamic
+
+where:
+
+H_fixed = history constructed from the main UCDB fixed-reference-boundary product;
+
+H_dynamic = history constructed from the MTUC time-varying-boundary product.
+
+==================================================
+3. FIRST STEP: AUDIT MTUC BEFORE ANALYSIS
+==================================================
+
+Do not assume MTUC is structurally interchangeable with UCDB.
+
+First perform a complete schema and identity audit.
+
+Determine and report:
+
+- exact MTUC layers/files used;
+- number of records;
+- identifier structure;
+- available epochs;
+- built-up variables and units;
+- population variables and units, if present;
+- built-volume variables and units, if present;
+- how time-varying boundaries are represented;
+- whether one physical urban trajectory appears as multiple records;
+- how urban centres are linked across epochs;
+- whether city names/country fields are available;
+- coordinate reference system;
+- missingness;
+- duplicated identifiers;
+- birth/death/split/merge behavior if represented;
+- any documentation fields relevant to longitudinal interpretation.
+
+Write machine-readable audit outputs to:
+
+results/1005-5/
+
+Do not force MTUC into the 1005-4 UCDB data model if its ontology differs.
+
+Scientific validity is more important than code reuse.
+
+==================================================
+4. IDENTITY / CORRESPONDENCE PROBLEM
+==================================================
+
+Execution 1005-4 established that UCDB and MTUC use different identifier schemes.
+
+Therefore, explicitly determine whether a scientifically defensible mapping can be constructed between:
+
+UCDB urban centres
+
+and
+
+MTUC longitudinal urban-centre trajectories.
+
+Do NOT perform fuzzy matching merely to maximize sample size.
+
+Preferred evidence, in order:
+
+1. explicit official crosswalk/relationship fields;
+2. documented shared identifiers;
+3. documented parent/child lineage;
+4. deterministic geographic + attribute correspondence with transparent criteria;
+5. only if scientifically justified, conservative spatial matching.
+
+If a one-to-one mapping is not scientifically defensible because of splits, merges, lineage changes, or ontology differences:
+
+DO NOT hide this.
+
+Construct the largest conservative comparison sample for which interpretation is defensible.
+
+Report:
+
+N_UCDB
+N_MTUC
+N_matched
+N_unmatched
+N_ambiguous
+N_split_or_merge_if_applicable
+
+and the reasons for exclusions.
+
+Create:
+
+results/1005-5/ucdb_mtuc_crosswalk.csv
+
+with enough information to audit every accepted/rejected mapping.
+
+==================================================
+5. HISTORY DEFINITIONS
+==================================================
+
+Preserve the conceptual history definition from 1005-4 as closely as MTUC scientifically allows.
+
+1005-4 primary history was:
+
+h_i(t) = B_i(t) / B_i(2020)
+
+for pre-endpoint observed epochs.
+
+For the comparable matched sample, construct:
+
+H_fixed
+
+using the original UCDB fixed-boundary definition,
+
+and:
+
+H_dynamic
+
+using MTUC time-varying historical boundaries.
+
+Do NOT include 2025 or 2030 modeled/projected epochs.
+
+Use only genuine observed epochs supported by the product/documentation.
+
+Do NOT silently interpolate missing epochs merely to force comparability.
+
+If exact epoch correspondence is impossible, use the maximal common observed epoch set and document it.
+
+Endpoint normalization must not introduce future information.
+
+If B_dynamic(2020) has a different scientific meaning from B_fixed(2020), explain this explicitly.
+
+==================================================
+6. CORE TEST A — CITY-LEVEL HISTORY AGREEMENT
+==================================================
+
+For the conservative matched sample, quantify how much fixed-boundary and dynamic-boundary history agree.
+
+At minimum calculate:
+
+1. per-epoch correlation:
+   corr(H_fixed(t), H_dynamic(t))
+
+2. per-city trajectory distance:
+   D_boundary(i) =
+   distance(H_fixed_i, H_dynamic_i)
+
+3. agreement of transparent descriptors such as:
+   - early-developed fraction
+   - mid-period fraction
+   - recent-expansion fraction
+   - weighted development timing
+
+4. rank correlation for those descriptors.
+
+5. distribution of boundary-induced change.
+
+Do not rely only on Pearson correlation.
+
+Use robust/rank comparisons where appropriate.
+
+Identify whether boundary sensitivity is systematically larger for:
+
+- recently urbanized cities;
+- rapidly expanding cities;
+- small cities;
+- particular broad regions.
+
+This is diagnostic, not causal.
+
+==================================================
+7. CORE TEST B — REPEAT HISTORICAL RECONSTRUCTION
+==================================================
+
+Re-run the essential history-reconstruction experiment from 1005-4 using H_dynamic as the target.
+
+Use the most scientifically comparable present-state specification.
+
+Primary comparison should preserve, where valid:
+
+S3 + C
+
+with geographic holdout.
+
+Do not unnecessarily reproduce every 1005-4 model/specification.
+
+The key comparison is:
+
+R²_fixed = 0.226 from execution 1005-4
+
+versus
+
+R²_dynamic
+
+under the closest scientifically valid equivalent design.
+
+Use leave-region-out validation as primary.
+
+No in-sample fit may be presented as evidence.
+
+Also report enough information to determine whether any change is:
+
+- trivial;
+- moderate;
+- large;
+- caused by sample composition differences.
+
+If necessary, recompute BOTH H_fixed and H_dynamic on the exact same matched sample so the comparison is apples-to-apples.
+
+This matched-sample comparison is preferred over comparing two different populations.
+
+==================================================
+8. CORE TEST C — REPEAT THE TWIN TEST
+==================================================
+
+On the same conservative matched sample:
+
+construct present-day analogue neighbours using the scientifically comparable S+C definition.
+
+Then independently evaluate historical divergence using:
+
+H_fixed
+
+and
+
+H_dynamic.
+
+Compare:
+
+divergent_twin_rate_fixed_matched
+
+versus
+
+divergent_twin_rate_dynamic_matched.
+
+The execution 1005-4 full-sample reference value was:
+
+18.3%
+
+but do NOT compare the MTUC matched-sample result only against 18.3%.
+
+Recompute the fixed-boundary twin statistic on the SAME matched sample.
+
+This is essential.
+
+Use the same conceptual criterion as 1005-4:
+
+close present-day analogues:
+bottom quartile of D_SC
+
+high historical divergence:
+top quartile of D_H
+
+Clearly state whether thresholds are:
+
+- separately estimated within each H definition; or
+- held fixed across definitions;
+
+and justify the choice.
+
+If possible, report both approaches.
+
+==================================================
+9. CORE TEST D — NULL / EFFECT-SIZE COMPARISON
+==================================================
+
+Repeat the constrained-null logic from 1005-4 on the matched sample.
+
+Do NOT treat raw permutation p-values as the primary robustness evidence.
+
+Execution 1005-4 already established that p-values saturate at this sample size.
+
+Primary comparison must be effect size.
+
+Compare:
+
+relative reduction in historical distance vs constrained null
+
+for:
+
+H_fixed_matched
+
+and
+
+H_dynamic_matched.
+
+Use the same or scientifically equivalent stratification logic.
+
+300 permutations are sufficient unless computational diagnostics show otherwise.
+
+Fixed random seed:
+42
+
+==================================================
+10. REQUIRED SENSITIVITY ANALYSES
+==================================================
+
+Keep this execution focused.
+
+At minimum test:
+
+A. conservative one-to-one matched sample only;
+
+B. removal of mapping-ambiguous cases;
+
+C. removal of smallest 10% of cities within the matched sample;
+
+D. removal of extreme trajectory-jump cases if the same QC concept remains meaningful;
+
+E. broad-region stratification;
+
+F. alternative endpoint T=2015 if scientifically supported by MTUC;
+
+G. alternative nearest-neighbour k values:
+   k = 3, 5, 10
+
+The purpose is not to generate many tables.
+
+The purpose is to determine whether the Gate 1 phenomenon depends critically on boundary definition.
+
+==================================================
+11. FAILURE / STOP CONDITIONS
+==================================================
+
+STOP and report rather than forcing an answer if any of the following occurs:
+
+1. MTUC cannot be interpreted longitudinally in a scientifically defensible way.
+
+2. A defensible UCDB↔MTUC correspondence cannot be constructed.
+
+3. The matched sample is too small or too systematically selected to support a global robustness claim.
+
+4. MTUC historical variables are not comparable enough to the UCDB variables for the requested test.
+
+5. Required interpretation depends on undocumented assumptions.
+
+If stopped, this is NOT an execution failure.
+
+A scientifically justified STOP is an acceptable result.
+
+==================================================
+12. GATE 1B DECISION RULE
+==================================================
+
+At the end assign exactly one:
+
+GATE 1B = PASS
+GATE 1B = MIXED
+GATE 1B = FAIL
+GATE 1B = UNRESOLVED
+
+Use scientific judgment, not an arbitrary single-number threshold.
+
+PASS means:
+
+the substantive historical-separability phenomenon survives the use of time-varying boundaries, with no evidence that the original Gate 1 result was primarily generated by fixed-boundary conditioning.
+
+MIXED means:
+
+the phenomenon remains but changes materially enough that boundary definition must become a central part of the scientific interpretation/design.
+
+FAIL means:
+
+the key Gate 1 phenomenon substantially disappears, reverses, or is shown to be largely generated by the fixed-boundary construction.
+
+UNRESOLVED means:
+
+the products cannot be compared rigorously enough to decide.
+
+Do not bias toward PASS.
+
+A FAIL or UNRESOLVED result is scientifically valuable.
+
+==================================================
+13. REQUIRED FIGURES
+==================================================
+
+Create only figures that directly answer the boundary question.
+
+Prefer approximately 4–6 figures:
+
+1. H_fixed vs H_dynamic agreement;
+2. distribution of city-level boundary-induced history change;
+3. matched-sample reconstruction comparison;
+4. fixed vs dynamic divergent-twin rate;
+5. null/effect-size comparison;
+6. optional regional/birth-year diagnostic if informative.
+
+Figures go under:
+
+figures/1005-5/
+
+No publication styling is required yet.
+
+Clarity and auditability are more important than aesthetics.
+
+==================================================
+14. REQUIRED OUTPUT FILES
+==================================================
+
+At minimum create:
+
+results/1005-5/mtuc_schema_audit.csv
+results/1005-5/ucdb_mtuc_crosswalk.csv
+results/1005-5/matched_sample_summary.json
+results/1005-5/boundary_history_agreement.csv
+results/1005-5/reconstruction_boundary_comparison.csv
+results/1005-5/twin_boundary_comparison.csv
+results/1005-5/null_boundary_comparison.csv
+results/1005-5/boundary_sensitivity_results.csv
+results/1005-5/gate1b_decision.json
+results/1005-5/run_metadata.json
+
+If an output is scientifically impossible because of MTUC structure, do not fabricate an empty-success artifact.
+
+Instead document why it was not produced.
+
+==================================================
+15. CODE AND TESTING
+==================================================
+
+Prefer extending the existing scientific code cleanly rather than duplicating large blocks.
+
+However, do not modify the reviewed 1005-4 outputs.
+
+New or modified code must be auditable.
+
+Add appropriate tests for:
+
+- trajectory normalization;
+- common-epoch selection;
+- mapping/crosswalk rules;
+- fixed vs dynamic distance calculations;
+- twin-rate calculation;
+- no projected epochs;
+- no endpoint leakage;
+- matched-sample identity consistency.
+
+Run the relevant test suite under py311.
+
+Record exact commands and test results.
+
+==================================================
+16. COMPUTATIONAL DISCIPLINE
+==================================================
+
+This remains a large-scale/global scientific project.
+
+Do NOT introduce fine-scale raster analysis.
+
+Do NOT download or process global raster stacks.
+
+Do NOT increase spatial resolution merely because higher-resolution data exist.
+
+Use the coarsest scientifically valid representation needed to answer the boundary-robustness question.
+
+The scientific unit remains global urban centres / urban trajectories.
+
+==================================================
+17. REPORT
+==================================================
+
+Write the final report to:
+
+reports/report1005-5.md
+
+The report must include:
+
+1. Executive Summary
+2. Exact Question Tested
+3. MTUC Schema Audit
+4. UCDB↔MTUC Correspondence Method
+5. Matched Sample
+6. H_fixed Definition
+7. H_dynamic Definition
+8. City-Level Boundary Agreement
+9. Reconstruction Comparison
+10. Twin Comparison
+11. Null / Effect-Size Comparison
+12. Sensitivity Analyses
+13. Evidence That Gate 1 Survives Boundary Correction
+14. Evidence That Gate 1 Does NOT Survive Boundary Correction
+15. Scientific Limitations
+16. Gate 1B Decision
+17. Exact Files Created/Modified
+18. Reproducibility / Integrity Statement
+19. Questions for PI Review
+
+==================================================
+18. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. Can MTUC be interpreted as a scientifically valid time-varying-boundary longitudinal urban dataset?
+
+Q2. How many UCDB cities can be conservatively compared with MTUC?
+
+Q3. Are unmatched/ambiguous cities systematically different?
+
+Q4. How strongly do H_fixed and H_dynamic agree?
+
+Q5. Which types of cities are most boundary-sensitive?
+
+Q6. On the exact same matched sample, what is R²_fixed?
+
+Q7. On the exact same matched sample, what is R²_dynamic?
+
+Q8. Does the reconstruction conclusion materially change?
+
+Q9. What is the matched-sample divergent-twin rate under H_fixed?
+
+Q10. What is it under H_dynamic?
+
+Q11. Does the twin phenomenon survive k=3,5,10?
+
+Q12. How does the constrained-null effect size change under dynamic boundaries?
+
+Q13. Does the phenomenon survive T=2015?
+
+Q14. Is there evidence that the 1005-4 Gate 1 PASS was primarily an artifact of fixed 2025 boundaries?
+
+Q15. What is the strongest evidence AGAINST robustness?
+
+Q16. What is the strongest evidence FOR robustness?
+
+Q17. Gate 1B: PASS / MIXED / FAIL / UNRESOLVED?
+
+Q18. Based only on 1005-4 and 1005-5, should Gate 2 now be authorized to introduce an independent environmental response R?
+
+Answer Q18 as:
+
+YES / NOT YET / NO
+
+with a concise scientific justification.
+
+==================================================
+19. FINAL CONSOLE RESPONSE
+==================================================
+
+When execution is complete, do not dump the full report into the console.
+
+Return only:
+
+PROMPT 1005-5 COMPLETED
+
+Gate 1B:
+<PASS / MIXED / FAIL / UNRESOLVED>
+
+Matched sample:
+<N>
+
+R2 fixed:
+<value>
+
+R2 dynamic:
+<value>
+
+Divergent twin rate fixed:
+<value>
+
+Divergent twin rate dynamic:
+<value>
+
+Null effect fixed:
+<value>
+
+Null effect dynamic:
+<value>
+
+Gate 2 recommendation:
+<YES / NOT YET / NO>
+
+Tests:
+<PASS/FAIL, count>
+
+Report:
+reports/report1005-5.md
+
+Status:
+AWAITING_PI_REVIEW

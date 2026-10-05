@@ -1,0 +1,19 @@
+{
+  "classification": "MIXED",
+  "r2_fixed_matched": 0.320396860894477,
+  "r2_dynamic_matched": 0.1581097135724429,
+  "divergent_twin_rate_fixed_matched": 0.16675105485232067,
+  "divergent_twin_rate_dynamic_matched": 0.18734177215189873,
+  "relative_effect_fixed_matched": 0.3126901930282716,
+  "relative_effect_dynamic_matched": 0.23564158371687666,
+  "mean_epoch_pearson_correlation": 0.8939654532230024,
+  "evidence_gate1_survives_boundary_correction": [
+    "Divergent-twin rate under H_dynamic (0.187) remains non-trivial (>5%) and within 50% relative of H_fixed's matched-sample rate (0.167).",
+    "Permutation relative effect size under H_dynamic (23.6%) remains non-trivial (>10%) and close to H_fixed's matched-sample effect (31.3%, diff=-7.7%); real structure (S,C predicts some H) persists under both boundary definitions.",
+    "Mean per-epoch Pearson correlation between H_fixed and H_dynamic is 0.894 (>0.5); the two boundary definitions are measuring a substantially related underlying historical signal, not unrelated quantities."
+  ],
+  "evidence_gate1_does_not_survive_boundary_correction": [
+    "Reconstruction R2 changes materially between H_fixed (0.320) and H_dynamic (0.158, diff=-0.162)."
+  ],
+  "note": "This is a robustness gate (1B), not Gate 2. No environmental response variable was used."
+}
