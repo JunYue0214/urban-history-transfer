@@ -1,0 +1,32 @@
+{
+  "n_units": 2107,
+  "n_ucdb_cities": 2374,
+  "n_multi_city": 146,
+  "region_counts": {
+    "Asia": 1028,
+    "Africa": 323,
+    "South America": 296,
+    "Europe": 253,
+    "North America": 186,
+    "Oceania": 21
+  },
+  "primary_rule": {
+    "coverage": 0.5,
+    "iou": 0.2
+  },
+  "response": "Annual_nig",
+  "response_n_missing": 0,
+  "response_mean": 0.589773148724468,
+  "response_sd": 0.4079554620281314,
+  "response_min": -1.182324028176794,
+  "response_max": 2.535194114370234,
+  "no_transform_no_winsorize_no_removal": true,
+  "sample_identical_to_1005_8": true,
+  "fold_sizes": {
+    "0": 422,
+    "1": 422,
+    "2": 421,
+    "3": 421,
+    "4": 421
+  }
+}

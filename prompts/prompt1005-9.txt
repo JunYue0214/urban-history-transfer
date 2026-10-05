@@ -1,0 +1,1114 @@
+PROMPT ID: 1005-9
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Gate 2 — Does Developmental History Carry Independent Information About Urban Thermal Response?
+
+==================================================
+0. AUTHORIZATION
+==================================================
+
+This prompt authorizes execution 1005-9.
+
+This is the FIRST execution authorized to analyze the relationship between:
+
+H = urban developmental history
+
+and
+
+R = urban thermal response.
+
+Before doing scientific work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1005-9.txt
+
+2. Read it back and confirm exact match.
+
+3. Use:
+   conda environment py311
+   Python 3.11.x
+
+4. Do NOT modify any artifact from executions 1005-1 through 1005-8.
+
+5. Do NOT download any new research data.
+
+6. Do NOT access research-data URLs.
+
+7. Use only already-local, human-downloaded and previously validated data.
+
+8. No fine-scale raster processing is authorized.
+
+==================================================
+1. SCIENTIFIC STATUS BEFORE GATE 2
+==================================================
+
+Gate 1 established:
+
+Present-day urban state/context does not uniquely determine developmental history.
+
+Gate 1B established:
+
+This separability is not primarily a fixed-boundary artifact.
+
+Gate 2A established:
+
+Primary environmental response candidate =
+annual-mean nighttime SUHI climatology, 2003–2018.
+
+1005-7 established:
+
+actual field = Annual_nig
+valid response = 9,995 YCEO clusters.
+
+1005-8 locked:
+
+PRIMARY UNIT:
+YCEO urban cluster
+
+PRIMARY GEOMETRY RULE:
+UCDB coverage of YCEO cluster >= 0.50
+AND cluster-level IoU >= 0.20
+
+PRIMARY SAMPLE:
+2,107 YCEO cluster units
+covering 2,374 UCDB centres
+
+PRIMARY H:
+fixed-boundary UCDB built-up trajectory,
+aggregated to YCEO cluster:
+
+H_j(t) = Σ_i B_i(t) / Σ_i B_i(2020)
+
+PRIMARY INFERENCE TARGET:
+
+"YCEO-detectable global urban agglomerations
+with defensible GHSL overlap"
+
+No claim may be generalized automatically to all 10,915 GHSL cities.
+
+==================================================
+2. FINAL PI VALIDATION AMENDMENT
+==================================================
+
+Do NOT merge Oceania and Asia into a synthetic leave-region-out region.
+
+For Gate 2:
+
+PRIMARY validation:
+spatially blocked 5-fold cross-validation using the locked 10°-tile blocking design from 1005-8.
+
+SECONDARY geographic robustness:
+leave-major-region-out for:
+
+Asia
+Africa
+Europe
+North America
+South America
+
+Oceania (N≈21) must be reported separately as descriptive/exploratory only.
+
+Do not use Oceania as evidence that a result reproduces across regions.
+
+This amendment occurs before any Gate 2 model has been run.
+
+Record it in:
+
+results/1005-9/gate2_validation_amendment.md
+
+Do not edit historical preregistration artifacts.
+
+==================================================
+3. PRIMARY SCIENTIFIC QUESTION
+==================================================
+
+Among globally distributed urban agglomerations with comparable present-day urban state S and environmental context C:
+
+Does developmental history H contain reproducible information about nighttime SUHI R beyond S and C?
+
+This is observational.
+
+Permitted language:
+
+- incremental information;
+- association;
+- predictive information;
+- transferability;
+- historical conditioning;
+- developmental-path dependence as a descriptive concept if justified.
+
+Prohibited language:
+
+- H causes SUHI;
+- causal historical effect;
+- history determines heat;
+- irreversible causal memory;
+
+unless a future causal design establishes such claims.
+
+==================================================
+4. PRIMARY RESPONSE
+==================================================
+
+Primary R:
+
+Annual_nig
+
+from YCEO SUHI v4.
+
+Physical interpretation:
+
+2003–2018 annual-mean nighttime
+urban-minus-rural surface temperature contrast
+per YCEO urban cluster.
+
+Unit:
+°C.
+
+Do not transform R by default.
+
+Do not remove negative values.
+
+Do not winsorize.
+
+Do not remove extremes based only on outcome magnitude.
+
+Any outcome transformation must be sensitivity only and explicitly justified.
+
+==================================================
+5. SECONDARY RESPONSE
+==================================================
+
+Secondary pre-registered response:
+
+Summer_day
+
+Use only AFTER the primary Annual_nig analysis pipeline and decision metrics are fixed and saved.
+
+Do NOT use Summer_day to tune:
+
+- model choice;
+- H representation;
+- thresholds;
+- crosswalk;
+- sample;
+- covariates.
+
+It is a replication / different-physical-channel response.
+
+==================================================
+6. PRIMARY S
+==================================================
+
+Use cluster-level S derived in 1005-8.
+
+Primary present state:
+
+S3:
+
+- log population 2020;
+- log built-up area 2020;
+- density 2020;
+- log built-up volume 2020.
+
+Density is algebraically dependent on population/built-up and must be documented as such.
+
+Run nested S sensitivity where appropriate:
+
+S1:
+population + built-up area
+
+S2:
+S1 + density
+
+S3:
+S2 + built volume
+
+Do not let S expansion become a specification search.
+
+==================================================
+7. PRIMARY C
+==================================================
+
+Primary context:
+
+C1
+
+as locked in 1005-6/1005-8:
+
+- latitude;
+- longitude;
+- elevation;
+- background annual mean temperature;
+- log annual precipitation.
+
+Use the exact locally available UCDB climate variables previously identified.
+
+Sensitivity:
+
+C0:
+latitude + longitude + elevation
+
+C2:
+C1 +
+temperature seasonality +
+precipitation seasonality +
+Köppen major group
+
+Do NOT include as primary controls:
+
+- urban greenness;
+- NDVI;
+- tree height;
+- urban vegetation;
+- land-use fractions;
+- socioeconomic development proxies;
+
+because these may mediate the relationship between development trajectory and thermal response.
+
+==================================================
+8. PRIMARY H
+==================================================
+
+Primary H:
+
+9-dimensional fixed-boundary built-up developmental trajectory:
+
+1975
+1980
+1985
+1990
+1995
+2000
+2005
+2010
+2015
+
+normalized by cluster built-up area in 2020.
+
+Endpoint 2020 is excluded from H.
+
+Primary implementation may use:
+
+A. standardized raw 9-vector
+
+and/or
+
+B. a low-dimensional representation trained strictly within training folds.
+
+Do NOT use a supervised representation of H involving R.
+
+If PCA is used:
+fit PCA on TRAINING H only within each fold;
+transform test H using training loadings.
+
+Do not perform PCA globally before CV.
+
+Also retain interpretable descriptors:
+
+- early developed fraction;
+- mid-period developed fraction;
+- recent expansion fraction;
+- weighted development timing.
+
+==================================================
+9. EXPERIMENT 1 — INCREMENTAL PREDICTIVE INFORMATION
+==================================================
+
+This is the primary Gate 2 experiment.
+
+M0:
+
+R ~ S3 + C1
+
+M1:
+
+R ~ S3 + C1 + H
+
+Primary learner:
+
+Random Forest with fixed, documented hyperparameters.
+
+Secondary learner:
+
+Ridge / regularized linear model.
+
+Do not hyperparameter-tune against the test folds.
+
+If limited training-only tuning is scientifically necessary:
+use nested CV inside training folds only,
+but prefer fixed hyperparameters to preserve auditability.
+
+PRIMARY validation:
+
+locked spatial 10°-tile blocked 5-fold.
+
+Metrics:
+
+- pooled out-of-fold R²;
+- RMSE;
+- MAE.
+
+Primary effect:
+
+ΔR² =
+R²(M1) - R²(M0)
+
+Also report:
+
+ΔRMSE
+ΔMAE.
+
+Bootstrap uncertainty must respect spatial dependence:
+
+block bootstrap / fold-aware cluster bootstrap,
+not naive IID row bootstrap.
+
+Store all out-of-fold predictions.
+
+==================================================
+10. EXPERIMENT 1 — NULLS
+==================================================
+
+Run before interpreting the observed H gain:
+
+NULL 1:
+shuffle H within broad region × size strata.
+
+NULL 2:
+pseudo-H reconstructed/generated from S only.
+
+NULL 3:
+redundant pseudo-history constructed from present-state S features.
+
+NULL 4:
+random 9-vector matched approximately to H's variance/correlation scale where scientifically meaningful.
+
+The observed ΔR² must be compared against these nulls.
+
+At least 300 permutations for the main shuffled-H null.
+
+Seed:
+42.
+
+Do not rely mainly on p-values.
+
+Report:
+
+- observed Δ;
+- null mean;
+- null quantiles;
+- percentile position;
+- standardized effect where meaningful.
+
+==================================================
+11. EXPERIMENT 1 — REGION ROBUSTNESS
+==================================================
+
+Run leave-major-region-out for:
+
+Asia
+Africa
+Europe
+North America
+South America.
+
+For each held-out region report:
+
+R² M0
+R² M1
+ΔR²
+RMSE M0
+RMSE M1
+ΔRMSE
+N
+
+Do not require Oceania replication.
+
+For Oceania:
+
+report descriptive prediction error only,
+with explicit N warning.
+
+Do not combine it with Asia.
+
+==================================================
+12. EXPERIMENT 1 — PRIMARY DECISION INTERPRETATION
+==================================================
+
+1005-6 pre-registered approximate decision guidance:
+
+STRONG FOR:
+
+ΔR² >= +0.02
+with uncertainty excluding 0,
+above shuffled-H null,
+not explained by pseudo-history,
+surviving C2 / strict-precedence sensitivity,
+with supporting Experiment 2/3 evidence.
+
+AGAINST:
+
+ΔR² < 0.005
+with uncertainty including 0,
+within shuffled-H null,
+or explained by S-derived pseudo-history,
+or collapse under stronger context.
+
+These are guidance thresholds, not mechanical truth.
+
+Do not change them after observing R.
+
+==================================================
+13. EXPERIMENT 2 — PRESENT-DAY TWINS
+==================================================
+
+Use the locked cluster sample.
+
+Construct twin candidates using:
+
+S3 + C1 only.
+
+Primary:
+
+mutual k=10 nearest neighbours.
+
+Minimum geographic separation:
+200 km.
+
+Do not use H or R to choose twins.
+
+For pair (i,j), compute:
+
+D_SC
+D_geo
+D_H
+D_R = |R_i - R_j|
+
+Primary statistical question:
+
+Among present-day analogues,
+does environmental divergence D_R increase with historical divergence D_H?
+
+Primary statistic:
+
+partial Spearman relationship:
+
+rho(D_R, D_H | D_SC, D_geo)
+
+Use an implementation that accounts for dependence among pairs.
+
+Do NOT treat 6,000+ pairs as IID observations.
+
+Use:
+
+- city/cluster-level resampling;
+- stratified permutation;
+- or another dependency-aware method.
+
+Report effect size and uncertainty.
+
+==================================================
+14. EXPERIMENT 2 — HISTORY STRATA
+==================================================
+
+For interpretability, divide eligible twin pairs into pre-defined D_H groups:
+
+low historical divergence
+middle
+high historical divergence
+
+using tertiles or another pre-declared partition.
+
+Compare D_R distributions.
+
+Do NOT choose cut points after viewing D_R.
+
+Report:
+
+median D_R
+IQR
+effect size
+dependency-aware CI.
+
+Hand-picked city examples may be generated only after global statistics are saved and must be labelled illustrative.
+
+==================================================
+15. EXPERIMENT 3 — HISTORY-AWARE TRANSFERABILITY
+==================================================
+
+This experiment asks whether history improves cross-city environmental analogue transfer.
+
+For each held-out target:
+
+A0 donor space:
+S3 + C1
+
+A1 donor space:
+S3 + C1 + H
+
+Donor prediction:
+
+K=10 inverse-distance-weighted donor mean
+
+unless the locked 1005-6 preregistration specifies a more exact implementation.
+
+No target's own R may influence donor selection.
+
+Primary validation:
+spatially blocked 5-fold.
+
+Targets may only use donors from training folds.
+
+Primary metric:
+
+RMSE_transfer.
+
+Primary contrast:
+
+ΔRMSE_transfer =
+RMSE(A1) - RMSE(A0)
+
+Negative values mean history-aware transfer is better.
+
+Also report MAE.
+
+Compare against:
+
+- shuffled H;
+- pseudo-H;
+- random matched-variance vectors.
+
+==================================================
+16. STRICT TEMPORAL-PRECEDENCE SENSITIVITY
+==================================================
+
+This is mandatory because R=2003–2018 overlaps the main H window.
+
+Construct a strict-precedence history:
+
+H_pre2000
+
+using only information up to 2000.
+
+Do NOT include 2005–2015 history.
+
+Choose a representation that does not mathematically depend on future response-period development.
+
+Preferred:
+
+history normalized/rebased using B(2000)
+
+or another explicitly justified pre-2000 formulation.
+
+Run the core Experiment 1 with this strict-precedence H.
+
+Interpretation:
+
+If history signal exists only using post-2000 / overlapping H,
+do NOT call it historical legacy.
+
+Call it:
+
+recent-development association.
+
+If signal survives H_pre2000,
+that is substantially stronger evidence for a genuine temporal legacy-like structure,
+but still observational, not causal.
+
+==================================================
+17. T=2015 SENSITIVITY
+==================================================
+
+Run the previously pre-registered T=2015 history/state sensitivity where scientifically coherent.
+
+Be explicit about temporal overlap.
+
+Do not use T=2015 sensitivity to overwrite the primary T=2020 design.
+
+==================================================
+18. BOUNDARY SENSITIVITIES
+==================================================
+
+Run:
+
+A. fixed-boundary H primary;
+
+B. dynamic-boundary H on the defensibly matched MTUC subset;
+
+C. dominant-city H instead of aggregate H for multi-city units;
+
+D. boundary-robust scalar H descriptors.
+
+Do not require identical N across all sensitivities.
+
+Whenever N changes:
+
+recompute the corresponding M0 baseline on the exact same subset.
+
+Never compare M1 on one sample to M0 on another.
+
+==================================================
+19. GEOMETRY SENSITIVITIES
+==================================================
+
+Exactly the three pre-registered 1005-8 geometry sensitivities:
+
+S1:
+coverage >= 0.40
+no IoU floor
+
+S2:
+coverage >= 0.60
+no IoU floor
+
+S3:
+coverage >= 0.50
+no IoU floor
+
+Do not introduce additional geometry thresholds after seeing Gate 2 outcomes.
+
+For each sensitivity:
+rerun the compact primary Experiment 1 contrast only.
+
+==================================================
+20. CONTEXT / STATE SENSITIVITIES
+==================================================
+
+Run compact primary comparisons under:
+
+S1+C1
+S2+C1
+S3+C0
+S3+C1
+S3+C2
+
+Do not produce dozens of arbitrary combinations.
+
+Primary remains:
+
+S3+C1.
+
+==================================================
+21. COMMON-SUPPORT ANALYSIS
+==================================================
+
+Use the 1005-8 S/C-only Mahalanobis support flag.
+
+Primary analysis:
+full locked sample.
+
+Sensitivity:
+restrict to common-support flagged units.
+
+Do not recompute support using R or model residuals.
+
+==================================================
+22. SAMPLE-BIAS STRATIFICATION
+==================================================
+
+Because the inference sample favors larger/older agglomerations, report Gate 2 primary effects stratified by:
+
+- size;
+- establishment age / YOB;
+- broad region.
+
+Use pre-defined quantiles/categories.
+
+Do not search for the subgroup with the largest effect.
+
+This is effect-heterogeneity description, not multiple hypothesis discovery.
+
+==================================================
+23. SECONDARY RESPONSE REPLICATION
+==================================================
+
+Only after all Annual_nig primary outputs are written and immutable for this execution:
+
+repeat a compact version of Experiments 1–3 using:
+
+Summer_day.
+
+Do not tune anything based on Summer_day.
+
+Interpretation:
+
+Concordant result:
+supports cross-channel generality.
+
+Discordant result:
+scientifically meaningful because daytime and nighttime SUHI have different physical controls.
+
+Do not require them to agree.
+
+==================================================
+24. SPATIAL AUTOCORRELATION
+==================================================
+
+Quantify residual spatial autocorrelation for M0 and M1 out-of-fold residuals.
+
+Use a reasonable city/cluster-level statistic such as:
+
+Moran's I
+
+with a documented neighbourhood definition.
+
+Do not over-interpret nominal p-values at N≈2100.
+
+Main question:
+
+Does adding H materially reduce unexplained spatial structure?
+
+This is secondary diagnostic evidence, not the Gate 2 primary test.
+
+==================================================
+25. CLAIM DISCIPLINE
+==================================================
+
+At the end separate findings into:
+
+A. supported directly;
+
+B. suggestive;
+
+C. unsupported.
+
+Even a strong Gate 2 PASS does NOT establish causality.
+
+Possible strongest defensible claim:
+
+"Developmental trajectories contain information about contemporary urban thermal response that is not captured by present-day urban state and broad environmental context."
+
+Do NOT strengthen beyond what the evidence supports.
+
+==================================================
+26. GATE 2 DECISION
+==================================================
+
+Assign exactly one:
+
+GATE 2 = PASS
+
+GATE 2 = MIXED
+
+GATE 2 = FAIL
+
+GATE 2 = UNRESOLVED
+
+PASS:
+
+multiple independent evidence streams indicate meaningful H-associated information beyond S+C,
+surviving major falsifications and spatial validation.
+
+MIXED:
+
+some evidence exists but is channel-, region-, temporal-window-, model-, or specification-dependent.
+
+FAIL:
+
+H adds negligible/redundant information after S+C,
+or observed gains are reproduced by pseudo-history/nulls,
+or twin/transfer tests do not support it.
+
+UNRESOLVED:
+
+technical/data limitations prevent a defensible decision.
+
+Do NOT bias toward PASS.
+
+A scientifically clean FAIL is valuable.
+
+==================================================
+27. GO / NO-GO FOR NEXT SCIENTIFIC STAGE
+==================================================
+
+Also decide:
+
+TRANSFERABILITY PROGRAM = CONTINUE / REVISE / STOP
+
+If Gate 2 passes strongly:
+CONTINUE toward optimization / sensing-network design.
+
+If mixed:
+REVISE before optimization.
+
+If fail:
+STOP the history-aware environmental-transfer hypothesis in its current form.
+
+==================================================
+28. REQUIRED PRIMARY OUTPUTS
+==================================================
+
+Create at minimum:
+
+results/1005-9/analysis_sample_summary.json
+results/1005-9/gate2_validation_amendment.md
+results/1005-9/primary_model_metrics.csv
+results/1005-9/primary_oof_predictions.csv
+results/1005-9/history_null_results.csv
+results/1005-9/region_holdout_results.csv
+results/1005-9/twin_results.csv
+results/1005-9/twin_summary.json
+results/1005-9/transfer_results.csv
+results/1005-9/strict_precedence_results.csv
+results/1005-9/boundary_sensitivity_results.csv
+results/1005-9/geometry_sensitivity_results.csv
+results/1005-9/context_state_sensitivity.csv
+results/1005-9/common_support_results.csv
+results/1005-9/subgroup_results.csv
+results/1005-9/secondary_response_results.csv
+results/1005-9/spatial_residual_diagnostics.csv
+results/1005-9/gate2_decision.json
+results/1005-9/run_metadata.json
+
+==================================================
+29. REQUIRED FIGURES
+==================================================
+
+Create approximately 7–10 scientific diagnostic figures.
+
+Suggested:
+
+1. observed vs predicted R for M0/M1 OOF;
+2. Δperformance vs shuffled-H null;
+3. regional ΔR²;
+4. twin D_H vs D_R relationship;
+5. D_R by historical-divergence stratum;
+6. transfer-error A0 vs A1;
+7. strict-precedence comparison;
+8. sensitivity forest/summary plot;
+9. primary vs secondary-response comparison;
+10. residual spatial diagnostic if useful.
+
+Do not make publication art yet.
+
+==================================================
+30. TESTING
+==================================================
+
+Add tests for:
+
+- exact sample identity;
+- no train/test leakage;
+- PCA training-fold-only if PCA used;
+- null shuffling within specified strata;
+- donor exclusion across test folds;
+- twin construction independent of H/R;
+- pair dependence handling;
+- identical sample for M0/M1 comparisons;
+- strict-precedence no post-2000 information;
+- geometry sensitivity rule immutability;
+- primary response completed before secondary response;
+- no raw-data mutation;
+- no network access.
+
+Run full test suite under py311.
+
+==================================================
+31. REPORT
+==================================================
+
+Write:
+
+reports/report1005-9.md
+
+Required sections:
+
+1. Executive Summary
+2. Exact Scientific Question
+3. Analysis Population
+4. Variables S/H/C/R
+5. Validation Design
+6. Experiment 1 — Primary Predictive Test
+7. Null / Pseudo-H Tests
+8. Regional Robustness
+9. Experiment 2 — Twin Environmental Divergence
+10. Experiment 3 — History-Aware Transferability
+11. Strict Temporal-Precedence Test
+12. Boundary Sensitivities
+13. Geometry Sensitivities
+14. Context / State Sensitivities
+15. Common-Support Analysis
+16. Size / Age / Region Heterogeneity
+17. Secondary Response Replication
+18. Spatial Residual Diagnostics
+19. Evidence FOR Independent Historical Information
+20. Evidence AGAINST
+21. Falsification Summary
+22. Scientific Interpretation
+23. Claims Explicitly NOT Supported
+24. Gate 2 Decision
+25. Transferability Program Decision
+26. Scientific Limitations
+27. Exact Files Created/Modified
+28. Reproducibility / Integrity
+29. Questions for PI Review
+
+==================================================
+32. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. What is N of the final primary Gate 2 sample?
+
+Q2. What are M0 and M1 spatial-block OOF R²?
+
+Q3. What is ΔR²?
+
+Q4. What are ΔRMSE and ΔMAE?
+
+Q5. Does ΔR² uncertainty exclude zero?
+
+Q6. Where does observed Δ sit relative to shuffled-H null?
+
+Q7. Can pseudo-history derived from S reproduce the gain?
+
+Q8. Does redundant S-based pseudo-H reproduce it?
+
+Q9. Does ridge support the same qualitative conclusion?
+
+Q10. In how many of the five adequately sized regions is ΔR² positive?
+
+Q11. Which region is strongest?
+
+Q12. Which is weakest?
+
+Q13. What happens in Oceania descriptively?
+
+Q14. What is the twin partial Spearman effect?
+
+Q15. Do high-D_H twins have greater D_R than low-D_H twins?
+
+Q16. Is that result dependency-aware and permutation-robust?
+
+Q17. Does history-aware analogue selection reduce transfer RMSE?
+
+Q18. By how much?
+
+Q19. Does transfer improvement beat shuffled/pseudo-H?
+
+Q20. Does the signal survive strict H<=2000 precedence?
+
+Q21. If not, is the result better characterized as recent-development association?
+
+Q22. Does T=2015 sensitivity agree?
+
+Q23. Does dynamic-boundary H agree?
+
+Q24. Does dominant-city H agree?
+
+Q25. Does the result survive geometry rules S1/S2/S3?
+
+Q26. Does stronger C2 remove the history signal?
+
+Q27. Does common-support restriction materially change it?
+
+Q28. Is the result concentrated only in large/old cities?
+
+Q29. Does Summer_day replicate the primary result?
+
+Q30. Does adding H reduce residual spatial autocorrelation?
+
+Q31. Which falsification test is most damaging to the hypothesis?
+
+Q32. Which evidence stream is strongest?
+
+Q33. What is the strongest evidence AGAINST the programme?
+
+Q34. What is the strongest evidence FOR it?
+
+Q35. Can any causal claim be made?
+
+Q36. GATE 2:
+PASS / MIXED / FAIL / UNRESOLVED?
+
+Q37. TRANSFERABILITY PROGRAM:
+CONTINUE / REVISE / STOP?
+
+Q38. If continuing, what is the single most important next scientific question?
+
+==================================================
+33. GIT
+==================================================
+
+Do NOT commit raw research data.
+
+Commit prompt/code/tests/results/figures/report if tests pass.
+
+For GitHub push use current PowerShell session proxy:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+git push origin master
+
+Do not use setx.
+Do not alter global Git proxy.
+Do not change authentication.
+
+If push fails:
+report exact error and stop changing Git configuration.
+
+==================================================
+34. FINAL CONSOLE RESPONSE
+==================================================
+
+Return only:
+
+PROMPT 1005-9 COMPLETED
+
+Primary sample:
+<N>
+
+Primary R:
+Annual_nig
+
+M0 OOF R2:
+<value>
+
+M1 OOF R2:
+<value>
+
+Delta R2:
+<value>
+
+Delta RMSE:
+<value>
+
+Shuffled-H null:
+<short result>
+
+Twin effect:
+<value>
+
+Transfer Delta RMSE:
+<value>
+
+Strict-precedence:
+<SURVIVES / WEAKENS / DISAPPEARS>
+
+Secondary Summer_day:
+<CONCORDANT / DISCORDANT / NULL>
+
+Gate 2:
+<PASS / MIXED / FAIL / UNRESOLVED>
+
+Transferability program:
+<CONTINUE / REVISE / STOP>
+
+Tests:
+<PASS/FAIL, count>
+
+Git push:
+<SUCCESS / FAILED / NOT ATTEMPTED>
+
+Report:
+reports/report1005-9.md
+
+Status:
+AWAITING_PI_REVIEW

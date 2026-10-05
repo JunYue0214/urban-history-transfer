@@ -1,0 +1,20 @@
+{
+  "primary_outputs_sha256": {
+    "analysis_sample_summary.json": "094771c947cc46ad46de2e365b37da371047a5f5ed5d9a3bb46bda37f8dddacb",
+    "boundary_sensitivity_results.csv": "5692c6ee183e5e7aba903295dcf904d432795788100c6836529c25f4d07ab3c7",
+    "common_support_results.csv": "e8d9e36416c3377e1de1131d109e27a9adba34afeea0186ea32092b0b2301501",
+    "context_state_sensitivity.csv": "73c7800a98535ee40db9735c2588372bbc089de5403a2b11c4d721b636f4e8d2",
+    "geometry_sensitivity_results.csv": "00dfda9dc276d5cf05b664cdb7e5642af289f8b08b1d3867c9364f17ef7979ff",
+    "history_null_results.csv": "189f2fd284de3d5a62cd84ccf55ceb146aca0e8cf20e7d98b44ba918637c67e1",
+    "history_null_shuffled_draws.csv": "7d6619c7b3741faac22f49f84b849074e3135b9bf668ef0c1c51356cb7f048df",
+    "primary_model_metrics.csv": "d69e38aae107c9523e355981af4546e1dbdf778a8e3ef7324143ee5682f5d024",
+    "primary_oof_predictions.csv": "e10250d6edb119aeaf05ba171b8bd08293407bb746b3f0babfad43d0a8be1caf",
+    "region_holdout_results.csv": "a9d24f8664a8c6b5fee4eb8e24f0d9c9cefaa3940fd9dccddcf55510245cf78a",
+    "spatial_residual_diagnostics.csv": "d8cbc199ebbfe7108485c9753ef01df9bbb0e749176ef52e6824a8844740e888",
+    "strict_precedence_results.csv": "ea2a2e04c6effe7cc44feb4bb808e42ebb0ed672f1922ee24800664b4a28fbda",
+    "subgroup_results.csv": "3386113cb4380231520871155d859a083b360dc00366531943b35a51ef869e39",
+    "transfer_results.csv": "4b427cad52cee465e59d7cc8e53ee77aa4bc83c4974c417e58c0ac414223e9c4",
+    "twin_results.csv": "41125dac57d5c01820656b529519c8e45602da5def362204cea85c74120dd9c4",
+    "twin_summary.json": "9e7ed1bee48768802cfccbf3950aefdafdc9e577426d018458e69669ba69a696"
+  }
+}

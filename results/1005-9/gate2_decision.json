@@ -1,0 +1,81 @@
+{
+  "GATE_2": "FAIL",
+  "TRANSFERABILITY_PROGRAM": "STOP",
+  "fail_conditions": {
+    "i_dR2<0.005_and_CI_includes_0": true,
+    "ii_not_above_shuffled_null_q95": true,
+    "iii_pseudoH_>=80pct_of_positive_observed": false,
+    "iv_twin<=0.02_and_transfer_within_null": false
+  },
+  "strong_for_criteria": {
+    "1_dR2>=0.02_and_CI_excludes_0": false,
+    "2_above_shuffled_null_q95": false,
+    "3_positive_in_>=4_of_5_regions": false,
+    "4_not_explained_by_pseudo_history": false,
+    "5_survives_C2_and_strict_precedence": false,
+    "6_transfer_negative_below_null_and_twin_rho>=0.05_p<0.01": false
+  },
+  "against_flags_not_by_themselves_FAIL": {
+    "negative_in_>=3_of_5_regions": true,
+    "C2_collapse": true,
+    "strict_precedence_fails": true
+  },
+  "primary": {
+    "r2_m0": 0.3563907564362878,
+    "r2_m1": 0.3518419600635579,
+    "delta_r2": -0.0045487963727298,
+    "delta_r2_ci": [
+      -0.0180495801805507,
+      0.0053849984591685
+    ],
+    "delta_rmse": 0.0011542495094934,
+    "delta_rmse_ci": [
+      -0.0014017839373271,
+      0.0043168143491592
+    ],
+    "delta_mae": 0.0020092145501774,
+    "n": 2107
+  },
+  "shuffled_H_null": {
+    "mean": -0.0080522717774415,
+    "q95": -0.0018470686606875,
+    "percentile_of_observed": 85.0
+  },
+  "pseudoH_from_S_delta_r2": -0.029780624280122,
+  "redundant_pseudoH_delta_r2": -0.0094961617429214,
+  "ridge": {
+    "delta_r2": 0.0307703876437959,
+    "ci": [
+      0.0008426431978325,
+      0.064578621568097
+    ],
+    "same_qualitative_conclusion_as_rf": false
+  },
+  "regions_positive": 2,
+  "regions_negative": 3,
+  "regions_adequate": 5,
+  "twin_partial_spearman": 0.02456215021591284,
+  "twin_ci": [
+    -0.023490549791405666,
+    0.06685927384212799
+  ],
+  "twin_perm_p": 0.7332667332667333,
+  "transfer_delta_rmse": 0.0023763777042818,
+  "transfer_null_shuffled_mean": 0.0078289867018053,
+  "transfer_null_shuffled_q05": 0.0042442536034719,
+  "strict_precedence": "DISAPPEARS",
+  "strict_delta_r2": 0.0015672311886252,
+  "strict_ci": [
+    -0.0082560212714477,
+    0.0120104043281672
+  ],
+  "secondary_Summer_day": "NULL",
+  "secondary_rf_delta_r2": -0.0179919563881544,
+  "secondary_rf_ci": [
+    -0.0297913101071463,
+    -0.0059332502139596
+  ],
+  "causal_claim_allowed": false,
+  "h_r_inspected_before_rules_fixed": false,
+  "rules_source": "results/1005-9/gate2_validation_amendment.md (sections C, D, H), written before any R was joined"
+}
