@@ -1,0 +1,28 @@
+{
+  "n_units_total": 2107,
+  "per_region_n": {
+    "Asia": 1028,
+    "Africa": 323,
+    "South America": 296,
+    "Europe": 253,
+    "North America": 186,
+    "Oceania": 21
+  },
+  "min_region_n": 21,
+  "min_region_name": "Oceania",
+  "donor_pool_size_leave_region_out": {
+    "Asia": 1079,
+    "Africa": 1784,
+    "South America": 1811,
+    "Europe": 1854,
+    "North America": 1921,
+    "Oceania": 2086
+  },
+  "H_variation": {
+    "mean_per_epoch_sd": 0.14166431856985412,
+    "min_per_epoch_sd": 0.04406757591959693,
+    "all_epochs_nonzero_sd": true
+  },
+  "spatial_separation_note": "leave-region-out donor pools are geographically separated by construction (6 broad regions); within-region donors available as a secondary (easier) variant for every region",
+  "feasible": true
+}

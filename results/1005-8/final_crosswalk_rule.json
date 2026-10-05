@@ -1,0 +1,48 @@
+{
+  "primary_rule": {
+    "substantive_link_definition": "intersection_area / min(UCDB_area, YCEO_cluster_area) >= 0.5 (the 1005-7 link definition, unchanged)",
+    "ucdb_coverage_of_cluster_threshold": 0.5,
+    "metric": "sum(intersection_m2 over linked UCDB centres) / yceo_cluster_area_m2 (identical to 1005-7's cluster_ucdb_coverage)",
+    "unit_iou_condition": ">= 0.2 (cluster-level IoU = sum(intersection)/(sum(UCDB area)+cluster area-sum(intersection)))",
+    "single_city_clusters": "kept as-is; S/H equal the single linked UCDB centre's values",
+    "multi_city_clusters": "kept iff star-shaped (every linked UCDB centre links to no other cluster) and single-country; S summed, H = sum(B_i(t))/sum(B_i(T)) (Section 10)",
+    "one_ucdb_to_multiple_yceo": "excluded (status=ambiguous_nonstar) -- a UCDB centre may not contribute to more than one cluster's outcome",
+    "cross_country_clusters": "excluded (status=cross_country)",
+    "missing_R": "excluded (status=invalid_R); validity only, magnitude never used",
+    "qc_exclusions": "inherits the 1005-4 Gate-1 sample (YOB<=2020, N=10,915) before any crosswalk step",
+    "resulting_n_units": 2107,
+    "resulting_n_cities": 2374
+  },
+  "geometry_sensitivities": [
+    {
+      "name": "S1_looser_coverage_040",
+      "coverage": 0.4,
+      "iou": null,
+      "n_units": 2724,
+      "n_cities": 3081,
+      "purpose": "lower bound on N / looser footprint requirement"
+    },
+    {
+      "name": "S2_stricter_coverage_060",
+      "coverage": 0.6,
+      "iou": null,
+      "n_units": 1644,
+      "n_cities": 1793,
+      "purpose": "upper bound on footprint strictness"
+    },
+    {
+      "name": "S3_drop_iou_floor",
+      "coverage": 0.5,
+      "iou": null,
+      "n_units": 2192,
+      "n_cities": 2459,
+      "purpose": "isolates the effect of the added IoU condition from the coverage threshold"
+    }
+  ],
+  "non_geometry_sensitivities_preregistered_elsewhere": [
+    "dominant-city H substitution for multi-city units (Section 11)",
+    "dynamic-boundary (MTUC) H where available (Section 11)",
+    "boundary-robust H descriptors (1005-6 Section 4)"
+  ],
+  "note": "At most 3 primary geometry sensitivities, per instruction; non-geometry sensitivities are listed for completeness but are not geometry forks."
+}

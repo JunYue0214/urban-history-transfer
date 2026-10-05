@@ -1,0 +1,15 @@
+{
+  "execution_id": "1005-8",
+  "started_at": "2026-10-05T14:13:31.225657+00:00",
+  "completed_at": "2026-10-05T14:14:19.839677+00:00",
+  "blind_to_H_R": true,
+  "thermal_shapefile_opened": false,
+  "thermal_data_used": "only the boolean yceo_primary_R_valid column of results/1005-7/ucdb_yceo_crosswalk.csv",
+  "network_access": "none",
+  "new_research_data_downloaded": false,
+  "random_seed": null,
+  "python": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "pandas": "3.0.6",
+  "numpy": "2.4.6"
+}

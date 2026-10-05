@@ -1,0 +1,748 @@
+PROMPT ID: 1005-8
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Gate 2 Analysis-Support Lock + Pre-registration Amendment
+
+==================================================
+0. AUTHORIZATION AND EXECUTION CONTRACT
+==================================================
+
+This prompt is the sole authorization for execution 1005-8.
+
+Before doing any work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1005-8.txt
+
+2. Read back the saved file and confirm exact match.
+
+3. Use the official environment:
+   conda environment: py311
+   Python: 3.11.x
+
+4. Do NOT modify any historical prompt/report/result/figure from executions
+   1005-1 through 1005-7.
+
+5. Do NOT download any new research data.
+
+6. Do NOT access any research-data URL.
+
+7. Do NOT run any Gate 2 history-response model.
+
+8. Do NOT compute, inspect, correlate, regress, rank, visualize, or otherwise use
+   the relationship between thermal response R and developmental history H.
+
+This restriction is absolute.
+
+This execution is intentionally BLIND to the H↔R relationship.
+
+Thermal response values may be used only for:
+- valid/missing status;
+- integrity checks already established in 1005-7;
+- sample inclusion based on pre-existing non-missingness.
+
+Do NOT use actual R magnitude in threshold selection or sample design.
+
+==================================================
+1. SCIENTIFIC CONTEXT
+==================================================
+
+Execution 1005-7 established:
+
+- YCEO SUHI v4 ZIP is valid;
+- 10,136 YCEO urban clusters;
+- primary R = Annual_nig;
+- valid primary R = 9,995;
+- secondary R = Summer_day;
+- YCEO clusters differ ontologically from GHSL urban centres;
+- assigning one cluster-level R to multiple UCDB cities would create pseudo-replication;
+- recommended Gate 2 unit = YCEO cluster;
+- S/H aggregation to cluster level is feasible;
+- current conservative matched sample = 2,192 YCEO cluster units
+  covering 2,459 UCDB cities;
+- all six broad regions remain represented;
+- matched sample is biased toward larger and older-established cities;
+- H-shape descriptors are only mildly shifted;
+- 1005-7 used a ≥50% UCDB-coverage-of-YCEO-cluster rule;
+- that rule removed 1,088 otherwise potentially usable clusters;
+- 1005-6 had pre-registered an approximate N≥3000 floor;
+- 1005-7 therefore returned:
+  THERMAL DESIGN = PROVISIONAL
+  GATE 2 EXECUTION = NOT YET.
+
+The purpose of 1005-8 is to make the final PI-facing analysis-support decision BEFORE any H↔R result is seen.
+
+==================================================
+2. CORE SCIENTIFIC QUESTION
+==================================================
+
+What is the most defensible global Gate 2 analysis population and cluster-matching rule, given:
+
+- YCEO urban-cluster ontology;
+- GHSL urban-centre ontology;
+- sample-size tradeoff;
+- geographic/global representation;
+- size/age selection bias;
+- footprint mismatch;
+- pseudo-replication risk?
+
+This execution is about inference support, not effect discovery.
+
+==================================================
+3. PRIMARY PRINCIPLE
+==================================================
+
+Do NOT maximize N.
+
+Do NOT minimize N unnecessarily.
+
+Do NOT choose the threshold that looks most favorable for R or H.
+
+Choose the rule that best balances:
+
+1. physical/ontological correspondence;
+2. representativeness;
+3. cluster independence;
+4. global coverage;
+5. interpretability;
+6. robustness;
+7. minimal post-hoc flexibility.
+
+==================================================
+4. GEOMETRY-ONLY THRESHOLD SWEEP
+==================================================
+
+Using the existing local UCDB↔YCEO crosswalk geometry outputs from 1005-7:
+
+Evaluate candidate minimum UCDB coverage of YCEO cluster thresholds:
+
+20%
+30%
+40%
+50%
+60%
+70%
+
+where coverage means:
+
+total area of substantively linked UCDB geometry within the YCEO cluster
+divided by YCEO cluster area
+
+or the exact scientifically equivalent metric already defined in 1005-7.
+
+Do NOT redefine the metric silently.
+
+For each threshold report:
+
+- N cluster units;
+- N underlying UCDB centres;
+- N single-city units;
+- N multi-city aggregate units;
+- N ambiguous excluded;
+- N cross-country excluded;
+- N invalid-R excluded;
+- region distribution;
+- fraction of source UCDB sample represented;
+- median YCEO cluster area;
+- median UCDB coverage;
+- median IoU;
+- size-bias summaries;
+- age/YOB bias summaries;
+- recent-urbanization representation;
+- H-descriptor distribution summaries;
+- multi-city frequency.
+
+Do NOT use thermal-response values except non-missingness.
+
+==================================================
+5. IoU / FOOTPRINT SUPPORT SENSITIVITY
+==================================================
+
+Separately assess reasonable IoU support rules such as:
+
+no hard IoU floor
+IoU ≥ 0.10
+IoU ≥ 0.20
+IoU ≥ 0.25
+IoU ≥ 0.30
+IoU ≥ 0.40
+IoU ≥ 0.50
+
+Do not combine every threshold × every IoU threshold into a combinatorial fishing exercise.
+
+Use the analysis to understand:
+
+- how quickly N changes;
+- whether stricter IoU disproportionately removes certain regions/sizes/ages;
+- whether footprint mismatch is structural rather than bad matching.
+
+The purpose is to inform one final primary rule and a small number of pre-registered sensitivities.
+
+==================================================
+6. ONE-TO-ONE VS AGGREGATE STRUCTURE
+==================================================
+
+Quantify, under each plausible primary rule:
+
+- single-city clusters;
+- multi-city clusters;
+- distribution of number of UCDB centres per YCEO cluster;
+- dominant-city built-up share;
+- aggregate-vs-dominant-city H distance;
+- fraction of total sample requiring aggregation.
+
+Determine whether aggregation materially changes H representation.
+
+Do NOT use R values.
+
+==================================================
+7. SAMPLE REPRESENTATIVENESS AUDIT
+==================================================
+
+For each plausible threshold rule, compare included vs excluded UCDB cities in:
+
+- broad region;
+- log population 2020;
+- log built-up area 2020;
+- YOB / urban-centre birth year;
+- post-1975 urbanization indicator;
+- post-1990 urbanization indicator if available;
+- early-developed fraction;
+- recent-expansion fraction;
+- weighted development timing;
+- latitude / absolute latitude.
+
+Report standardized mean differences and key quantiles.
+
+Primary emphasis:
+
+Is bias mainly in size/age?
+
+or does the rule materially distort H variation itself?
+
+==================================================
+8. COMMON-SUPPORT DESIGN
+==================================================
+
+Design a pre-analysis common-support strategy.
+
+Candidate philosophy:
+
+Primary inference population:
+YCEO clusters with defensible GHSL support and observed R.
+
+Within that sample, require overlap/common support in S and C sufficient for:
+
+- spatial holdout;
+- twin matching;
+- donor/analogue transfer.
+
+Do NOT remove observations now based on future model residuals or outcome behavior.
+
+Pre-register how common support will later be defined using S/C only.
+
+Examples may include:
+
+- region-specific percentile support;
+- Mahalanobis-distance support;
+- kNN density support;
+- propensity-to-be-matched support.
+
+Choose a simple, auditable method.
+
+==================================================
+9. N>=3000 PRE-REGISTRATION AMENDMENT
+==================================================
+
+Execution 1005-6 used an approximate N≥3000 floor before the real crosswalk ontology was known.
+
+This threshold must now be reviewed explicitly.
+
+Do NOT simply delete it.
+
+Evaluate whether it had a scientific/statistical basis.
+
+If not, issue a formal pre-registration amendment replacing it with criteria based on:
+
+- independent analysis units;
+- broad-region support;
+- minimum fold size;
+- H variation;
+- common support;
+- effective sample size;
+- sensitivity stability.
+
+The amendment must explicitly state:
+
+- original rule;
+- why it is being changed;
+- what new rule replaces it;
+- that the amendment occurs BEFORE any H↔R relationship is analyzed;
+- that no Gate 2 outcome model has yet been run.
+
+Write this to:
+
+results/1005-8/preregistration_amendment.md
+
+Do NOT edit the historical 1005-6 preregistration file.
+
+==================================================
+10. PRIMARY ANALYSIS UNIT LOCK
+==================================================
+
+Confirm or reject:
+
+PRIMARY UNIT = YCEO urban cluster
+
+with:
+
+S_cluster =
+aggregated present-state variables of linked UCDB centres
+
+H_cluster(t) =
+Σ B_i(t) / Σ B_i(T)
+
+for linked UCDB centres i inside cluster j.
+
+If better weighting is scientifically justified, explain.
+
+Do NOT introduce complex weights unless necessary.
+
+For single-city clusters:
+aggregation reduces to the original city value.
+
+For multi-city clusters:
+record exact aggregation rule.
+
+==================================================
+11. FIXED VS DYNAMIC H IN GATE 2
+==================================================
+
+Pre-register:
+
+Primary H:
+fixed-boundary UCDB history aggregated to YCEO cluster.
+
+Sensitivity H:
+dynamic-boundary MTUC history where defensibly available.
+
+Do NOT restrict the full Gate 2 sample to the MTUC complete-history sample.
+
+Also include:
+
+- boundary-robust H descriptors sensitivity;
+- dominant-city H sensitivity for multi-city clusters.
+
+==================================================
+12. BIAS HANDLING OPTIONS
+==================================================
+
+Evaluate and choose among:
+
+A. unweighted primary analysis with explicit target-population restriction;
+
+B. inverse-probability weighting;
+
+C. entropy balancing;
+
+D. region × size stratification;
+
+E. common-support restriction;
+
+F. post-stratification / transport weighting.
+
+Do NOT use R values.
+
+Primary design should favor interpretability and robustness over maximal correction.
+
+Strongly avoid high-variance weighting if inclusion probability is near zero for many small/recent cities.
+
+If weighting is retained, define weight trimming/capping BEFORE Gate 2.
+
+==================================================
+13. RECOMMENDED PRIMARY INFERENCE TARGET
+==================================================
+
+At the end, define the exact population to which Gate 2 claims may generalize.
+
+Examples:
+
+- all global urban centres;
+- larger established urban agglomerations;
+- YCEO-detectable global urban agglomerations with defensible GHSL overlap;
+- another explicitly defined population.
+
+Do NOT overgeneralize beyond the matched support.
+
+This target-population statement will be used in future paper framing.
+
+==================================================
+14. REGION / FOLD FEASIBILITY
+==================================================
+
+For the final candidate primary rule, evaluate whether geographically blocked validation is feasible.
+
+Report per-region N.
+
+Assess:
+
+- leave-region-out;
+- spatial blocked K-fold;
+- whether Oceania is too small as an independent fold;
+- whether regions should be merged only for validation, not interpretation.
+
+Do NOT invent a validation scheme solely to preserve all six folds.
+
+If one region is too small, say so.
+
+==================================================
+15. TWIN FEASIBILITY
+==================================================
+
+Without using R magnitude, evaluate whether the sample supports the pre-registered twin design:
+
+mutual kNN in S3+C1
+with geographic separation constraint.
+
+Report expected number of candidate twin pairs for:
+
+k = 5
+k = 10
+k = 20
+
+using S/C only.
+
+Do NOT compute D_R.
+
+Do NOT correlate with H.
+
+This is feasibility only.
+
+==================================================
+16. TRANSFERABILITY FEASIBILITY
+==================================================
+
+Using S/C/H availability only, determine whether the pre-registered donor/analogue transfer experiment will have:
+
+- enough donor candidates;
+- sufficient regional diversity;
+- sufficient H variation;
+- adequate spatial separation.
+
+Do NOT use R values.
+
+==================================================
+17. FINAL PRIMARY CROSSWALK RULE
+==================================================
+
+Choose exactly ONE primary geometry rule.
+
+It must specify:
+
+- substantive link definition;
+- UCDB coverage threshold;
+- IoU condition if any;
+- treatment of single-city clusters;
+- treatment of multi-city clusters;
+- treatment of one-UCDB-to-multiple-YCEO cases;
+- cross-country clusters;
+- missing R;
+- QC exclusions.
+
+Also define no more than 3 primary geometry sensitivities.
+
+Avoid a large garden of forking paths.
+
+==================================================
+18. DECISION CRITERIA FOR GATE 2 READINESS
+==================================================
+
+Gate 2 may proceed only if:
+
+1. primary analysis unit is locked;
+2. primary crosswalk rule is locked;
+3. inference target is explicit;
+4. N floor amendment is recorded;
+5. bias handling is locked;
+6. region/fold structure is feasible;
+7. twin and transferability designs remain feasible;
+8. no H↔R result has been inspected;
+9. no new research data are required.
+
+==================================================
+19. REQUIRED DECISIONS
+==================================================
+
+At the end assign:
+
+ANALYSIS SUPPORT = LOCKED
+or
+ANALYSIS SUPPORT = PROVISIONAL
+or
+ANALYSIS SUPPORT = REJECTED
+
+and:
+
+GATE 2 EXECUTION = YES
+or
+GATE 2 EXECUTION = NOT YET
+or
+GATE 2 EXECUTION = NO
+
+LOCKED + YES means execution 1005-9 may run the preregistered Gate 2 experiments.
+
+==================================================
+20. REQUIRED OUTPUT FILES
+==================================================
+
+Create at minimum:
+
+results/1005-8/coverage_threshold_sweep.csv
+results/1005-8/iou_sensitivity.csv
+results/1005-8/sample_bias_by_rule.csv
+results/1005-8/aggregation_structure.csv
+results/1005-8/common_support_design.md
+results/1005-8/preregistration_amendment.md
+results/1005-8/final_crosswalk_rule.json
+results/1005-8/inference_target.md
+results/1005-8/fold_feasibility.csv
+results/1005-8/twin_feasibility.csv
+results/1005-8/transferability_feasibility.json
+results/1005-8/analysis_support_decision.json
+results/1005-8/run_metadata.json
+
+Figures:
+figures/1005-8/
+
+Report:
+reports/report1005-8.md
+
+==================================================
+21. REQUIRED FIGURES
+==================================================
+
+Create only 4–6 diagnostic figures.
+
+Suggested:
+
+1. sample N vs coverage threshold;
+2. regional retention vs threshold;
+3. size/age bias vs threshold;
+4. H-descriptor SMD vs threshold;
+5. IoU distribution / retention;
+6. aggregation structure.
+
+Do NOT plot any R magnitude.
+
+==================================================
+22. TESTING
+==================================================
+
+Add tests that enforce:
+
+- no use of R magnitude;
+- only R missingness may affect inclusion;
+- threshold sweep correctness;
+- aggregation determinism;
+- no duplicated cluster outcome assignment;
+- final-rule classification consistency;
+- no network access;
+- historical artifacts unchanged.
+
+Run full test suite under py311.
+
+==================================================
+23. GIT
+==================================================
+
+Do NOT commit raw data.
+
+Commit prompt, code, tests, results, figures, report if tests pass.
+
+For GitHub push use current-session Clash proxy:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+git push origin master
+
+Do NOT use setx.
+Do NOT alter global Git proxy.
+Do NOT change GitHub authentication.
+
+==================================================
+24. REQUIRED REPORT STRUCTURE
+==================================================
+
+Write:
+
+reports/report1005-8.md
+
+Required sections:
+
+1. Executive Summary
+2. Exact Question
+3. Blindness / No-H↔R Verification
+4. Coverage Threshold Sweep
+5. IoU Sensitivity
+6. Aggregation Structure
+7. Sample Representativeness
+8. Common-Support Design
+9. N≥3000 Pre-registration Amendment
+10. Final Analysis Unit
+11. Final H Definition
+12. Bias Handling Decision
+13. Final Inference Target
+14. Region/Fold Feasibility
+15. Twin Feasibility
+16. Transferability Feasibility
+17. Final Crosswalk Rule
+18. Geometry Sensitivities
+19. Evidence FOR Gate 2 Readiness
+20. Evidence AGAINST Gate 2 Readiness
+21. Analysis Support Decision
+22. Gate 2 Execution Decision
+23. Exact Files Created/Modified
+24. Reproducibility / Integrity Statement
+25. Questions for PI Review
+
+==================================================
+25. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. How does N change at 20/30/40/50/60/70% coverage thresholds?
+
+Q2. How does regional representation change?
+
+Q3. How does size bias change?
+
+Q4. How does age/YOB bias change?
+
+Q5. How does H-shape bias change?
+
+Q6. What is the recommended primary coverage threshold?
+
+Q7. Why?
+
+Q8. Is a hard IoU floor needed?
+
+Q9. If yes, what value?
+
+Q10. What geometry sensitivities should be retained?
+
+Q11. Is YCEO cluster definitively the primary analysis unit?
+
+Q12. How should multi-city clusters aggregate S?
+
+Q13. How should they aggregate H?
+
+Q14. Should dominant-city H be a sensitivity?
+
+Q15. Should dynamic-boundary H remain sensitivity only?
+
+Q16. Is the original N≥3000 floor scientifically justified?
+
+Q17. What replaces it?
+
+Q18. What is the exact final inference population?
+
+Q19. Should the primary analysis be weighted?
+
+Q20. If not, how should selection bias be handled?
+
+Q21. If weighting is used, how are extreme weights controlled?
+
+Q22. Is leave-region-out still feasible?
+
+Q23. Is Oceania large enough for a standalone validation fold?
+
+Q24. Is spatial blocked K-fold feasible?
+
+Q25. Is the twin experiment still feasible?
+
+Q26. Is the transferability experiment still feasible?
+
+Q27. What is the final recommended primary sample N?
+
+Q28. What fraction are multi-city aggregate units?
+
+Q29. Does the final rule materially distort H distributions?
+
+Q30. Were any H↔R relationships inspected?
+
+Q31. ANALYSIS SUPPORT:
+LOCKED / PROVISIONAL / REJECTED?
+
+Q32. GATE 2 EXECUTION:
+YES / NOT YET / NO?
+
+==================================================
+26. FINAL CONSOLE RESPONSE
+==================================================
+
+Return only:
+
+PROMPT 1005-8 COMPLETED
+
+Primary unit:
+<YCEO CLUSTER / OTHER>
+
+Primary coverage threshold:
+<value>
+
+Primary IoU rule:
+<value / none>
+
+Final primary sample:
+<N>
+
+Underlying UCDB cities:
+<N>
+
+Multi-city aggregate units:
+<N>
+
+Inference target:
+<short phrase>
+
+N>=3000 amendment:
+<ACCEPTED / RETAINED>
+
+Primary weighting:
+<YES / NO>
+
+Leave-region-out feasible:
+<YES / NO / MODIFIED>
+
+Twin experiment feasible:
+<YES / NO>
+
+Transferability feasible:
+<YES / NO>
+
+H-R inspected:
+NO
+
+Analysis support:
+<LOCKED / PROVISIONAL / REJECTED>
+
+Gate 2 execution:
+<YES / NOT YET / NO>
+
+Tests:
+<PASS/FAIL, count>
+
+Git push:
+<SUCCESS / FAILED / NOT ATTEMPTED>
+
+Report:
+reports/report1005-8.md
+
+Status:
+AWAITING_PI_REVIEW

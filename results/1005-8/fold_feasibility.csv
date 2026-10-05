@@ -1,0 +1,13 @@
+scheme,group,n,min_recommended,feasible_standalone
+leave_region_out,Asia,1028,30,True
+leave_region_out,Africa,323,30,True
+leave_region_out,South America,296,30,True
+leave_region_out,Europe,253,30,True
+leave_region_out,North America,186,30,True
+leave_region_out,Oceania,21,30,False
+leave_region_out_merged_Oceania_into_Asia,Oceania+Asia,1049,30,True
+spatial_blocked_5fold_10deg_tiles,fold_0,422,30,True
+spatial_blocked_5fold_10deg_tiles,fold_1,422,30,True
+spatial_blocked_5fold_10deg_tiles,fold_2,421,30,True
+spatial_blocked_5fold_10deg_tiles,fold_3,421,30,True
+spatial_blocked_5fold_10deg_tiles,fold_4,421,30,True

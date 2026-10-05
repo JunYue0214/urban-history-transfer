@@ -1,0 +1,4 @@
+k,min_separation_km,n_mutual_pairs,n_units_in_at_least_one_pair,frac_units_with_a_twin
+5,200,3277,1989,0.9439962031324157
+10,200,6823,2079,0.9867109634551495
+20,200,13757,2102,0.9976269577598481

@@ -1,0 +1,16 @@
+{
+  "ANALYSIS_SUPPORT": "LOCKED",
+  "GATE_2_EXECUTION": "YES",
+  "primary_unit": "YCEO_CLUSTER",
+  "primary_coverage_threshold": 0.5,
+  "primary_iou_threshold": 0.2,
+  "final_primary_sample_units": 2107,
+  "final_primary_sample_cities": 2374,
+  "multi_city_units": 146,
+  "oceania_n": 21,
+  "oceania_standalone_fold_feasible": false,
+  "n_floor_amendment": "ACCEPTED",
+  "weighting": "NO (unweighted primary with explicit restricted inference target; option A)",
+  "h_r_relationship_inspected": false,
+  "new_research_data_required": false
+}
