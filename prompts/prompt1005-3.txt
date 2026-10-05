@@ -1,0 +1,1181 @@
+PROMPT ID: 1005-3
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+SOURCE PROMPT:
+prompts/prompt1005-3.txt
+
+PREVIOUS EXECUTION:
+1005-2
+
+EXPECTED REPORT:
+reports/report1005-3.md
+
+MACHINE-READABLE RESULTS:
+results/1005-3/
+
+FIGURES:
+figures/1005-3/
+
+======================================================================
+1. ROLE
+======================================================================
+
+You are acting as a Research Engineer and Scientific Feasibility Auditor.
+
+You are NOT the Principal Investigator.
+
+You may:
+
+- inspect official dataset documentation;
+- inspect metadata;
+- inspect APIs/download interfaces;
+- inspect small metadata/catalog files where necessary;
+- search scientific literature for feasibility and prior-art verification;
+- document definitions;
+- identify confounding/circularity/leakage risks;
+- estimate data scale;
+- propose candidate implementations clearly labeled as candidates.
+
+You may NOT:
+
+- finalize the scientific design;
+- declare novelty established;
+- select the final response variable;
+- select pilot cities;
+- download large/global raster datasets;
+- run real-data scientific analyses;
+- optimize a sensing network;
+- test the main hypothesis.
+
+======================================================================
+2. CURRENT CANDIDATE SCIENTIFIC QUESTION
+======================================================================
+
+The current candidate scientific question is:
+
+"Does the pathway by which a city formed leave a measurable
+environmental legacy after its present-day state and natural background
+are accounted for?"
+
+A provisional statistical expression is:
+
+H not independent of R conditional on S and C
+
+where:
+
+S = present-day urban state
+H = historical urban development pathway
+C = background environmental/climatic context
+R = environmental response
+
+This is a CANDIDATE framing.
+
+Do not convert it into a finalized hypothesis.
+
+======================================================================
+3. THREE CANDIDATE SCIENTIFIC TESTS
+======================================================================
+
+Audit feasibility for three candidate tests.
+
+TEST A — INCREMENTAL HISTORICAL INFORMATION
+
+Baseline:
+
+M0:
+R ~ S + C
+
+History-aware:
+
+M1:
+R ~ S + C + H
+
+Question:
+
+Does adding H improve strictly out-of-sample explanatory/predictive
+performance after S and C are controlled?
+
+Do not fit these models in this execution.
+
+--------------------------------------------------
+
+TEST B — PRESENT-DAY URBAN TWINS
+
+Candidate city pairs satisfy approximately:
+
+D_S(i,j) small
+D_C(i,j) small
+
+while:
+
+D_H(i,j) large
+
+Question:
+
+Does environmental-response divergence D_R increase with historical
+divergence D_H among present-day analogues?
+
+Do not identify actual city pairs in this execution.
+
+--------------------------------------------------
+
+TEST C — HISTORY-AWARE TRANSFERABILITY
+
+Compare analogue selection based on:
+
+A0 = analogue(S,C)
+
+versus:
+
+A1 = analogue(S,C,H)
+
+Question:
+
+Does history-aware analogue selection reduce out-of-sample transfer
+error?
+
+Do not run this experiment.
+
+======================================================================
+4. CORE CONCEPTUAL DECOMPOSITION
+======================================================================
+
+Audit whether H can feasibly be decomposed into:
+
+H_when
+H_where
+H_how
+
+Candidate meanings:
+
+H_when:
+when urbanization occurred
+
+H_where:
+where urbanization occurred relative to geography/environment
+
+H_how:
+how the city grew, including horizontal/vertical development where data
+permit
+
+Do not assume all three components must be retained.
+
+Determine what global datasets genuinely support.
+
+======================================================================
+5. PRIMARY DATASET FAMILY TO AUDIT
+======================================================================
+
+Prioritize official sources.
+
+Audit at minimum:
+
+A. GHS-UCDB / Global Human Settlement Urban Centre Database
+
+B. GHS-BUILT-S
+
+C. GHS-BUILT-V
+
+D. GHS-POP
+
+E. GHS-AGE / built stock age product
+
+F. relevant GHSL settlement/urban-centre boundary products
+
+For each product verify from authoritative documentation where possible:
+
+- exact official product name
+- provider
+- product version/release
+- DOI or persistent identifier where available
+- spatial resolution
+- coordinate reference system
+- geographic coverage
+- temporal coverage
+- temporal interval
+- file format
+- tile/global organization
+- download mechanism
+- approximate download size if documented or safely inferable
+- license/reuse terms
+- citation requirements
+- whether city-level extraction can avoid downloading the entire
+  highest-resolution global product
+- whether summary attributes already exist in UCDB
+- relevant known limitations
+
+Do not rely on memory when authoritative documentation can be checked.
+
+======================================================================
+6. URBAN UNIT AUDIT
+======================================================================
+
+Compare at least these candidate analysis units:
+
+A. GHS Urban Centre polygons
+
+B. fixed 2020 urban footprint
+
+C. time-varying/dynamic urban footprint
+
+D. regular global grid cells
+
+For each assess:
+
+- scientific interpretation
+- temporal consistency
+- susceptibility to boundary-change artifacts
+- compatibility with historical trajectories
+- compatibility with environmental responses
+- computational burden
+- suitability for cross-city comparison
+- suitability for present-day urban-twin matching
+- risk of conditioning on future information
+
+Pay special attention to this issue:
+
+Using a 2020-defined urban boundary to summarize 1975 history may
+introduce future-boundary conditioning.
+
+Explain when this is acceptable, when it is problematic, and possible
+sensitivity analyses.
+
+Do NOT select the final unit.
+
+======================================================================
+7. HISTORY VARIABLE AUDIT
+======================================================================
+
+Audit candidate H variables including at minimum:
+
+1. built-up surface trajectory
+
+2. population trajectory
+
+3. built-volume trajectory
+
+4. built-stock age distribution
+
+5. horizontal-versus-vertical development trajectory
+
+6. expansion compactness / fragmentation trajectory if supportable
+
+7. directional expansion relative to existing urban centre
+
+8. urbanization relative to elevation/slope
+
+9. urbanization relative to flood-prone space
+
+For each candidate determine:
+
+- source dataset
+- earliest reliable time
+- temporal frequency
+- spatial resolution
+- whether it is directly observed or derived
+- whether it can be summarized at city level
+- expected data burden
+- whether it duplicates information already present in S
+- whether it risks mathematically encoding the outcome
+- likely interpretability
+
+Classify each:
+
+STRONG CANDIDATE
+POSSIBLE
+WEAK
+REJECT FOR NOW
+
+This classification is advisory, not a final PI decision.
+
+======================================================================
+8. PRESENT-DAY STATE S AUDIT
+======================================================================
+
+Audit possible S variables including:
+
+- present built-up fraction/area
+- present population
+- population density
+- built volume
+- built density
+- urban footprint area
+- vegetation/greenness
+- imperviousness where justified
+- urban morphology indicators
+
+The critical question is:
+
+What must be included in S so that an apparent "history effect" is not
+simply a disguised present-day morphology effect?
+
+Identify:
+
+- indispensable controls;
+- optional controls;
+- dangerous controls that may themselves be mediators;
+- redundant variables.
+
+Do not finalize S.
+
+======================================================================
+9. BACKGROUND CONTEXT C AUDIT
+======================================================================
+
+Audit globally available, computationally manageable candidates for:
+
+- climate
+- latitude
+- elevation
+- slope/topography
+- aridity
+- coastal proximity where useful
+- biome/ecoregion where useful
+
+Prioritize products that can be summarized at city level without
+massive data processing.
+
+Candidate sources may include, where scientifically appropriate:
+
+ERA5-Land
+WorldClim
+CHELSA
+SRTM
+MERIT DEM
+Copernicus DEM
+global climate classifications
+
+Use authoritative sources where possible.
+
+Distinguish:
+
+background confounder
+
+from:
+
+potential mediator
+
+from:
+
+present-day state variable.
+
+======================================================================
+10. RESPONSE R — THERMAL AUDIT
+======================================================================
+
+Audit thermal response as the primary candidate response family.
+
+Consider at minimum:
+
+- MODIS land surface temperature
+- VIIRS land surface temperature where appropriate
+- urban-rural LST anomaly / surface urban heat island intensity
+- daytime versus nighttime
+- seasonal versus annual response
+- climatological mean versus extreme heat response
+
+Determine:
+
+- temporal availability
+- spatial resolution
+- missing-data/cloud limitations
+- global comparability
+- urban/rural reference-definition problem
+- approximate data burden
+- whether existing city-level/global products can reduce data volume
+
+Critically evaluate whether:
+
+R = raw city LST
+
+is scientifically inferior to an anomaly/contrast response.
+
+Do not select the final thermal metric.
+
+======================================================================
+11. RESPONSE R — HYDROLOGICAL/FLOOD AUDIT
+======================================================================
+
+Audit a second response family involving hydrology/flooding.
+
+Distinguish carefully among:
+
+HAZARD
+EXPOSURE
+VULNERABILITY
+REALIZED IMPACT
+INUNDATION RESPONSE
+
+Audit globally available products for:
+
+- flood hazard
+- floodplain extent
+- observed inundation where available
+- event-based flood occurrence
+- population/built exposure
+- realized impacts if globally consistent products exist
+
+Important:
+
+Do NOT treat "built-up area inside flood hazard zones" as an independent
+environmental response if the same quantity is used to construct H.
+
+Explicitly identify circular formulations.
+
+Determine whether a scientifically independent R exists at global scale
+with manageable data burden.
+
+If not, say so clearly.
+
+======================================================================
+12. OPTIONAL RESPONSE FAMILIES — BRIEF AUDIT
+======================================================================
+
+Briefly audit, without excessive depth:
+
+- vegetation / ecological productivity
+- carbon
+- biodiversity
+
+The purpose is not to build these analyses now.
+
+The purpose is to determine whether they provide a compelling
+independent replication domain if thermal memory is observed.
+
+======================================================================
+13. PRIOR-ART / NOVELTY COLLISION AUDIT
+======================================================================
+
+Search recent scientific literature, prioritizing:
+
+Nature
+Nature Cities
+Nature Climate Change
+Nature Communications
+Communications Earth & Environment
+npj Urban Sustainability
+Remote Sensing of Environment
+Environmental Research Letters
+and other directly relevant high-quality journals.
+
+Search specifically for prior work on:
+
+- urban path dependence
+- built-up age and LST
+- urban development history and thermal environment
+- global urban growth trajectories
+- horizontal vs vertical urban growth
+- urbanization into flood hazard
+- historical urban form and environmental response
+- urban analogue / city twin methods
+- urban environmental memory
+- legacy effects of urbanization
+
+Create:
+
+results/1005-3/prior_art_matrix.csv
+
+Columns at minimum:
+
+paper
+year
+journal
+DOI_or_URL
+spatial_scope
+sample_size
+history_definition
+response
+method
+main_claim
+overlap_with_our_candidate
+collision_risk
+remaining_gap
+
+Do not claim novelty simply because an exact phrase was not found.
+
+Distinguish:
+
+DIRECT COLLISION
+PARTIAL COLLISION
+RELATED
+DISTANT
+
+======================================================================
+14. TERMINOLOGY AUDIT
+======================================================================
+
+Investigate whether terms such as:
+
+urban environmental memory
+urban memory
+urban ecological memory
+urban legacy effect
+developmental legacy
+path dependence
+
+already have established meanings in relevant disciplines.
+
+Do not invent a branded term merely for novelty.
+
+Report whether "urban environmental memory" is:
+
+SAFE
+AMBIGUOUS
+OVERLOADED
+NOT RECOMMENDED
+
+with evidence.
+
+======================================================================
+15. IDENTIFIABILITY / CIRCULARITY RED-TEAM
+======================================================================
+
+This is a critical section.
+
+Actively try to invalidate the proposed study.
+
+Create:
+
+results/1005-3/identifiability_risk_register.csv
+
+At minimum inspect:
+
+A. Mathematical coupling
+
+Does H mathematically contain or reconstruct S?
+
+B. Outcome leakage
+
+Does H contain information derived from R or a close proxy?
+
+C. Temporal leakage
+
+Are future observations used to define historical predictors?
+
+D. Boundary leakage
+
+Does a 2020 boundary determine historical measurements in a way that
+creates artificial relationships?
+
+E. Spatial autocorrelation
+
+Could nearby cities make cross-validation appear better than true
+transferability?
+
+F. Climate confounding
+
+Could history merely proxy climate zone or latitude?
+
+G. Development-level confounding
+
+Could history merely proxy income/development stage?
+
+H. Urban-size confounding
+
+Could city age simply proxy city size?
+
+I. Sensor/product artifacts
+
+Could apparent history effects arise because old/dense urban cores have
+different retrieval properties?
+
+J. Rural-reference contamination
+
+Could SUHI differences be caused by inconsistent rural reference areas?
+
+K. Survivor/selection bias
+
+Does the urban-centre dataset preferentially include cities that reached
+a modern threshold?
+
+L. Modifiable areal unit problem
+
+Could results depend strongly on city boundary definition?
+
+M. Multicollinearity
+
+Can S and H be statistically distinguished?
+
+N. Post-treatment control
+
+Could controlling for present-day morphology erase the pathway through
+which history actually acts?
+
+For every risk provide:
+
+- mechanism
+- severity
+- detectability
+- proposed falsification/sensitivity test
+- whether it is fatal or manageable
+
+Use severity:
+
+LOW
+MEDIUM
+HIGH
+CRITICAL
+
+======================================================================
+16. NEGATIVE CONTROL / FALSIFICATION AUDIT
+======================================================================
+
+Without running analyses, design candidate falsification tests.
+
+Consider:
+
+- shuffled history within climate zones
+- temporally reversed history where meaningful
+- spatially permuted history
+- pseudo-history generated from present state
+- history variables intentionally redundant with S
+- geographically blocked validation
+- leave-continent-out validation
+- leave-climate-zone-out validation
+- alternate city boundaries
+- alternate rural reference definitions
+- alternate history windows
+- alternate endpoint years
+
+Explain what result would weaken or falsify the history-memory claim.
+
+Avoid tests that can only confirm the hypothesis.
+
+======================================================================
+17. DATA-VOLUME STRATEGY
+======================================================================
+
+The user explicitly wants:
+
+GLOBAL / LARGE-SCALE SCIENCE
+
+without unnecessarily massive data volume.
+
+Design three possible data strategies:
+
+TIER 1 — metadata/city-table only
+
+TIER 2 — city-level extracted raster summaries
+
+TIER 3 — selective pixel-level analysis for validation
+
+For each estimate:
+
+- expected storage order of magnitude
+- expected compute burden
+- scientific capability
+- limitations
+
+Prioritize architectures where:
+
+global inference is city-level
+
+and:
+
+pixel-level data are used only where necessary for validation.
+
+Do not download large data in this execution.
+
+======================================================================
+18. PILOT DESIGN — DESIGN ONLY
+======================================================================
+
+Design, but DO NOT execute, a small future pilot capable of killing the
+hypothesis cheaply.
+
+The pilot should answer:
+
+"Is there enough independent historical signal to justify global-scale
+investment?"
+
+Do not select named cities.
+
+Instead specify a sampling strategy, for example:
+
+- multiple continents
+- multiple climate zones
+- range of city sizes
+- deliberately matched present states
+- deliberately divergent histories
+
+Propose candidate sample-size ranges but do not finalize one.
+
+Estimate expected data volume.
+
+The pilot should be designed for falsification, not publication-quality
+confirmation.
+
+======================================================================
+19. DECISION MATRIX
+======================================================================
+
+Create:
+
+results/1005-3/scientific_design_decision_matrix.csv
+
+Rows should include major candidate choices for:
+
+analysis unit
+H_when
+H_where
+H_how
+S
+C
+thermal R
+hydrological R
+validation strategy
+
+Columns:
+
+candidate
+scientific_value
+data_availability
+global_consistency
+data_burden
+circularity_risk
+confounding_risk
+interpretability
+prior_art_collision
+recommended_status
+reason
+
+Use qualitative standardized levels where appropriate.
+
+Do not silently turn this into a final design.
+
+======================================================================
+20. DATASET INVENTORY
+======================================================================
+
+Create:
+
+results/1005-3/dataset_inventory.csv
+
+Columns at minimum:
+
+dataset_id
+official_name
+provider
+version
+DOI_or_persistent_id
+official_URL
+role_candidate
+spatial_resolution
+temporal_coverage
+temporal_resolution
+geographic_coverage
+format
+CRS
+approx_size
+download_method
+license
+citation
+city_level_summary_available
+requires_large_download
+notes
+verification_status
+
+Verification status must distinguish:
+
+VERIFIED_OFFICIAL
+VERIFIED_SECONDARY
+UNVERIFIED
+
+Do not fabricate unknown metadata.
+
+Use UNKNOWN where necessary.
+
+======================================================================
+21. SOURCE LEDGER
+======================================================================
+
+Create:
+
+results/1005-3/source_ledger.csv
+
+For every important factual claim record:
+
+claim_id
+claim
+source_type
+source_title
+source_URL_or_DOI
+access_date
+authority_level
+notes
+
+Prioritize:
+
+official product documentation
+peer-reviewed original papers
+official repositories
+
+over blogs or tertiary summaries.
+
+======================================================================
+22. DOWNLOAD PROHIBITION
+======================================================================
+
+This execution may inspect:
+
+- HTML documentation
+- metadata
+- catalog endpoints
+- tiny metadata files
+- product manifests
+- API documentation
+- article abstracts/pages
+
+It may NOT download:
+
+- global GHSL raster stacks
+- MODIS raster archives
+- VIIRS raster archives
+- ERA5 bulk data
+- DEM mosaics
+- flood raster stacks
+- large scientific datasets
+
+If exact size cannot be known without download:
+
+report UNKNOWN or an explicitly labeled estimate.
+
+Do not start a download merely to estimate size.
+
+======================================================================
+23. NO REAL-DATA SCIENTIFIC ANALYSIS
+======================================================================
+
+Do not calculate real city-level correlations.
+
+Do not fit regressions.
+
+Do not train ML models.
+
+Do not calculate real-city D_S, D_H, or D_R.
+
+Do not select actual twin cities.
+
+Do not optimize sensors.
+
+Do not produce hypothesis-supporting scientific figures.
+
+No real-data hypothesis test is authorized.
+
+======================================================================
+24. REPORT
+======================================================================
+
+Create:
+
+reports/report1005-3.md
+
+The report must include:
+
+1. Executive summary
+
+2. Exact task boundaries
+
+3. Dataset feasibility findings
+
+4. Urban-unit comparison
+
+5. History-variable feasibility
+
+6. Present-state variable audit
+
+7. Background-context audit
+
+8. Thermal-response audit
+
+9. Hydrological-response audit
+
+10. Brief alternative-response audit
+
+11. Prior-art collision findings
+
+12. Terminology findings
+
+13. Identifiability/circularity red-team
+
+14. Falsification strategy
+
+15. Low-data-volume architecture
+
+16. Proposed hypothesis-killing pilot design
+
+17. Decision matrix summary
+
+18. Unresolved scientific decisions requiring PI review
+
+19. Exact files created/modified
+
+20. Integrity statement
+
+======================================================================
+25. REQUIRED PI QUESTIONS
+======================================================================
+
+End the report with a section:
+
+QUESTIONS FOR PI REVIEW
+
+Answer these based on evidence, without finalizing them:
+
+Q1.
+Is the candidate scientific question materially different from existing
+global urban heat / urban growth studies?
+
+Q2.
+Which history component appears most scientifically defensible:
+when, where, or how?
+
+Q3.
+Can H be defined without trivially reconstructing S?
+
+Q4.
+Can thermal R be defined independently enough from H and S?
+
+Q5.
+Is hydrological R feasible as an independent response, or is it too
+circular/data-limited?
+
+Q6.
+Which candidate analysis unit creates the least serious temporal and
+boundary bias?
+
+Q7.
+What is the single most dangerous threat to causal/scientific
+interpretation?
+
+Q8.
+What result in a future pilot should cause the project to abandon the
+"history matters" hypothesis?
+
+Q9.
+What is the smallest scientifically meaningful pilot?
+
+Q10.
+Should the next execution:
+A. run a small metadata/table-level pilot,
+B. acquire a small amount of raster data,
+C. revise the scientific question,
+or
+D. stop this direction?
+
+Give an evidence-based recommendation, but label it ADVISORY ONLY.
+
+======================================================================
+26. MACHINE-READABLE RUN METADATA
+======================================================================
+
+Create:
+
+results/1005-3/run_metadata.json
+
+Include at minimum:
+
+execution_id
+source_prompt
+previous_execution
+report
+status
+started_at
+completed_at
+
+real_research_raster_data_downloaded
+real_city_scientific_analysis_performed
+main_hypothesis_tested
+pilot_executed
+final_scientific_design_locked
+
+official_sources_checked
+peer_reviewed_sources_checked
+
+dataset_inventory
+prior_art_matrix
+identifiability_risk_register
+scientific_design_decision_matrix
+source_ledger
+
+git_commit_before_execution
+git_commit_after_execution_if_created
+
+integrity_violations
+
+======================================================================
+27. FIGURES
+======================================================================
+
+Create/ensure:
+
+figures/1005-3/
+
+No scientific result figures are authorized.
+
+Do not create decorative figures merely to populate the directory.
+
+======================================================================
+28. TESTS
+======================================================================
+
+If code is added for metadata processing or report generation, run
+appropriate tests using:
+
+conda run -n py311 python -m pytest
+
+Do not create unnecessary software merely because the environment
+supports it.
+
+This execution is primarily an evidence audit.
+
+======================================================================
+29. GIT
+======================================================================
+
+At the start record:
+
+git status
+git log -1 --oneline
+git remote -v
+
+Do not alter previous commits.
+
+At the end:
+
+- verify no large scientific data were accidentally added;
+- verify no secrets were introduced;
+- create a commit only if all authorized outputs are complete and
+  integrity checks pass;
+- push to the already configured private origin if authentication works
+  non-interactively.
+
+Suggested commit message:
+
+1005-3: audit global data feasibility and identifiability
+
+If push fails due authentication:
+
+do not repeatedly retry;
+report it for human action.
+
+======================================================================
+30. HARD PROHIBITIONS
+======================================================================
+
+DO NOT:
+
+- modify historical prompts
+- modify historical reviewed reports
+- modify historical results
+- create another conda environment
+- modify base
+- download large/global research raster data
+- select final cities
+- run real-data correlations
+- run real-data regressions
+- train ML/DL models
+- run optimization
+- claim causality
+- claim novelty established
+- define a branded scientific term as final
+- declare H/S/C/R finalized
+- cherry-pick evidence supporting the candidate hypothesis
+- hide prior-art collisions
+- create prompt1005-4
+- continue beyond this execution
+
+======================================================================
+31. INTEGRITY REQUIREMENT
+======================================================================
+
+Explicitly report whether:
+
+- any large research data were downloaded;
+- any real city was scientifically analyzed;
+- any scientific model was fitted;
+- any main hypothesis was tested;
+- any final scientific definition was locked;
+- any prior-art collision was found;
+- any critical identifiability problem was found;
+- any historical reviewed artifact was altered;
+- any future execution was started.
+
+Negative findings are scientifically valuable.
+
+A conclusion that the proposed study is not identifiable or not novel
+enough is an acceptable successful outcome of this audit.
+
+======================================================================
+32. COMPLETION CHECK
+======================================================================
+
+Before completion verify:
+
+[ ] prompt1005-3.txt exists
+[ ] historical artifacts remain intact
+[ ] dataset_inventory.csv exists
+[ ] prior_art_matrix.csv exists
+[ ] identifiability_risk_register.csv exists
+[ ] scientific_design_decision_matrix.csv exists
+[ ] source_ledger.csv exists
+[ ] report1005-3.md exists
+[ ] no large research raster data were downloaded
+[ ] no real-data hypothesis test occurred
+[ ] no final S/H/C/R was silently locked
+[ ] Git state recorded
+[ ] report contains QUESTIONS FOR PI REVIEW
+[ ] prompt1005-4 was not created
+
+Any failed item must be reported.
+
+======================================================================
+33. FINAL STOP
+======================================================================
+
+After completing execution 1005-3:
+
+STOP.
+
+Return only a concise completion summary:
+
+PROMPT 1005-3 completed / partially completed / blocked.
+
+Source prompt:
+prompts/prompt1005-3.txt
+
+Report:
+reports/report1005-3.md
+
+Dataset feasibility audit:
+PASS / PARTIAL / FAIL
+
+Prior-art audit:
+PASS / PARTIAL / FAIL
+
+Identifiability audit:
+PASS / PARTIAL / FAIL
+
+Large research data downloaded:
+No
+
+Real-city scientific analysis:
+No
+
+Main hypothesis tested:
+No
+
+Final design locked:
+No
+
+Git commit:
+<hash or status>
+
+GitHub push:
+SUCCESS / BLOCKED / NOT ATTEMPTED
+
+Status:
+AWAITING_PI_REVIEW

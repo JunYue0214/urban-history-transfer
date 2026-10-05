@@ -1,0 +1,59 @@
+{
+  "execution_id": "1005-3",
+  "source_prompt": "prompts/prompt1005-3.txt",
+  "previous_execution": "1005-2",
+  "report": "reports/report1005-3.md",
+  "status": "COMPLETED",
+  "started_at": "2026-10-05T05:15:00Z",
+  "completed_at": "2026-10-05T06:23:11Z",
+
+  "real_research_raster_data_downloaded": false,
+  "real_city_scientific_analysis_performed": false,
+  "main_hypothesis_tested": false,
+  "pilot_executed": false,
+  "final_scientific_design_locked": false,
+
+  "official_sources_checked": [
+    "JRC GHSL data catalogue (GHS-UCDB, GHS-BUILT-S, GHS-BUILT-V, GHS-POP, GHS-AGE, GHS-OBAT, GHS-SMOD/DUC)",
+    "data.europa.eu dataset records",
+    "NASA LP DAAC (MOD11A2/MYD11A2 product documentation)",
+    "Google Earth Engine data catalog (used as a mirror of official GHSL/MODIS metadata)",
+    "WRI Aqueduct Floods methodology documentation",
+    "Figshare dataset records (Koppen-Geiger 1km; global UHI intensity dataset)"
+  ],
+  "peer_reviewed_sources_checked": [
+    "Melchiorri et al., Scientific Data 11:82 (2024) - GHS-UCDB companion paper",
+    "Yamazaki et al., Geophysical Research Letters (2017) - MERIT DEM",
+    "Beck et al., Scientific Data 5:180214 (2018) - Koppen-Geiger 1km",
+    "Yang, Xu, Chakraborty et al., Remote Sensing of Environment 312 (2024) - global UHI intensity dataset",
+    "Rentschler, Avner, Marconcini, Su, Strano, Vousdoukas, Hallegatte, Nature 622:87-92 (2023) - urban growth in flood zones",
+    "Chen et al., Science of the Total Environment (2022) - urban flood exposure dynamics",
+    "Rajib et al., Environmental Research Letters (2022) - imperviousness in floodplains",
+    "Jung, Dyson, Alberti, Landscape and Urban Planning 261:105406 (2025) - redlining legacy and LST",
+    "Nature Communications (2025) - redlining legacy and tree-canopy cooling",
+    "Science of the Total Environment (2025/2026) - Philadelphia redlining heat-inequity multi-scale study",
+    "Zhao et al., Science of the Total Environment (2021) - urban form and SUHI in 1288 Chinese clusters",
+    "Environmental Research Letters (2021) - urban-rural greening divergence and SUHI",
+    "npj Urban Sustainability (2025) - SUHI intensification by income group",
+    "Li, Zhan, Hu, Chakraborty et al., Remote Sensing of Environment 295:113650 (2023) - divergent SUHI trends",
+    "Tellman et al., Nature 596:80-86 (2021) - Global Flood Database",
+    "PLOS ONE (2019, reported) - global city climate-analogue study",
+    "Ecology and Society (reported) - Barthel et al. social-ecological memory in urban gardens"
+  ],
+
+  "dataset_inventory": "results/1005-3/dataset_inventory.csv",
+  "prior_art_matrix": "results/1005-3/prior_art_matrix.csv",
+  "identifiability_risk_register": "results/1005-3/identifiability_risk_register.csv",
+  "scientific_design_decision_matrix": "results/1005-3/scientific_design_decision_matrix.csv",
+  "source_ledger": "results/1005-3/source_ledger.csv",
+
+  "git_commit_before_execution": "fa90a6bd86731f0fb0ae6dcbcc823ef03d3c671d",
+  "git_commit_after_execution_if_created": "f5f442f133ff2d88bf8c0688a19b58142b611854",
+  "github_push_attempted": true,
+  "github_push_status": "FAILED_NETWORK",
+  "github_push_error": "fatal: unable to access 'https://github.com/JunYue0214/urban-history-transfer.git/': Recv failure: Connection was reset",
+
+  "integrity_violations": [],
+
+  "notes": "Two critical identifiability findings confirmed with real evidence during this audit: (1) the official GHSL built-stock-age product GHS-AGE R2025A is defined relative to the 2020 endpoint, confirming identifiability_risk_register.csv item A (mathematical coupling) for the richest H_when candidate; (2) peer-reviewed literature (Rentschler et al. 2023, Nature) independently confirms that 'built-up area in flood hazard zone' is a real, global, feasible H_where quantity and therefore cannot double as an independent hydrological R (risk register item B). No DIRECT prior-art collision was found; several PARTIAL collisions were found and disclosed (closest: Jung, Dyson & Alberti 2025 on redlining legacy and LST). Terminology verdict: 'urban environmental memory' is AMBIGUOUS/OVERLOADED. Network restrictions in this execution's environment blocked direct WebFetch of several primary domains (JRC/Copernicus human-settlement portal, ScienceDirect); all dataset/literature facts are therefore marked VERIFIED_SECONDARY, not VERIFIED_OFFICIAL, pending human/unrestricted-network confirmation of the highest-stakes facts (two specific unresolved conflicts flagged: GHS-BUILT-S DOI, WorldClim license)."
+}
