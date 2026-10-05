@@ -1,0 +1,67 @@
+{
+  "execution_id": "1005-6",
+  "gate": "Gate 2A - Thermal Response Design Lock",
+  "THERMAL_DESIGN": "PROVISIONAL",
+  "primary_R": {
+    "label": "annual-mean nighttime SUHI climatology (mean over 2003-2018)",
+    "physical_quantity": "annual-mean night-time surface urban-minus-rural land-surface-temperature contrast (degC) for a fixed urban cluster",
+    "product_band_expected": "all_nighttime_UHI (YCEO v4 cluster-mean composite) - field name in the city-level file UNRESOLVED"
+  },
+  "secondary_R": "summer (warm-season) daytime SUHI climatology, 2003-2018 (summer_daytime_UHI expected)",
+  "contrast_R": "none locked; optional exploratory 2003-2018 SUHI trend (high sensor/processing confound; not confirmatory). Raw urban LST rejected (raster scale)",
+  "primary_dataset": {
+    "name": "YCEO Surface Urban Heat Islands, Version 4, 2003-2018 (SEDAC), urban-cluster-mean shapefile",
+    "doi": "10.7927/S5M5-ZK14",
+    "doi_status": "VERIFIED_MULTI (search snippets); landing page not read directly",
+    "authority": "official NASA SEDAC archive; Chakraborty & Lee (2023)"
+  },
+  "alternate_reference_dataset": {
+    "name": "Global Urban Heat Island Intensity Dataset (Yang, Xu, Chakraborty et al. 2024), DEA rural reference",
+    "doi": "10.6084/m9.figshare.24821538",
+    "status": "identity verified; city-level table and access route UNRESOLVED; used only for rural-reference sensitivity if a city table is confirmed",
+    "is_same_dataset_as_primary": false
+  },
+  "temporal_design": {
+    "response_window": "2003-2018 (fixed product composite)",
+    "relation_to_H_T2020": "overlaps H epochs 2005, 2010, 2015; entirely before T=2020 and before S(2020)",
+    "interpretation": "predictive-association / transferability only; NO temporal-legacy claim",
+    "strict_precedence_sensitivity": "H truncated at <=2000 (rebased to B(2000)); S/H rebased to T=2015"
+  },
+  "H_design": "fixed-boundary built-up trajectory primary on the full crosswalk-matched UCDB sample; dynamic-boundary (MTUC) H as sensitivity on the 1005-5 matched subsample; boundary-robust coarse descriptors as secondary representation",
+  "C_design": {
+    "C0": [
+      "latitude",
+      "longitude",
+      "GE_ELV_AVG_2025"
+    ],
+    "C1": "C0 + mean(CL_B01_CUR_2000, CL_B01_CUR_2010) + log mean(CL_B12_CUR_2000, CL_B12_CUR_2010)",
+    "C2": "C1 + mean CL_B04 + mean CL_B15 + Koppen major group (from CL_KOP_CUR_2025)",
+    "excluded_from_primary_as_possible_mediators": [
+      "GR_AVG_GRN_*",
+      "GR_SQM_*",
+      "GR_SHB_*",
+      "GR_CTH_*",
+      "LU_HEC_*"
+    ],
+    "excluded_as_socioeconomic_proxies": [
+      "GC_DEV_WIG_2025",
+      "GC_DEV_USR_2025"
+    ]
+  },
+  "new_raster_acquisition_needed": false,
+  "global_raster_required": false,
+  "estimated_data_volume": "~4.7 MB zipped city-level shapefile (single report); monthly/yearly cluster packages UNRESOLVED",
+  "estimated_city_coverage": "'over 10,000' urban clusters (product claim); matchable UCDB cities UNKNOWN until schema/geometry inspected",
+  "why_not_LOCKED": [
+    "Shapefile attribute schema, geometry type and cluster identifier were not verified (landing page, documentation PDF and metadata page could not be read: WebFetch blocked)",
+    "Not verified that annual/summer/winter day/night cluster means are in the 4.7 MB cluster-level file rather than a separate package",
+    "v4 cluster count and post-filter N unresolved (7,374 reported for 2019 version vs 'over 10,000' for v4)",
+    "Summer/warm-season definition for tropical clusters and exact rural-pixel/elevation rules unresolved",
+    "Response window ends 2018 (before T=2020): only a predictive-association design is possible",
+    "Alternate-reference product (Yang 2024) has no verified scriptable/city-table access"
+  ],
+  "evidence_resolution_step": "Human reads SEDAC documentation PDF + metadata page (documentation only, no research data) and records the file listing/field table; see results/1005-6/download_plan.md Step 0",
+  "PI_acquisition_recommendation": "NOT YET",
+  "claude_authorized_download": false,
+  "causal_claims": "none; observational comparative design"
+}

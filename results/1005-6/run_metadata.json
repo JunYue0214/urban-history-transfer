@@ -1,0 +1,16 @@
+{
+  "execution_id": "1005-6",
+  "source_prompt": "prompts/prompt1005-6.txt",
+  "previous_execution": "1005-5",
+  "report": "reports/report1005-6.md",
+  "status": "COMPLETED_AWAITING_PI_REVIEW",
+  "generated_at_utc": "2026-10-05T10:33:50.055977+00:00",
+  "thermal_design": "PROVISIONAL",
+  "new_research_data_downloaded": false,
+  "real_research_data_network_transfers_by_claude": 0,
+  "web_inspection": "WebSearch only; WebFetch was blocked for all domains tried (figshare, sciencedirect, osti, developers.google.com, gee-community-catalog, geospatial.yale.edu)",
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "random_seed": null,
+  "notes": "No stochastic computation in this execution; no research data were read or analysed."
+}

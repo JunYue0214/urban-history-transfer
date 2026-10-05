@@ -1,0 +1,921 @@
+PROMPT ID: 1005-6
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Gate 2A — Thermal Response Design Lock
+
+==================================================
+0. AUTHORIZATION AND EXECUTION CONTRACT
+==================================================
+
+This prompt is the sole authorization for execution 1005-6.
+
+Before doing any work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1005-6.txt
+
+2. Read back the saved file and confirm it matches exactly.
+
+3. Execute only this task.
+
+4. Use the official environment:
+   conda environment: py311
+   Python: 3.11.x
+
+5. Do NOT modify any historical prompt/report/result/figure from executions
+   1005-1 through 1005-5.
+
+6. No real research-data download is authorized.
+
+PERMANENT DOWNLOAD RULE:
+
+Claude Code is NOT authorized to initiate any real research-data network transfer.
+
+Claude may:
+- discover official/public data sources;
+- inspect metadata/web documentation;
+- design acquisition software;
+- write download scripts;
+- write checksum/validation scripts;
+- test code using synthetic/mock/local files;
+- prepare exact human-executable commands;
+- prepare manifests and provenance templates.
+
+Claude may NOT:
+- download real research datasets;
+- invoke wget/curl/requests/Invoke-WebRequest against a research-data file;
+- trigger API exports of real research data;
+- fetch large/medium/small real research-data archives.
+
+If a candidate dataset is selected, STOP before download and report exactly what the human operator should execute.
+
+Normal webpage/documentation inspection is allowed.
+
+No new package should be installed unless clearly necessary.
+If a package appears necessary, report the need first and prefer existing packages.
+
+==================================================
+1. SCIENTIFIC CONTEXT
+==================================================
+
+Executions 1005-4 and 1005-5 established a robust-enough Gate 1:
+
+Present-day urban state and coarse context do not uniquely determine developmental history.
+
+Key evidence:
+
+- 1005-4 full-sample leave-region-out H reconstruction:
+  mean R² ≈ 0.226
+
+- 1005-4 divergent-twin rate:
+  18.3%
+
+- 1005-5 dynamic-boundary matched-sample results:
+  R²_fixed = 0.320
+  R²_dynamic = 0.158
+
+- divergent-twin rate:
+  fixed = 16.7%
+  dynamic = 18.7%
+
+- constrained-null effect:
+  fixed = 31.3%
+  dynamic = 23.6%
+
+Therefore Gate 1 survives boundary-definition scrutiny sufficiently to justify designing Gate 2.
+
+However:
+
+This execution does NOT run Gate 2.
+
+This execution only locks the environmental-response design before any response data are downloaded.
+
+==================================================
+2. CORE SCIENTIFIC QUESTION FOR GATE 2
+==================================================
+
+The intended Gate 2 question is:
+
+Among cities with similar present-day urban states and comparable large-scale environmental contexts, do cities with different developmental histories also show systematically different urban thermal responses?
+
+Conceptually:
+
+S = present-day urban state
+H = developmental history
+C = large-scale environmental context
+R = urban thermal response
+
+We ultimately want to test whether:
+
+R contains information associated with H beyond S and C,
+
+without making unsupported causal claims.
+
+This is observational global comparative science.
+
+Do NOT frame the design as:
+
+"history causes heat"
+
+or:
+
+"urban history has a causal effect on SUHI"
+
+unless a future design provides causal identification, which is not currently authorized.
+
+==================================================
+3. SCALE DISCIPLINE
+==================================================
+
+This is a GLOBAL / LARGE-SCALE scientific project.
+
+The primary unit of analysis should remain:
+
+global urban centres / city-level summaries.
+
+Do NOT drift into:
+- street-scale analysis;
+- neighbourhood-scale analysis;
+- pixel-by-pixel city morphology;
+- global raw MODIS processing;
+- 10 m / 30 m / 100 m global raster stacks;
+- urban-block analysis;
+- intra-city remote-sensing segmentation.
+
+Prefer:
+
+official or peer-reviewed pre-aggregated global city-level thermal metrics.
+
+The design principle is:
+
+Use the coarsest scientifically valid data representation that can answer the global scientific question.
+
+If a candidate requires hundreds of GB or TB to reproduce at pixel level, treat that as a negative unless there is no credible city-level alternative.
+
+==================================================
+4. PRIMARY PURPOSE OF THIS EXECUTION
+==================================================
+
+Select and pre-register the best thermal response variable R for Gate 2.
+
+The design must answer:
+
+1. What exactly should R represent physically?
+2. Which existing global dataset can provide it?
+3. At what temporal aggregation?
+4. At what spatial aggregation?
+5. What is the rural/reference definition?
+6. Is the metric comparable globally?
+7. Does it overlap mathematically or conceptually with H/S?
+8. What climate confounding must be controlled?
+9. How will cities be crosswalked to UCDB?
+10. What would falsify the history-response hypothesis?
+
+Do NOT optimize for convenience alone.
+
+==================================================
+5. CANDIDATE THERMAL RESPONSE FAMILY
+==================================================
+
+Audit candidate response definitions including, at minimum:
+
+A. annual-mean daytime SUHI
+
+B. annual-mean nighttime SUHI
+
+C. warm-season daytime SUHI
+
+D. warm-season nighttime SUHI
+
+E. monthly or seasonal SUHI climatology
+
+F. interannual SUHI variability
+
+G. long-term SUHI trend
+
+H. extreme-heat / upper-tail SUHI metrics, only if available in a globally comparable pre-aggregated product
+
+I. raw urban LST, only as a contrast and likely negative control for design suitability
+
+J. urban-rural LST difference / anomaly formulations
+
+Do NOT assume warm-season daytime is automatically best.
+
+Evaluate it scientifically.
+
+==================================================
+6. REQUIRED PHYSICAL / CONCEPTUAL AUDIT
+==================================================
+
+For each candidate R, evaluate:
+
+- physical interpretation;
+- relationship to urban form;
+- sensitivity to climate background;
+- sensitivity to rural reference definition;
+- day/night differences;
+- seasonal dependence;
+- whether temporal averaging destroys meaningful signal;
+- whether long-term trend is confounded by changing sensors/processing;
+- whether it is a state variable or a response variable;
+- whether it overlaps with present-state S;
+- whether it risks post-treatment overcontrol;
+- whether it is plausibly influenced by developmental trajectory;
+- whether it can be compared across climate zones;
+- whether it is globally available with adequate coverage.
+
+Produce a structured candidate comparison table.
+
+==================================================
+7. DATASET DISCOVERY / SOURCE AUDIT
+==================================================
+
+Search for authoritative candidate datasets that can support city-level global thermal-response analysis.
+
+Priority order:
+
+1. official/public global data products;
+2. peer-reviewed published global city datasets with persistent DOI/repository;
+3. institutional datasets;
+4. only then derived repositories.
+
+Strongly prioritize datasets that:
+
+- cover thousands of global cities;
+- span many years;
+- provide urban-rural contrast rather than raw temperature alone;
+- expose monthly/seasonal and day/night information;
+- are already pre-aggregated to city level or close to city level;
+- require low data volume;
+- have documented methodology and reproducible identifiers/coordinates;
+- have a stable citation and downloadable table format.
+
+Execution 1005-3 identified a promising published global SUHI dataset associated with:
+
+Yang / Xu / Chakraborty (2024), Remote Sensing of Environment
+
+with:
+- >10,000 global cities
+- >20 years
+- monthly information
+- urban-rural thermal contrast
+
+Do NOT assume it is automatically the winner.
+
+Re-audit it carefully and compare against alternatives.
+
+==================================================
+8. NO-DOWNLOAD RULE FOR SOURCE AUDIT
+==================================================
+
+You may inspect:
+
+- journal pages;
+- abstracts;
+- methods pages;
+- README files;
+- repository landing pages;
+- data dictionaries;
+- metadata pages;
+- DOI landing pages;
+- file listings;
+- documentation PDFs if reasonably small and clearly documentation rather than research-data payload.
+
+You may NOT download the research dataset itself.
+
+If accessing a documentation PDF or metadata file is ambiguous, prefer web inspection and report the uncertainty.
+
+==================================================
+9. RESPONSE VARIABLE SELECTION CRITERIA
+==================================================
+
+Score each serious candidate R using transparent criteria:
+
+1. global coverage
+2. physical interpretability
+3. separation from H and S
+4. climate robustness / controllability
+5. rural-reference quality
+6. temporal consistency
+7. day/night interpretability
+8. low data volume
+9. crosswalk feasibility
+10. reproducibility
+11. suitability for spatial holdout
+12. suitability for transferability tests
+13. susceptibility to retrieval artifacts
+14. susceptibility to urban-boundary mismatch
+15. reviewer defensibility
+
+Do NOT create a fake precision score if evidence is weak.
+
+Qualitative or ordinal scoring is acceptable.
+
+==================================================
+10. PRIMARY R MUST BE ONE CLEAR OUTCOME
+==================================================
+
+At the end, nominate exactly ONE primary thermal response for Gate 2.
+
+Examples:
+
+warm-season daytime SUHI climatology
+
+or
+
+annual nighttime SUHI climatology
+
+but do not choose multiple co-primary outcomes.
+
+Also identify:
+
+- one secondary thermal outcome;
+- one negative/contrast outcome if useful.
+
+The primary outcome should be the one that gives the cleanest answer to the global scientific question, not necessarily the strongest expected effect.
+
+==================================================
+11. TEMPORAL DESIGN
+==================================================
+
+Determine how the response period should relate to H and S.
+
+Avoid temporal leakage.
+
+The Gate 1 history currently ends at T = 2020.
+
+Evaluate scientifically whether Gate 2 should use:
+
+A. response climatology entirely after T;
+B. response climatology straddling T;
+C. response climatology before T;
+D. a long-term period overlapping H;
+E. a response period centered near present-day S.
+
+Explicitly discuss temporal ordering.
+
+If the candidate SUHI dataset ends before or near 2020, do not hide this.
+
+A response window that overlaps H may still be scientifically usable for transferability/predictive association, but it cannot support a clean temporal-legacy interpretation.
+
+Distinguish these cases explicitly.
+
+==================================================
+12. CONTEXT C FOR GATE 2
+==================================================
+
+Execution 1005-4 used deliberately modest C:
+
+- latitude
+- longitude
+- elevation
+
+Gate 2 thermal analysis will likely require stronger climate control.
+
+Design a NESTED context strategy rather than one large covariate dump.
+
+For example:
+
+C0:
+geography + elevation
+
+C1:
+C0 + major climate controls
+
+C2:
+C1 + limited additional background variables
+
+Do NOT automatically use all 24 bioclimatic variables.
+
+Prefer a small number of physically interpretable thermal-background covariates such as candidates related to:
+
+- mean air temperature / LST background
+- aridity / precipitation regime
+- seasonality
+- latitude or climate zone
+- elevation
+
+But this execution must determine the appropriate variables based on available data and confounding logic.
+
+Explicitly distinguish:
+
+confounders
+from
+possible mediators.
+
+Do not condition indiscriminately on vegetation/greenness if it may be part of the pathway from development history to thermal response.
+
+==================================================
+13. H DEFINITION FOR GATE 2
+==================================================
+
+Gate 1 used built-up-surface trajectory.
+
+Do NOT automatically replace H.
+
+Design Gate 2 around:
+
+primary H:
+built-up-surface developmental trajectory
+
+with boundary definition explicitly handled.
+
+Recommend whether Gate 2 should use:
+
+A. fixed-boundary H as primary + dynamic sensitivity;
+
+B. dynamic-boundary H as primary + fixed sensitivity;
+
+C. both symmetrically;
+
+D. a derived boundary-robust H representation.
+
+Justify the choice.
+
+Consider the 1005-5 limitation that dynamic complete-history sampling over-represents cities established by 1975.
+
+Do NOT unnecessarily restrict the entire Gate 2 sample to only 4,739 cities if a better primary/sensitivity strategy exists.
+
+==================================================
+14. PRIMARY GATE 2 EXPERIMENTS TO PRE-REGISTER
+==================================================
+
+Design, but do NOT run, the following three experiment families.
+
+--------------------------------------------------
+Experiment 1 — Incremental Predictive Information
+--------------------------------------------------
+
+Baseline:
+
+M0:
+R ~ S + C
+
+History-aware:
+
+M1:
+R ~ S + C + H
+
+Primary validation:
+geographically blocked / leave-region-out or stronger spatial holdout.
+
+Compare out-of-sample performance.
+
+Do not use in-sample improvement as evidence.
+
+Pre-register appropriate metrics.
+
+Potential metrics:
+R²
+RMSE
+MAE
+
+Primary claim should depend on out-of-sample improvement:
+
+Δperformance = performance(M1) - performance(M0)
+
+Do not assume the improvement will be positive.
+
+--------------------------------------------------
+Experiment 2 — Present-Day Twin Environmental Divergence
+--------------------------------------------------
+
+Use cities that are close in S+C.
+
+For pair (i,j):
+
+D_SC small
+
+Then examine whether:
+
+D_R increases with D_H.
+
+This can be formulated as:
+
+D_R = f(D_H | D_SC small)
+
+or paired stratification / matched analysis.
+
+Avoid treating hand-picked twin examples as primary evidence.
+
+Global pairwise structure is primary.
+
+--------------------------------------------------
+Experiment 3 — History-Aware Transferability
+--------------------------------------------------
+
+Compare transfer prediction using analogues selected by:
+
+A0:
+S + C
+
+versus
+
+A1:
+S + C + H
+
+For each target city, use donor/analogue cities to predict R.
+
+Test whether history-aware analogue selection reduces transfer error.
+
+This is the bridge toward later sensing / observation-network optimization.
+
+==================================================
+15. CORE FALSIFICATION TESTS
+==================================================
+
+Pre-register falsification tests before seeing R.
+
+At minimum include:
+
+1. shuffled H within broad climate/geographic strata;
+
+2. pseudo-history generated from S only;
+
+3. deliberately redundant history variables derived from S;
+
+4. random-fold vs geographic-holdout comparison;
+
+5. leave-continent-out or leave-major-region-out robustness;
+
+6. alternate climate-control sets;
+
+7. alternate H boundary definition;
+
+8. alternate thermal outcome (secondary R);
+
+9. alternate rural-reference definition, if dataset permits;
+
+10. temporal-window sensitivity;
+
+11. city-size sensitivity;
+
+12. recently-urbanized vs long-established city stratification, if feasible;
+
+13. spatial autocorrelation-aware uncertainty or block resampling;
+
+14. null analogue-transfer test.
+
+Define what result would count AGAINST the hypothesis.
+
+Do not write falsification tests that can only confirm it.
+
+==================================================
+16. IMPORTANT THREATS TO VALIDITY
+==================================================
+
+Explicitly audit:
+
+- climate confounding;
+- latitude/solar geometry;
+- aridity;
+- coastal effects if relevant;
+- elevation;
+- urban size;
+- present-day density;
+- built volume;
+- vegetation as possible mediator;
+- rural-reference contamination;
+- urban-boundary mismatch;
+- MODIS/retrieval artifacts;
+- cloud sampling;
+- temporal overlap;
+- spatial autocorrelation;
+- regional imbalance;
+- MAUP;
+- product-specific city definitions;
+- crosswalk uncertainty.
+
+Rank these threats by likely severity for Gate 2.
+
+==================================================
+17. CROSSWALK DESIGN
+==================================================
+
+Without downloading real response data, determine from available metadata how candidate thermal datasets identify cities.
+
+Audit possible keys:
+
+- city name;
+- country;
+- latitude/longitude;
+- urban polygon;
+- GHSL ID;
+- custom dataset ID;
+- metropolitan-area name;
+- coordinate pair.
+
+Design a conservative UCDB↔thermal-data crosswalk protocol.
+
+Do NOT rely on fuzzy city-name matching as the primary strategy if stronger identifiers/coordinates exist.
+
+Pre-register:
+
+accepted match
+ambiguous match
+rejected match
+
+rules.
+
+Estimate likely matchability if metadata permit, but do not invent exact N without data.
+
+==================================================
+18. ACQUISITION SOFTWARE — WRITE BUT DO NOT RUN
+==================================================
+
+If a primary response dataset is selected, prepare acquisition tooling.
+
+Create, as appropriate:
+
+scripts/download_thermal_response.py
+scripts/verify_thermal_response.py
+
+and:
+
+results/1005-6/data_manifest_template.csv
+results/1005-6/download_plan.md
+
+The download script must:
+
+- accept destination path;
+- support resumable/retry logic if appropriate;
+- not execute automatically when imported;
+- expose expected source URL/DOI;
+- preserve original filenames;
+- log timestamp;
+- compute SHA-256 after download or delegate to verifier;
+- fail clearly on HTTP errors;
+- avoid hidden side effects.
+
+The verifier must:
+
+- check file existence;
+- file size;
+- SHA-256 if known;
+- basic format integrity;
+- expected columns if metadata are known.
+
+TEST ONLY WITH MOCK/SYNTHETIC/LOCAL INPUTS.
+
+DO NOT MAKE ANY REAL RESEARCH-DATA REQUEST.
+
+==================================================
+19. HUMAN DOWNLOAD INSTRUCTIONS
+==================================================
+
+At the end, if one dataset is selected, provide exact human commands for manual execution.
+
+Assume Windows PowerShell.
+
+If network access is likely to require Clash, use only session-scoped proxy variables:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+Do NOT use setx.
+
+Do NOT modify global Git or system proxy settings.
+
+Do not execute these commands yourself.
+
+==================================================
+20. DECISION OUTPUT
+==================================================
+
+At the end assign:
+
+THERMAL DESIGN = LOCKED
+
+or
+
+THERMAL DESIGN = PROVISIONAL
+
+or
+
+THERMAL DESIGN = REJECTED
+
+LOCKED means:
+
+one response definition and one data source are sufficiently well justified to proceed to human download and Gate 2 execution.
+
+PROVISIONAL means:
+
+one or more unresolved metadata/methodological issues must be resolved before data acquisition.
+
+REJECTED means:
+
+no candidate thermal response/data source is currently suitable for the intended global Gate 2 test.
+
+Do NOT bias toward LOCKED.
+
+==================================================
+21. REQUIRED OUTPUT FILES
+==================================================
+
+Create at minimum:
+
+results/1005-6/thermal_candidate_audit.csv
+results/1005-6/thermal_source_audit.csv
+results/1005-6/thermal_design_decision.json
+results/1005-6/gate2_preregistration.md
+results/1005-6/crosswalk_design.md
+results/1005-6/validity_threats.csv
+results/1005-6/data_manifest_template.csv
+results/1005-6/download_plan.md
+results/1005-6/run_metadata.json
+
+If acquisition software is justified:
+
+scripts/download_thermal_response.py
+scripts/verify_thermal_response.py
+
+Add tests under:
+
+tests/
+
+==================================================
+22. REQUIRED REPORT
+==================================================
+
+Write:
+
+reports/report1005-6.md
+
+Required sections:
+
+1. Executive Summary
+2. Scientific Question for Gate 2
+3. Why Thermal Response Is Being Considered
+4. Candidate R Definitions
+5. Candidate Dataset Audit
+6. Primary Dataset Recommendation
+7. Primary R Definition
+8. Secondary / Contrast R Definitions
+9. Temporal Design
+10. Context C Design
+11. H Design for Gate 2
+12. Crosswalk Strategy
+13. Gate 2 Experiment 1 Pre-registration
+14. Gate 2 Experiment 2 Pre-registration
+15. Gate 2 Experiment 3 Pre-registration
+16. Falsification Tests
+17. Threats to Validity
+18. Data Volume / Computational Scale
+19. Acquisition Software
+20. Human Download Plan
+21. Evidence FOR Locking the Thermal Design
+22. Evidence AGAINST Locking the Thermal Design
+23. Thermal Design Decision
+24. Exact Files Created/Modified
+25. Reproducibility / Integrity Statement
+26. Questions for PI Review
+
+==================================================
+23. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. What is the strongest candidate thermal response R?
+
+Q2. What exact physical quantity does it represent?
+
+Q3. Why is it preferable to raw urban LST?
+
+Q4. Should the primary response be daytime or nighttime?
+
+Q5. Should it be annual, seasonal, or monthly?
+
+Q6. What exact temporal window is recommended?
+
+Q7. Does that temporal window overlap H or S, and what does that imply?
+
+Q8. What dataset is recommended?
+
+Q9. Is it official, peer-reviewed, or institutionally archived?
+
+Q10. Approximate global city coverage?
+
+Q11. Approximate data volume?
+
+Q12. Is the response already urban-rural normalized?
+
+Q13. How is the rural reference defined?
+
+Q14. What are the main known biases in that reference?
+
+Q15. How should UCDB cities be linked to the response dataset?
+
+Q16. What climate variables must be controlled?
+
+Q17. Which variables should NOT be controlled because they may be mediators?
+
+Q18. Should Gate 2 use fixed-boundary H, dynamic-boundary H, or both?
+
+Q19. How should recently urbanized cities be handled?
+
+Q20. What is the primary Gate 2 statistical test?
+
+Q21. What result would count as strong evidence FOR incremental historical information?
+
+Q22. What result would count as evidence AGAINST it?
+
+Q23. What is the primary twin-based test?
+
+Q24. What is the primary transferability test?
+
+Q25. What is the most dangerous confounder?
+
+Q26. What is the most dangerous product artifact?
+
+Q27. Can Gate 2 be run entirely with city-level / coarse data?
+
+Q28. Is any global raster download necessary?
+
+Q29. What exact file should the human download next?
+
+Q30. What exact PowerShell command should the human run?
+
+Q31. THERMAL DESIGN:
+LOCKED / PROVISIONAL / REJECTED?
+
+Q32. Should real thermal-response data acquisition now be authorized?
+YES / NOT YET / NO
+
+==================================================
+24. GIT / REPRODUCIBILITY
+==================================================
+
+Run relevant tests.
+
+Do not commit raw research data.
+
+Commit the scientific design artifacts, code, tests, and report if tests pass.
+
+For GitHub push, use the Clash HTTP proxy in the current PowerShell session:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+Then:
+
+git push origin master
+
+Do NOT:
+- use setx;
+- change global Git proxy;
+- alter GitHub authentication settings.
+
+If push fails:
+report the exact error and STOP.
+
+==================================================
+25. FINAL CONSOLE RESPONSE
+==================================================
+
+Return only:
+
+PROMPT 1005-6 COMPLETED
+
+Thermal design:
+<LOCKED / PROVISIONAL / REJECTED>
+
+Primary R:
+<short definition>
+
+Primary dataset:
+<dataset name>
+
+Primary temporal window:
+<definition>
+
+Estimated city coverage:
+<value or unknown>
+
+Estimated data volume:
+<value or unknown>
+
+Global raster required:
+<YES / NO>
+
+Human download authorized by Claude:
+NO
+
+PI acquisition recommendation:
+<YES / NOT YET / NO>
+
+Tests:
+<PASS/FAIL, count>
+
+Git push:
+<SUCCESS / FAILED / NOT ATTEMPTED>
+
+Report:
+reports/report1005-6.md
+
+Status:
+AWAITING_PI_REVIEW
