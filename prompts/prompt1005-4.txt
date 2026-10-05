@@ -1,0 +1,968 @@
+PROMPT ID: 1005-4
+DATE: 2026-10-05
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Global Urban Historical Separability Pilot
+
+PREVIOUS EXECUTION:
+1005-3
+
+REPORT:
+reports/report1005-4.md
+
+RESULTS:
+results/1005-4/
+
+FIGURES:
+figures/1005-4/
+
+======================================================================
+1. SCIENTIFIC PURPOSE
+======================================================================
+
+This execution tests only GATE 1 of the candidate research programme.
+
+It does NOT test whether urban development history affects heat,
+flooding, vegetation, biodiversity, carbon, or any environmental response.
+
+The sole scientific question is:
+
+Can cities with similar present-day states and environmental contexts
+have meaningfully different development histories?
+
+Conceptually:
+
+Can H remain meaningfully variable conditional on S and C?
+
+or approximately:
+
+H not approximately equal to f(S,C)
+
+where:
+
+H = historical urban development trajectory
+S = present-day urban state
+C = coarse background/context variables
+
+This execution must NOT claim:
+
+"history affects environment"
+
+because no environmental response R is authorized.
+
+======================================================================
+2. CONCEPTUAL MOTIVATION
+======================================================================
+
+The candidate phenomenon is developmental equifinality:
+
+different urban development pathways may converge toward similar
+present-day urban states.
+
+"Developmental equifinality" is a working description only.
+
+Do NOT establish it as final terminology or claim it as a novel concept.
+
+The future programme would only proceed if Gate 1 indicates that
+historical trajectories retain meaningful variation after conditioning
+on present state/context.
+
+======================================================================
+3. HARD DATA-VOLUME RULE
+======================================================================
+
+PRIORITY:
+
+Use GHS-UCDB or another official GHSL city-level/pre-aggregated product
+if it already contains sufficient multitemporal variables.
+
+Authorized downloads:
+
+- official UCDB database/table/vector
+- official schema
+- official data dictionary
+- official metadata
+- official codebook
+- official documentation
+- small ancillary city-level tables if necessary
+
+Not authorized:
+
+- global GHS-BUILT-S raster stacks
+- global GHS-BUILT-V raster stacks
+- global GHS-POP raster stacks
+- MODIS/VIIRS raster archives
+- ERA5 bulk data
+- DEM mosaics
+- flood raster stacks
+- any large global raster archive
+
+Before downloading a research-data file larger than 500 MB:
+
+STOP.
+
+Do not download it.
+
+Report why it appears necessary.
+
+======================================================================
+4. PHASE A — UCDB SCHEMA VERIFICATION
+======================================================================
+
+Before performing scientific analysis, verify the official UCDB schema.
+
+Determine whether the available official city-level database contains
+usable multitemporal attributes for some or all of:
+
+- built-up surface / built-up area
+- population
+- built volume
+- urban extent/area
+- density
+- other relevant urban morphology variables
+
+Determine:
+
+- exact years represented
+- exact field names
+- units
+- missing-value conventions
+- whether variables are directly provided or derived
+- whether the urban geometry/boundary is fixed or time-varying
+- whether historical attributes are summarized within a current/fixed
+  urban-centre boundary
+- number of urban centres
+- geographic coverage
+
+Create:
+
+results/1005-4/ucdb_schema_audit.csv
+
+Columns:
+
+field_name
+field_description
+unit
+year
+variable_family
+direct_or_derived
+candidate_role
+usable_for_gate1
+caveat
+official_source
+
+======================================================================
+5. CONDITIONAL HARD GATE
+======================================================================
+
+After Phase A, decide:
+
+GATE_A = PASS
+
+only if the official city-level data contain enough multitemporal
+information to construct a meaningful historical trajectory WITHOUT
+downloading prohibited global raster stacks.
+
+At minimum, meaningful historical information must contain multiple
+pre-endpoint observations of urban development.
+
+If:
+
+GATE_A = FAIL
+
+then:
+
+- do NOT improvise using unrelated datasets;
+- do NOT download raster stacks;
+- do NOT run the scientific pilot;
+- document exactly what is missing;
+- recommend the smallest next data acquisition;
+- complete the report;
+- STOP.
+
+If:
+
+GATE_A = PASS
+
+continue below.
+
+======================================================================
+6. ENDPOINT YEAR
+======================================================================
+
+Do not assume 2020 automatically.
+
+Inspect the actual verified UCDB temporal fields.
+
+Choose the latest endpoint year T that allows:
+
+- a meaningful present-state definition S_T;
+- multiple strictly earlier observations for H;
+- acceptable global completeness.
+
+Document the reason.
+
+All historical predictors must use years:
+
+t < T
+
+unless a quantity is explicitly defined as present state S_T.
+
+No future observations relative to T may enter H.
+
+======================================================================
+7. PRIMARY HISTORY VARIABLE
+======================================================================
+
+Prefer built-up surface/area trajectory if verified and sufficiently
+complete.
+
+Let:
+
+B_i(t)
+
+be built-up quantity for city i at historical time t.
+
+Define normalized pre-endpoint trajectory:
+
+h_i(t) = B_i(t) / B_i(T)
+
+for:
+
+t < T
+
+The endpoint ratio 1 = B_i(T)/B_i(T) must NOT be included as a
+historical feature.
+
+The purpose is to represent development timing/trajectory shape while
+separating it from final built-up scale.
+
+Do not use GHS-AGE as the primary H in this execution.
+
+Do not use environmental-response variables in H.
+
+======================================================================
+8. TRANSPARENT HISTORY DESCRIPTORS
+======================================================================
+
+If supported by verified years, derive a small set of interpretable
+descriptors such as:
+
+early developed fraction
+mid-period developed fraction
+recent expansion fraction
+weighted development timing
+
+Examples only:
+
+B(1990)/B(T)
+
+B(2000)/B(T)
+
+[B(T)-B(2000)]/B(T)
+
+Do not mechanically use these exact years if the verified schema uses
+different epochs.
+
+Also retain the full normalized pre-endpoint trajectory where feasible.
+
+Avoid generating dozens of arbitrary indices.
+
+======================================================================
+9. QUALITY CONTROL FOR HISTORY
+======================================================================
+
+Audit:
+
+- missing values
+- zero/near-zero endpoint built-up
+- non-monotonic built-up trajectories
+- impossible values
+- duplicated cities
+- extreme trajectory jumps
+- incomplete temporal records
+
+Do NOT silently force monotonicity.
+
+Quantify violations.
+
+If minor non-monotonicity is plausibly caused by product uncertainty,
+retain the raw trajectory for the primary audit and document sensitivity
+options.
+
+Create:
+
+results/1005-4/history_qc.csv
+
+with city-level QC flags where practical.
+
+======================================================================
+10. PRESENT-DAY STATE S
+======================================================================
+
+Construct nested present-state specifications, subject to actual data
+availability.
+
+S1:
+present population
+present built-up area/surface
+
+S2:
+S1 + present population density or equivalent non-identical density
+information
+
+S3:
+S2 + present built volume or another verified 3D morphology variable
+
+Important:
+
+Do not include algebraically duplicate variables without documenting the
+dependency.
+
+For example, if density is exactly population / area, recognize that it
+does not add independent raw information.
+
+The nested specifications are intended to test whether historical
+separability disappears as present-state description becomes richer.
+
+======================================================================
+11. CONTEXT C
+======================================================================
+
+Keep C deliberately modest.
+
+Use only low-cost context variables already available in UCDB or
+obtainable from a small authoritative table without large raster
+downloads.
+
+Candidates:
+
+- latitude
+- longitude
+- broad geographic region
+- climate zone if already available or cheaply obtainable
+- elevation if already available
+
+Do not download global climate/DEM rasters for this execution.
+
+Run primary results both:
+
+A. without C where scientifically informative
+
+and
+
+B. with the verified low-cost C variables.
+
+This separates pure state-history degeneracy from coarse geographic
+structure.
+
+======================================================================
+12. ANALYSIS SAMPLE
+======================================================================
+
+Do NOT hand-pick famous cities.
+
+Use the broadest globally consistent urban-centre sample supported by
+the verified data and QC rules.
+
+Report:
+
+- initial N
+- exclusions by reason
+- final N
+- continent/region distribution
+- endpoint population distribution
+- endpoint built-up distribution
+
+No manual cherry-picking.
+
+======================================================================
+13. EXPERIMENT 1 — HISTORY RECONSTRUCTION
+======================================================================
+
+Test how well present-day state/context predicts historical trajectory.
+
+Conceptually:
+
+H_hat = f(S,C)
+
+This is NOT causal modeling.
+
+Use simple models first.
+
+At minimum compare:
+
+- mean/null predictor
+- linear or ridge model
+- one nonlinear tree-based model if sample size supports it
+
+Avoid extensive hyperparameter optimization.
+
+Use strictly out-of-sample predictions.
+
+Do not report in-sample fit as evidence.
+
+Where possible use:
+
+- random K-fold as descriptive baseline
+- geographically blocked validation as primary robustness check
+
+Possible blocked schemes:
+
+leave-region-out
+leave-continent-out
+
+depending on sample support.
+
+For multivariate H, evaluate both:
+
+- per-epoch prediction performance
+- aggregate trajectory prediction error
+
+Report uncertainty across folds.
+
+======================================================================
+14. EXPERIMENT 1 INTERPRETATION
+======================================================================
+
+The question is NOT:
+
+"Can machine learning predict history?"
+
+The question is:
+
+"How much historical trajectory information remains unresolved by
+present-day state/context?"
+
+If H is almost perfectly reconstructed out of sample from S,C:
+
+this is evidence AGAINST proceeding with the intended history-memory
+programme.
+
+If substantial residual historical variation remains:
+
+this supports proceeding to Gate 2, but does NOT establish an
+environmental legacy.
+
+======================================================================
+15. EXPERIMENT 2 — PRESENT-DAY ANALOGUES
+======================================================================
+
+Standardize continuous S/C features using training/global rules
+documented in the analysis.
+
+Construct nearest-neighbour analogues in present-state/context space.
+
+For each city identify one or more nearest present-day analogues.
+
+Calculate:
+
+D_SC
+
+present-state/context distance
+
+and:
+
+D_H
+
+historical trajectory distance.
+
+Do not choose pairs based on environmental response because no R is
+authorized.
+
+Characterize:
+
+distribution of D_H among low-D_SC pairs.
+
+Determine whether substantial historically divergent present-day
+analogues actually exist at scale.
+
+======================================================================
+16. TWIN CANDIDATE AUDIT
+======================================================================
+
+For scientific inspection only, produce a table of high historical
+divergence among strong present-day analogues.
+
+Create:
+
+results/1005-4/twin_candidates.csv
+
+Include anonymous/internal city IDs plus names only if already part of
+the official source data.
+
+Columns should include at minimum:
+
+city_i
+city_j
+region_i
+region_j
+D_SC
+D_H
+present_state_similarity_summary
+history_difference_summary
+qc_flags
+
+This table is exploratory.
+
+Do NOT call these causal counterfactuals.
+
+Do NOT select publication case studies.
+
+======================================================================
+17. EXPERIMENT 3 — NULL / PERMUTATION TEST
+======================================================================
+
+Construct a null distribution to determine whether observed historical
+divergence among present-day analogues is more structured than expected
+under an appropriate shuffle.
+
+Prefer constrained permutation where feasible, for example within:
+
+- broad region
+- city-size strata
+
+and/or other justified coarse strata.
+
+Do not use an unconstrained global shuffle as the only null if strong
+geographic structure exists.
+
+Document:
+
+- permutation scheme
+- number of permutations
+- statistic
+- null interpretation
+
+Keep compute modest.
+
+======================================================================
+18. OPTIONAL HISTORY PCA — DESCRIPTIVE ONLY
+======================================================================
+
+If useful, perform PCA on normalized H trajectory only for descriptive
+visualization.
+
+Do not use PCA components as opaque proof.
+
+Report explained variance and loadings.
+
+Do not use t-SNE/UMAP as primary evidence.
+
+======================================================================
+19. SENSITIVITY ANALYSES
+======================================================================
+
+At minimum assess, where possible:
+
+A. S1 versus S2 versus S3
+
+B. with versus without C
+
+C. random versus geographic holdout
+
+D. alternative distance scaling
+
+E. removal of smallest cities
+
+F. removal of trajectories with QC concerns
+
+G. alternative endpoint year if feasible from the same table
+
+The purpose is to see whether historical separability is robust or an
+artifact of one specification.
+
+======================================================================
+20. NO RESPONSE VARIABLE
+======================================================================
+
+This is a hard rule.
+
+Do NOT use:
+
+- LST
+- SUHI
+- NDVI
+- flood response
+- carbon
+- biodiversity
+- mortality
+- emissions
+- environmental outcome
+
+No R is authorized.
+
+This execution cannot conclude that history has an environmental effect.
+
+======================================================================
+21. GATE 1 DECISION CRITERIA
+======================================================================
+
+Do not invent a single arbitrary p-value threshold.
+
+Evaluate Gate 1 using converging evidence.
+
+Evidence FOR continuing includes:
+
+- H cannot be near-perfectly reconstructed from S,C under geographic
+  holdout;
+- meaningful residual historical variation exists;
+- strong present-day analogues with divergent histories are not rare;
+- the pattern survives richer S specifications;
+- the pattern is not eliminated by coarse geographic controls;
+- results survive QC sensitivity analyses.
+
+Evidence AGAINST continuing includes:
+
+- H is essentially determined by S,C;
+- apparent divergence disappears after richer S;
+- twin candidates are extremely rare or driven by QC errors;
+- geographic blocking destroys all apparent separability;
+- the phenomenon is dominated by one region/product artifact.
+
+Final Gate 1 classification:
+
+PASS
+MIXED
+FAIL
+
+Explain the evidence.
+
+PASS does NOT mean the main scientific hypothesis is true.
+
+It only authorizes consideration of Gate 2.
+
+======================================================================
+22. FIGURES
+======================================================================
+
+Create only scientifically useful diagnostic figures.
+
+Candidate figures:
+
+Figure 1:
+Global/sample distribution and QC summary.
+
+Figure 2:
+Example normalized historical trajectory diversity
+(no environmental response).
+
+Figure 3:
+Out-of-sample H reconstruction performance for S1/S2/S3.
+
+Figure 4:
+D_H versus D_SC or historical divergence among nearest present-state
+analogues.
+
+Figure 5:
+Observed analogue historical-divergence statistic versus permutation
+null.
+
+Figure 6:
+Sensitivity summary.
+
+Do not create decorative figures.
+
+Save under:
+
+figures/1005-4/
+
+======================================================================
+23. MACHINE-READABLE OUTPUTS
+======================================================================
+
+Create at minimum:
+
+results/1005-4/ucdb_schema_audit.csv
+results/1005-4/history_qc.csv
+results/1005-4/twin_candidates.csv
+results/1005-4/reconstruction_metrics.csv
+results/1005-4/permutation_results.csv
+results/1005-4/sensitivity_results.csv
+results/1005-4/sample_summary.json
+results/1005-4/gate1_decision.json
+results/1005-4/run_metadata.json
+
+If GATE_A fails before analysis:
+
+create the schema audit, metadata, report, and gate decision;
+do not fabricate empty scientific results merely to satisfy filenames.
+
+======================================================================
+24. REPRODUCIBILITY
+======================================================================
+
+All analysis code must be saved under:
+
+scripts/
+and/or
+src/urban_history_transfer/
+
+Do not perform scientific calculations only in an interactive shell.
+
+Use deterministic random seeds.
+
+Record package versions relevant to the analysis.
+
+Use:
+
+conda run -n py311 python ...
+
+for project Python execution.
+
+Run tests where appropriate.
+
+======================================================================
+25. REPORT
+======================================================================
+
+Create:
+
+reports/report1005-4.md
+
+Required sections:
+
+1. Executive summary
+
+2. Exact scientific question tested
+
+3. What was NOT tested
+
+4. UCDB schema verification
+
+5. Gate A decision
+
+6. Data downloaded and exact sizes
+
+7. Endpoint-year decision
+
+8. Analysis sample and QC
+
+9. Definition of H
+
+10. Definition of S1/S2/S3
+
+11. Definition of C
+
+12. Experiment 1 — history reconstruction
+
+13. Experiment 2 — present-day analogues
+
+14. Experiment 3 — permutation/null
+
+15. Sensitivity analyses
+
+16. Evidence for historical separability
+
+17. Evidence against historical separability
+
+18. Gate 1 decision
+
+19. Scientific limitations
+
+20. Exact files created/modified
+
+21. Reproducibility/integrity statement
+
+22. Questions for PI review
+
+======================================================================
+26. QUESTIONS FOR PI REVIEW
+======================================================================
+
+Answer:
+
+Q1.
+Does the official city-level dataset actually contain enough temporal
+information for this experiment?
+
+Q2.
+What endpoint T was used and why?
+
+Q3.
+How predictable is H from S alone?
+
+Q4.
+How predictable is H from S+C?
+
+Q5.
+Does richer present-state information S1 -> S2 -> S3 eliminate
+historical residual variation?
+
+Q6.
+Under geographic holdout, does substantial unexplained H remain?
+
+Q7.
+How common are low-D_SC/high-D_H city pairs?
+
+Q8.
+Are these pairs globally distributed or geographically concentrated?
+
+Q9.
+Does the constrained permutation test suggest that the observed
+structure is non-trivial?
+
+Q10.
+What is the strongest result AGAINST the proposed programme?
+
+Q11.
+What is the strongest result FOR continuing?
+
+Q12.
+Gate 1:
+PASS / MIXED / FAIL?
+
+Q13.
+Should the next execution be allowed to introduce an independent
+environmental response R?
+
+Answer Q13 only as:
+
+YES
+NO
+UNCERTAIN
+
+with justification.
+
+======================================================================
+27. DATA PROVENANCE
+======================================================================
+
+For every downloaded research file record:
+
+- official source
+- URL
+- access date
+- original filename
+- byte size
+- SHA-256
+- license/citation information
+
+Store raw downloaded research files under the project's established
+data/raw policy.
+
+Do not modify raw files.
+
+Derived tables must be stored separately.
+
+======================================================================
+28. GIT
+======================================================================
+
+Before execution record:
+
+git status
+git log -1 --oneline
+
+Do not proceed if unexpected uncommitted project changes exist without
+reporting them.
+
+After successful completion:
+
+- check for secrets;
+- check file sizes;
+- ensure prohibited large raster data are absent;
+- do not commit raw research data if project policy excludes data/raw;
+- commit code, report, metadata, small derived results and authorized
+  figures if appropriate.
+
+Suggested commit:
+
+1005-4: test global urban historical separability
+
+Push to existing private origin if authentication succeeds
+non-interactively.
+
+If push requires human authentication:
+
+do not repeatedly retry.
+
+======================================================================
+29. INTEGRITY STATEMENT
+======================================================================
+
+Explicitly state:
+
+Large global raster downloaded:
+Yes/No
+
+Environmental response analyzed:
+Yes/No
+
+History-environment relationship tested:
+Yes/No
+
+Real urban data analyzed:
+Yes/No
+
+Gate A:
+PASS/FAIL
+
+Gate 1:
+PASS/MIXED/FAIL/NOT RUN
+
+Final scientific hypothesis established:
+No
+
+Causal claim made:
+No
+
+Historical reviewed artifacts modified:
+Yes/No
+
+======================================================================
+30. STOP CONDITIONS
+======================================================================
+
+STOP immediately and report if:
+
+- required UCDB temporal fields do not exist;
+- analysis would require prohibited raster downloads;
+- official data definitions cannot be verified;
+- dataset size unexpectedly exceeds authorized limit;
+- historical and present-state variables cannot be separated without
+  obvious mathematical circularity;
+- project integrity is compromised.
+
+Do not solve a stop condition by silently changing the scientific
+question.
+
+======================================================================
+31. FINAL RESPONSE
+======================================================================
+
+After completion STOP.
+
+Return only:
+
+PROMPT 1005-4 completed / partially completed / blocked
+
+Gate A:
+PASS / FAIL
+
+Real urban data analyzed:
+Yes / No
+
+Large raster downloaded:
+No
+
+Environmental response analyzed:
+No
+
+Gate 1:
+PASS / MIXED / FAIL / NOT RUN
+
+Report:
+reports/report1005-4.md
+
+Git commit:
+<hash/status>
+
+GitHub push:
+SUCCESS / BLOCKED / NOT ATTEMPTED
+
+Status:
+AWAITING_PI_REVIEW

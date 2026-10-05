@@ -1,0 +1,48 @@
+{
+  "initial_n": 11422,
+  "exclusions": [
+    {
+      "reason": "missing_core_variable",
+      "n_excluded": 0
+    },
+    {
+      "reason": "negative_or_invalid_value",
+      "n_excluded": 0
+    },
+    {
+      "reason": "duplicated_id",
+      "n_excluded": 0
+    },
+    {
+      "reason": "near_zero_endpoint_bus_or_pop",
+      "n_excluded": 0
+    },
+    {
+      "reason": "qualified_as_urban_centre_after_endpoint_year",
+      "n_excluded": 507
+    }
+  ],
+  "final_n": 10915,
+  "region_distribution": {
+    "Asia": 6273,
+    "Africa": 2006,
+    "Europe": 1154,
+    "North America": 715,
+    "South America": 715,
+    "Oceania": 52
+  },
+  "endpoint_population_distribution": {
+    "min": 49804.82439,
+    "p25": 71337.49617,
+    "median": 107691.043,
+    "p75": 207006.28035000002,
+    "max": 41337427.13
+  },
+  "endpoint_built_up_distribution": {
+    "min": 9209.0,
+    "p25": 1944500.0,
+    "median": 3965629.0,
+    "p75": 8542878.5,
+    "max": 1451412280.0
+  }
+}

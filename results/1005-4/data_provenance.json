@@ -1,0 +1,32 @@
+{
+  "execution_id": "1005-4",
+  "files": [
+    {
+      "official_source": "European Commission, Joint Research Centre (JRC) - GHSL / GHS-UCDB R2024A V1.2",
+      "product": "GHS_UCDB_GLOBE_R2024A_V1_2 (fixed 2025-reference-boundary urban centre database, full global table/vector bundle)",
+      "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_UCDB_GLOBE_R2024A/GHS_UCDB_GLOBE_R2024A/V1-2/GHS_UCDB_GLOBE_R2024A_V1_2.zip",
+      "access_date": "2026-10-05",
+      "original_filename": "GHS_UCDB_GLOBE_R2024A_V1_2.zip",
+      "byte_size": 276662440,
+      "sha256": "12DC8D366A6057B832A070BA3F7B7B7C601BAD191DA0417A666851F35F10DB2E",
+      "license": "European Commission Reuse and Copyright Notice (European Union, 1995-2025); reuse authorised provided the source is acknowledged",
+      "citation": "Mari Rivero, Ines; Melchiorri, Michele; Florio, Pietro; Schiavina, Marcello; Goch, Katarzyna; Politis, Panagiotis; Uhl, Johannes H; Pesaresi, Martino; Maffenini, Luca; Sulis, Patrizia; Crippa, Monica; Guizzardi, Diego; Pisoni, Enrico; Belis, Claudio; Jacome Felix Oom, Duarte; Branco, Alfredo; Mwaniki, Dennis; Kochulem, Edwin; Githira, Daniel; Carioli, Alessandra; Ehrlich, Daniele; Tommasi, Pierpaolo; Kemper, Thomas; Dijkstra, Lewis (2024): GHS-UCDB R2024A - GHS Urban Centre Database 2025. European Commission, Joint Research Centre (JRC) [Dataset] doi: 10.2905/1a338be6-7eaf-480c-9664-3a8ade88cbcd PID: http://data.europa.eu/89h/1a338be6-7eaf-480c-9664-3a8ade88cbcd",
+      "extracted_to": "data/raw/ghs_ucdb_r2024a/extracted/",
+      "modified_after_download": false
+    },
+    {
+      "official_source": "European Commission, Joint Research Centre (JRC) - GHSL / GHS-UCDB MTUC R2024A V1.2",
+      "product": "GHS_UCDB_MTUC_GLOBE_R2024A_V1_2 (Multi-Temporal Urban Centre, time-varying boundary per epoch; used as a boundary-definition sensitivity/schema check, not primary analysis)",
+      "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_UCDB_GLOBE_R2024A/GHS_UCDB_MTUC_GLOBE_R2024A/V1-2/GHS_UCDB_MTUC_GLOBE_R2024A_V1_2.zip",
+      "access_date": "2026-10-05",
+      "original_filename": "GHS_UCDB_MTUC_GLOBE_R2024A_V1_2.zip",
+      "byte_size": 37155214,
+      "sha256": "76EDDB0E609A2A6C9D9266D62DDAB5F5F1F0B457C68291EA9755B1E06855F32F",
+      "license": "European Commission Reuse and Copyright Notice (European Union, 1995-2025); reuse authorised provided the source is acknowledged",
+      "citation": "Same dataset family as GHS-UCDB R2024A (see above); GHS_UCDB_MTUC_GLOBE_R2024A is the multi-temporal-boundary companion product.",
+      "extracted_to": "data/raw/ghs_ucdb_r2024a/mtuc_extracted/",
+      "modified_after_download": false
+    }
+  ],
+  "notes": "Both files are well under the 500MB authorized-download threshold (prompt Section 3). No global raster stack (GHS-BUILT-S/BUILT-V/POP grids, MODIS/VIIRS, ERA5, DEM, flood) was downloaded in this execution. Raw files are stored unmodified under data/raw/ and are excluded from git version control per .gitignore; derived/processed tables are stored separately under data/interim/ and results/1005-4/."
+}

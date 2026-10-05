@@ -1,0 +1,28 @@
+{
+  "gate_a": "PASS",
+  "gate_a_reason": "Official GHS-UCDB R2024A provides 10 directly-observed (non-projected) multitemporal epochs (1975-2020, 5-year intervals) of built-up surface, population, and built-up volume for 11422 urban centres globally, obtained entirely from official pre-aggregated city-level table/vector products (264MB + 35MB, both well under the 500MB threshold). This provides 9 strictly pre-endpoint observations for H, satisfying the 'multiple pre-endpoint observations' minimum requirement without any raster download.",
+  "endpoint_year_T": 2020,
+  "h_epochs": [
+    1975,
+    1980,
+    1985,
+    1990,
+    1995,
+    2000,
+    2005,
+    2010,
+    2015
+  ],
+  "classification": "PASS",
+  "mean_r2_leave_region_out_S3_C_rf": 0.22649771509108152,
+  "permutation_p_value_observed_lower_than_null": 0.0,
+  "fraction_sensitivity_variants_consistent": 1.0,
+  "evidence_for_continuing": [
+    "Mean per-epoch leave-region-out R2 for S3+C/RF is 0.226 (<0.7); H is not near-perfectly reconstructed from S,C under geographic holdout.",
+    "Although the permutation test is statistically saturated at this sample size (null std=0.00162 over approximately 54575 neighbor pairs, so p(observed<=null)=0.000 is not a meaningful discriminator here), the RELATIVE effect size is only 27.6% (observed mean D_H 0.383 vs. null mean 0.529); present-state/context closeness explains only a modest fraction of historical similarity, leaving most historical variation unexplained.",
+    "The effect-size metric 'fraction of close present-day analogues with still-high historical divergence' is stable at 100% of true sensitivity variants within 30% relative of baseline (0.183); the degree of historical separability is not an artifact of one specification. As an informative contrast (not a robustness failure), removing C entirely raises this fraction to 0.246, confirming that coarse geographic/climate context does explain part of why present-day analogues share similar histories (consistent with expected climate/region confounding).",
+    "Reconstruction R2 is similar for S1 (no C, 0.136) and S3+C (0.226); the pattern is not simply explained away by richer present-state description."
+  ],
+  "evidence_against_continuing": [],
+  "note": "PASS does not mean the main scientific hypothesis is true; it only authorizes consideration of Gate 2. No environmental response variable was used in this decision."
+}

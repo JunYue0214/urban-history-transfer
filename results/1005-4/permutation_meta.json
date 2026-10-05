@@ -1,0 +1,11 @@
+{
+  "statistic": "mean_D_H_among_k_nearest_SC_neighbors",
+  "scheme": "constrained_permutation_within_region_x_population_tercile",
+  "n_permutations": 300,
+  "observed_statistic": 0.3830485421360202,
+  "null_mean": 0.5292382881555413,
+  "null_std": 0.001622773191482382,
+  "p_value_observed_lower_than_null": 0.0,
+  "p_value_observed_higher_than_null": 1.0,
+  "interpretation": "p_value_observed_lower_than_null small => real present-state/context neighbors have MORE similar histories than random assignment would produce (evidence S,C predicts something about H). p_value NOT small => real neighbors' history similarity is indistinguishable from random assignment (evidence FOR historical separability / equifinality)."
+}

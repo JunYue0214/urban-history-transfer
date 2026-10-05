@@ -1,0 +1,31 @@
+{
+  "execution_id": "1005-4",
+  "source_prompt": "prompts/prompt1005-4.txt",
+  "previous_execution": "1005-3",
+  "report": "reports/report1005-4.md",
+  "status": "COMPLETED",
+  "started_at": "2026-10-05T07:34:57.731241+00:00",
+  "completed_at": "2026-10-05T07:35:51.031568+00:00",
+  "random_seed": 42,
+  "endpoint_year_T": 2020,
+  "h_epochs_used": [
+    1975,
+    1980,
+    1985,
+    1990,
+    1995,
+    2000,
+    2005,
+    2010,
+    2015
+  ],
+  "gate_a": "PASS",
+  "gate1_classification": "PASS",
+  "sample_initial_n": 11422,
+  "sample_final_n": 10915,
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "sklearn_version": "1.9.1",
+  "pandas_version": "3.0.6",
+  "numpy_version": "2.4.6"
+}

@@ -1,0 +1,9 @@
+variant,description,n_cities,leave_region_rf_S3_C_aggregate_rmse,exp2_observed_mean_D_H_among_NN,exp3_p_value_observed_lower_than_null,frac_high_D_H_among_low_D_SC_pairs
+baseline_S3_with_C,"Primary specification: S3+C, leave-region-out, random forest",10915,0.40393038828014677,0.3830485421360202,0.0,0.18329058263100037
+S1_with_C,Nested present-state specification S1 (+C),10915,0.4279270792046736,0.3794962393144533,0.0,0.18644192011725907
+S2_with_C,Nested present-state specification S2 (+C),10915,0.40606845766398414,0.3820389729640601,0.0,0.1841102316036353
+S3_without_C,"S3 only, C excluded (zeroed out)",10915,0.4540851266902994,0.5560332929271479,0.0,0.24560246262093227
+alt_distance_scaling_robust,RobustScaler instead of StandardScaler for D_SC construction,10915,0.40393038828014677,0.4318399233879054,0.0,0.1936973250274826
+remove_smallest_10pct,Smallest 10% of cities by endpoint population removed,9823,0.39762323234249425,0.3825217059140245,0.0,0.18332111735483345
+remove_qc_flagged_trajectories,Cities with extreme-jump or non-monotonic BUS trajectories removed,10612,0.3828109704730162,0.3657425436653915,0.0,0.18189356249057742
+alt_endpoint_T2015,Alternative endpoint year T=2015 (H from 1975-2010),10915,0.3911985637724658,0.3598935881240643,0.0,0.17729404866608034
