@@ -1,0 +1,5 @@
+pivot,dim_mech,dim_novelty,dim_coverage,dim_temporal,dim_access,dim_compute,dim_low_circularity,dim_falsifiable,dim_gate1_fit,dim_strong_result,dim_transfer,total,rationale
+A,4,3,4,3,2,3,4,4,4,3,4,38,"Directly tests the leading diagnosis (response mixing). Access 2 and compute 3: only a 25.2 GB raster archive found, daily-mean only, needs zonal aggregation. Strong-result 3: urban LST is dominated by background climate, so M0 may leave little residual variance for H (see design)."
+B,3,4,3,3,2,3,3,4,4,3,3,35,"Highest novelty if morphology history exists, but within GHSL volume and area trajectories correlate 0.98-0.99 so the local data cannot test it; no other multi-epoch height/morphology source was verified."
+C,3,2,3,3,5,5,3,2,3,2,2,33,"Cheap, but replicates an uncorroborated lead on a similar response; weak falsifiability (no independent response identified)."
+D,3,3,3,2,3,3,3,3,2,3,2,30,"Mechanism for 'history but not heat' is speculative; no response dataset located; fishing risk."

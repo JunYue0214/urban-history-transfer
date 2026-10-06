@@ -1,0 +1,807 @@
+PROMPT ID: 1006-1
+DATE: 2026-10-06
+
+PROJECT:
+Urban Development History and Environmental Response Transferability
+
+TASK:
+Post-Gate-2 Failure Diagnosis + Scientific Pivot Design Lock
+
+==================================================
+0. AUTHORIZATION AND EXECUTION CONTRACT
+==================================================
+
+This prompt is the sole authorization for execution 1006-1.
+
+Before doing any work:
+
+1. Save this prompt verbatim to:
+   prompts/prompt1006-1.txt
+
+2. Read it back and confirm exact match.
+
+3. Use the official environment:
+   conda environment: py311
+   Python: 3.11.x
+
+4. Do NOT modify any historical artifact from executions
+   1005-1 through 1005-9.
+
+5. No real research-data download is authorized.
+
+6. Claude Code may:
+   - inspect already-local project data/results;
+   - audit documentation and metadata already available;
+   - search/discover external candidate sources and papers;
+   - design acquisition software;
+   - write mock/test acquisition code;
+   - design the next scientific experiment.
+
+7. Claude Code may NOT:
+   - download new research data;
+   - request bulk research-data transfers;
+   - run a new large-scale empirical history-response analysis;
+   - reopen Gate 2 by changing thresholds/specifications post hoc.
+
+All real research-data network transfer requires later PI approval
+and human execution.
+
+==================================================
+1. SCIENTIFIC STATUS
+==================================================
+
+Execution 1005-9 established:
+
+GATE 2 = FAIL
+
+TRANSFERABILITY PROGRAM = STOP
+for the current formulation:
+
+H =
+fixed-boundary 9-epoch aggregate built-up trajectory
+
+R =
+YCEO cluster-level SUHI contrast
+
+with S =
+present-day population / built area / density / built volume
+
+and C =
+broad geography / climate.
+
+The failure is considered scientifically valid.
+
+Do NOT attempt to rescue it through:
+
+- new arbitrary subsets;
+- new geometry thresholds;
+- new hyperparameters;
+- additional response transformations;
+- alternative k values;
+- significance mining;
+- region cherry-picking.
+
+The negative result must remain frozen.
+
+==================================================
+2. WHAT THE FAILURE DOES AND DOES NOT MEAN
+==================================================
+
+Supported:
+
+The tested built-up trajectory does not contain reproducible
+incremental predictive information about YCEO cluster-level SUHI
+beyond present state and broad climate in the locked inference population.
+
+Not supported:
+
+- "urban history never matters";
+- "history has no environmental consequences";
+- "all possible H representations are useless";
+- "all thermal responses are history-independent";
+- causal claims.
+
+The next hypothesis must be materially different.
+
+==================================================
+3. CORE FAILURE DIAGNOSIS
+==================================================
+
+Audit three possible reasons for Gate 2 failure:
+
+A. RESPONSE-MIXING FAILURE
+
+YCEO SUHI is:
+
+urban LST - rural-reference LST
+
+Therefore R combines:
+
+- urban-side thermal state;
+- rural/background thermal state;
+- rural vegetation/aridity/topography;
+- cluster-boundary/reference construction.
+
+History may influence the urban side without predictably influencing
+the urban-minus-rural contrast.
+
+B. HISTORY-REPRESENTATION FAILURE
+
+Current H captures only aggregate built-up-area trajectory.
+
+It does not directly capture:
+
+- morphological evolution;
+- verticalization;
+- compactness;
+- street/building geometry;
+- material change;
+- green-infrastructure evolution;
+- fragmentation/polycentricity;
+- land-cover transition sequence.
+
+C. SCALE / ONTOLOGY FAILURE
+
+YCEO is a coarse urban-agglomeration product with fixed Natural-Earth-derived
+cluster polygons, while GHSL history is defined using a different urban ontology.
+
+Even after conservative matching, historical information may be attenuated
+by aggregation and footprint mismatch.
+
+Assess each explanation using evidence already generated.
+
+Do NOT use post-hoc significance as the primary criterion.
+
+==================================================
+4. THE DYNAMIC-BOUNDARY LEAD
+==================================================
+
+1005-9 found:
+
+dynamic-boundary MTUC H
+N ≈ 1,274
+ΔR² ≈ +0.0157
+CI excluding 0
+
+while:
+
+- full-sample fixed H was null;
+- fixed H on the same MTUC subset was weaker;
+- twins / transfer / secondary response did not corroborate it.
+
+Treat this as:
+
+UNCONFIRMED LEAD
+
+not as evidence that dynamic history works.
+
+Explicitly determine what would constitute a valid replication.
+
+A valid replication must NOT simply:
+
+- reuse the same response/sample and change another model;
+- search more MTUC subsets;
+- tune the boundary rule.
+
+Prefer an independent response, independent geography/sample,
+or substantially independent H construction.
+
+==================================================
+5. CANDIDATE PIVOT HYPOTHESES
+==================================================
+
+Evaluate at least the following four candidate scientific pivots.
+
+--------------------------------------------------
+PIVOT A — URBAN-SIDE THERMAL RESPONSE
+--------------------------------------------------
+
+Question:
+
+Does developmental history predict urban-side thermal state
+after controlling for regional/background climate,
+even though it does not predict the urban-rural SUHI contrast?
+
+Potential response concepts:
+
+- urban mean LST;
+- urban nighttime LST;
+- urban thermal anomaly relative to broad climate rather than local rural pixels;
+- residualized urban LST after temperature/climate controls;
+- urban cooling/heating persistence.
+
+Audit whether a global city/agglomeration-level pre-aggregated product exists.
+
+Strong preference:
+
+city/cluster-level table or vector.
+
+Avoid global raw MODIS raster processing unless no scientifically valid
+aggregated alternative exists.
+
+--------------------------------------------------
+PIVOT B — MORPHOLOGICAL HISTORY
+--------------------------------------------------
+
+Question:
+
+Does historical evolution of urban morphology contain information
+that aggregate built-up-area trajectory misses?
+
+Candidate H concepts:
+
+- built-volume trajectory;
+- built-height / verticalization trajectory;
+- density trajectory;
+- compactness evolution;
+- fragmentation / polycentricity evolution;
+- expansion mode:
+  infill vs edge expansion vs leapfrog;
+- radial expansion shape.
+
+Audit whether GHSL or another globally consistent source can support
+a LOW-VOLUME city-level representation.
+
+Do NOT propose global pixel-scale processing without first proving necessity.
+
+--------------------------------------------------
+PIVOT C — DYNAMIC-BOUNDARY REPLICATION
+--------------------------------------------------
+
+Question:
+
+Was the positive dynamic-MTUC result a real signal or a subset/specification artifact?
+
+Design an independent replication strategy.
+
+Requirements:
+
+- pre-registered;
+- no reuse of the exact same significance path as evidence;
+- same-sample fixed-vs-dynamic comparison;
+- independent outcome or time period preferred;
+- explicit null / pseudo-H controls.
+
+--------------------------------------------------
+PIVOT D — RESPONSE-SPECIFIC HISTORY
+--------------------------------------------------
+
+Question:
+
+Is thermal SUHI simply the wrong environmental response for the history mechanism,
+while another response has stronger path dependence?
+
+Candidate response families may include:
+
+- vegetation/greenness resilience;
+- surface moisture / evapotranspiration;
+- urban ecological productivity;
+- flood/runoff proxy;
+- air quality if globally consistent;
+- land-surface thermal variability rather than mean SUHI.
+
+Do NOT choose a response because it gives a positive result.
+
+Assess mechanistic plausibility, temporal ordering, global coverage,
+data volume, circularity risk, and confounding.
+
+==================================================
+6. LARGE-SCALE REQUIREMENT
+==================================================
+
+The project remains a GLOBAL / LARGE-SCALE urban science project.
+
+Do NOT drift to:
+
+- neighbourhood-scale studies;
+- street-scale morphology;
+- individual-building analysis;
+- local case studies as the primary design;
+- terabyte-scale global raster pipelines.
+
+Preferred unit:
+
+city / urban centre / urban agglomeration.
+
+Preferred data architecture:
+
+pre-aggregated global vector/table.
+
+High-resolution imagery may later be used only as:
+- mechanism validation;
+- robustness;
+- selective case-study illustration.
+
+==================================================
+7. DATA-VOLUME AUDIT
+==================================================
+
+For every candidate data source estimate:
+
+- number of urban units;
+- temporal coverage;
+- spatial resolution if raster-derived;
+- downloadable file size;
+- expected local processed size;
+- whether raw global raster processing is needed;
+- expected RAM burden;
+- expected disk burden;
+- whether current hardware is sufficient.
+
+Flag any design requiring:
+
+> 50 GB
+> 200 GB
+> 1 TB
+
+and justify why such scale is necessary.
+
+Default assumption:
+if the main design suddenly requires hundreds of GB,
+the design may have drifted from the intended scientific scale.
+
+==================================================
+8. TEMPORAL ORDERING AUDIT
+==================================================
+
+For every candidate pivot determine:
+
+Can H clearly precede R?
+
+Classify:
+
+A. strict temporal precedence possible;
+
+B. partial overlap;
+
+C. contemporaneous only.
+
+Strong preference should be given to designs with:
+
+H_end < R_start
+
+or at least a meaningful lag.
+
+Do not repeat the 1005-9 temporal ambiguity if a better design is available.
+
+==================================================
+9. CIRCULARITY / MEDIATION AUDIT
+==================================================
+
+For each candidate response identify variables that must NOT be controlled
+because they may be mediators.
+
+Examples:
+
+If morphology history is H,
+do not include present morphology variables that fully encode H
+without explicitly discussing overcontrol.
+
+If greenness is R,
+do not automatically include present greenness in S.
+
+If thermal response is urban LST,
+distinguish climate/background controls from urban mediators.
+
+Explicitly build a small causal/conceptual DAG for each finalist.
+
+No causal identification claim is required.
+
+The DAG is for avoiding obvious conditioning mistakes.
+
+==================================================
+10. PRIOR-ART COLLISION AUDIT
+==================================================
+
+Search scientific literature for the closest existing work to each pivot.
+
+For each candidate answer:
+
+- Has this exact question already been asked globally?
+- What H representation was used?
+- What response was used?
+- What geographic scale?
+- What transfer/generalization question, if any?
+- What is genuinely novel here?
+
+Do not claim novelty merely because variable names differ.
+
+Prioritize high-quality peer-reviewed literature.
+
+==================================================
+11. CANDIDATE SCORING
+==================================================
+
+Score each pivot from 1–5 on:
+
+- mechanistic plausibility;
+- novelty;
+- global coverage;
+- temporal ordering;
+- data accessibility;
+- computational feasibility;
+- low circularity;
+- falsifiability;
+- compatibility with existing Gate 1 evidence;
+- ability to produce a strong negative OR positive result;
+- relevance to later transfer / observation-network optimization.
+
+Do NOT choose solely on total score.
+
+Explain major trade-offs.
+
+==================================================
+12. EXACTLY ONE PRIMARY PIVOT
+==================================================
+
+At the end choose exactly ONE:
+
+PRIMARY PIVOT = A / B / C / D
+
+Also optionally choose ONE backup.
+
+Do not keep four equal directions open.
+
+The primary pivot must have:
+
+- a clear scientific mechanism;
+- a falsifiable hypothesis;
+- a realistic global dataset path;
+- acceptable data volume;
+- a plan that does not depend on p-hacking the old result.
+
+==================================================
+13. NEXT-GATE DESIGN
+==================================================
+
+For the selected pivot define:
+
+new H
+new R
+S
+C
+analysis unit
+temporal window
+primary comparison
+validation scheme
+nulls
+falsifications
+minimum data required
+expected N
+expected computation
+decision rule.
+
+Do NOT execute the hypothesis test in 1006-1.
+
+This is a DESIGN LOCK only.
+
+==================================================
+14. ACQUISITION POLICY
+==================================================
+
+If new data are required:
+
+dataset state must remain:
+
+PROPOSED
+
+until PI approval.
+
+Write acquisition scripts if useful.
+
+Test only with:
+- mock data;
+- local fixtures;
+- loopback server;
+- metadata-only logic.
+
+Do NOT run real research-data downloads.
+
+Report exact human-download procedure separately.
+
+==================================================
+15. CURRENT-DATA REUSE
+==================================================
+
+Identify which existing assets can be reused:
+
+- GHS-UCDB;
+- MTUC;
+- YCEO;
+- existing fixed/dynamic H;
+- crosswalk;
+- climate/context variables;
+- region/block definitions.
+
+Avoid re-downloading existing resources.
+
+==================================================
+16. NEGATIVE RESULT PRESERVATION
+==================================================
+
+Create:
+
+results/1006-1/gate2_negative_result_freeze.md
+
+It must record:
+
+- original hypothesis;
+- pre-registered decision;
+- primary numerical result;
+- key falsifications;
+- final FAIL verdict;
+- STOP decision;
+- what the failure rules out;
+- what it does not rule out.
+
+This file is NOT a reinterpretation.
+
+It freezes the result before pivoting.
+
+==================================================
+17. PAPER-LEVEL IMPLICATION
+==================================================
+
+Assess whether the Gate 1 + Gate 2 FAIL combination itself may eventually be publishable.
+
+Conceptually:
+
+"developmental equifinality exists,
+but historical separability does not imply thermal-response separability."
+
+Assess whether this:
+
+- is strong enough for a standalone negative-result paper;
+- should become one component of a broader paper;
+- or is best treated as a falsified branch in a larger study.
+
+Do not write the paper yet.
+
+==================================================
+18. REQUIRED OUTPUTS
+==================================================
+
+Create:
+
+results/1006-1/gate2_negative_result_freeze.md
+results/1006-1/failure_diagnosis.md
+results/1006-1/candidate_pivots.csv
+results/1006-1/data_source_audit.csv
+results/1006-1/data_volume_audit.csv
+results/1006-1/temporal_ordering_audit.csv
+results/1006-1/prior_art_audit.md
+results/1006-1/pivot_scoring.csv
+results/1006-1/selected_pivot.json
+results/1006-1/next_gate_design.md
+results/1006-1/acquisition_plan.md
+results/1006-1/run_metadata.json
+
+Report:
+
+reports/report1006-1.md
+
+==================================================
+19. TESTING
+==================================================
+
+Add tests where applicable for:
+
+- no modification of 1005-9 outputs;
+- no Gate 2 rerun;
+- no SUHI re-slicing as a new discovery test;
+- no research-data download;
+- no raw-data mutation;
+- selected pivot exactly one;
+- dataset states remain PROPOSED if not already local;
+- acquisition scripts cannot execute real transfer by default.
+
+Run full test suite under py311.
+
+==================================================
+20. GIT
+==================================================
+
+Do NOT commit raw research data.
+
+Commit:
+- prompt;
+- code;
+- tests;
+- reports;
+- small results/artifacts.
+
+For GitHub push use session-scoped Clash proxy:
+
+$env:HTTP_PROXY="http://127.0.0.1:7890"
+$env:HTTPS_PROXY="http://127.0.0.1:7890"
+
+git push origin master
+
+Do not use setx.
+Do not modify global Git proxy.
+Do not change authentication.
+
+==================================================
+21. REQUIRED REPORT STRUCTURE
+==================================================
+
+reports/report1006-1.md must contain:
+
+1. Executive Summary
+2. Frozen Gate 2 Negative Result
+3. What Gate 2 FAIL Rules Out
+4. What It Does Not Rule Out
+5. Failure Diagnosis: Response Mixing
+6. Failure Diagnosis: H Representation
+7. Failure Diagnosis: Scale/Ontology
+8. Dynamic-Boundary Lead Assessment
+9. Pivot A — Urban-Side Thermal Response
+10. Pivot B — Morphological History
+11. Pivot C — Dynamic-Boundary Replication
+12. Pivot D — Response-Specific History
+13. Literature / Prior-Art Audit
+14. Data Availability
+15. Data Volume / Hardware Feasibility
+16. Temporal Ordering
+17. Circularity / Mediator Risks
+18. Candidate Scoring
+19. Selected Primary Pivot
+20. Backup Pivot
+21. Locked Next-Gate Design
+22. Data Acquisition Requirements
+23. Existing Data Reuse
+24. Paper-Level Implications of Gate1 + Gate2 FAIL
+25. Exact Files Created/Modified
+26. Reproducibility / Integrity
+27. Questions for PI Review
+
+==================================================
+22. QUESTIONS FOR PI REVIEW
+==================================================
+
+Answer explicitly:
+
+Q1. What is the most likely scientific reason the original Gate 2 failed?
+
+Q2. Is SUHI response mixing a serious explanation?
+
+Q3. Is current H too coarse mechanistically?
+
+Q4. Is ontology mismatch likely large enough to erase a real signal?
+
+Q5. How should the dynamic-MTUC positive subset be interpreted?
+
+Q6. What would count as an independent replication of that lead?
+
+Q7. Does a pre-aggregated global urban-side LST dataset exist?
+
+Q8. Can urban-side thermal response be studied without global raster processing?
+
+Q9. Does a feasible global morphological-history dataset exist?
+
+Q10. Can morphology history be represented at city/agglomeration scale?
+
+Q11. Which candidate offers the cleanest temporal precedence?
+
+Q12. Which has the lowest circularity risk?
+
+Q13. Which has the strongest novelty?
+
+Q14. Which has the strongest mechanistic interpretation?
+
+Q15. Which requires the least new data?
+
+Q16. Which requires the least storage/computation?
+
+Q17. Which is most compatible with the existing Gate 1 result?
+
+Q18. Which could still motivate transferability/network optimization later?
+
+Q19. PRIMARY PIVOT = A/B/C/D?
+
+Q20. BACKUP PIVOT = A/B/C/D/NONE?
+
+Q21. What is the new primary H?
+
+Q22. What is the new primary R?
+
+Q23. What is the new analysis unit?
+
+Q24. Can H strictly precede R?
+
+Q25. Expected sample N?
+
+Q26. Expected data download volume?
+
+Q27. Is new human-downloaded research data required?
+
+Q28. If yes, exactly which dataset/file should the human obtain?
+
+Q29. Is current hardware sufficient?
+
+Q30. What is the exact next empirical Gate after 1006-1?
+
+Q31. Can Gate 1 + Gate 2 FAIL itself support a meaningful scientific claim?
+
+Q32. Should optimization/network-design work remain paused?
+
+==================================================
+23. FINAL DECISION
+==================================================
+
+Assign:
+
+PIVOT DESIGN =
+LOCKED / PROVISIONAL / REJECTED
+
+and:
+
+NEXT EMPIRICAL GATE =
+READY / NOT YET / STOP
+
+Do not bias toward continuation.
+
+==================================================
+24. FINAL CONSOLE RESPONSE
+==================================================
+
+Return only:
+
+PROMPT 1006-1 COMPLETED
+
+Gate 2 negative result:
+FROZEN
+
+Most likely failure mode:
+<short phrase>
+
+Primary pivot:
+<A/B/C/D>
+
+Backup pivot:
+<A/B/C/D/NONE>
+
+New H:
+<short phrase>
+
+New R:
+<short phrase>
+
+Analysis unit:
+<short phrase>
+
+Strict temporal precedence:
+<YES / NO / PARTIAL>
+
+New data required:
+<YES / NO>
+
+Estimated download:
+<value>
+
+Expected N:
+<value>
+
+Raster-scale processing:
+<YES / NO>
+
+Current hardware:
+<SUFFICIENT / MARGINAL / INSUFFICIENT>
+
+Pivot design:
+<LOCKED / PROVISIONAL / REJECTED>
+
+Next empirical gate:
+<READY / NOT YET / STOP>
+
+Tests:
+<PASS/FAIL, count>
+
+Git push:
+<SUCCESS / FAILED / NOT ATTEMPTED>
+
+Report:
+reports/report1006-1.md
+
+Status:
+AWAITING_PI_REVIEW

@@ -1,0 +1,30 @@
+{
+  "primary_pivot": "A",
+  "primary_pivot_name": "Urban-side thermal response (urban LST, no rural reference)",
+  "backup_pivot": "B",
+  "backup_pivot_name": "Morphological history",
+  "exactly_one_primary": true,
+  "pivot_design": "PROVISIONAL",
+  "next_empirical_gate": "NOT YET",
+  "scores_total_of_55": {"A": 38, "B": 35, "C": 33, "D": 30},
+  "score_caveat": "Ordinal judgments, not measurements. A's lead over B is 3 points and rests on data access, which is itself unverified; the choice is driven by the diagnosis, not the total.",
+  "why_A": [
+    "Response mixing is the one failure explanation that can be tested directly and cheaply: SUHI subtracts a rural reference, urban LST does not.",
+    "A uses the existing, already-validated H, S, C and crosswalk, so any new result is attributable to the response change alone.",
+    "A concrete (not yet verified) data path exists: a 25.2 GB Zenodo archive of gap-filled daily-mean LST, 2003-2023, with a separate 2018-2023 zip that allows H to end before R begins."
+  ],
+  "why_not_B_first": [
+    "Within GHSL, built-volume and built-area trajectories correlate 0.977-0.990 per epoch (computed here from the local UCDB sample); implied mean height changes by a median of about 9% since 1975. A volume-based H is therefore mostly a re-expression of the area H that already failed.",
+    "No multi-epoch building-height, compactness or green-infrastructure source was verified. B is blocked on data discovery, not on design."
+  ],
+  "why_not_C": "C re-tests an uncorroborated lead (+0.0157 on 1,274 units, no support from twins, transfer or the secondary response) on a response that is still a SUHI contrast; no independent response was identified.",
+  "why_not_D": "No mechanism was identified for history acting on a non-thermal response but not on heat, and no response dataset was located.",
+  "main_risks_of_A": [
+    "Urban LST is dominated by background climate; after C1 the residual variance available to H may be small, so a null is likely to be uninformative about history unless the baseline R2 and noise floor are checked first (a pre-condition in the design).",
+    "The archive is a daily MEAN gap-filled LST (RMSE 1.84 K per its description), not a night-only or clear-sky observation, so it is not a like-for-like replacement for Annual_nig.",
+    "Zonal statistics over 25 GB of rasters exceed memory unless read in windows; this machine has 15.7 GB RAM.",
+    "A positive result would not by itself show history works through the urban side; it could reflect built-up extent proxies already imperfectly captured by S."
+  ],
+  "decision_rule_for_proceeding": "Proceed to the empirical gate only after (1) PI approves one human download, (2) the human reports file format, variable name, scale factor, nodata and file sizes from the Zenodo record, and (3) a mock-tested aggregation script passes a metadata check on the real file header. If the archive cannot yield a defensible urban-LST column, the fallback is Pivot B data discovery, or stopping with the Gate 1 + Gate 2 negative result.",
+  "dag": "H(1975-2015) -> built form, materials, green space (unmeasured mediators) -> urban LST (R); S(2020) and C (background climate) are common causes/controls; present greenness and present morphology beyond S3 are NOT controlled because they lie on the H -> R path. Reverse path: hot, dry cities may urbanize differently (H <- climate), which C only partly controls."
+}

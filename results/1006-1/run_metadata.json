@@ -1,0 +1,27 @@
+{
+  "execution_id": "1006-1",
+  "date": "2026-10-06",
+  "task": "Post-Gate-2 failure diagnosis and pivot design",
+  "gate2_negative_result": "FROZEN",
+  "primary_pivot": "A",
+  "backup_pivot": "B",
+  "pivot_design": "PROVISIONAL",
+  "next_empirical_gate": "NOT YET",
+  "network_access": "web search only; WebFetch blocked, so no landing page, paper or Zenodo record was read directly",
+  "research_data_downloaded": false,
+  "gate_2_artifacts_modified": false,
+  "historical_artifacts_modified": false,
+  "gate2_rerun": false,
+  "new_local_computation": "implied building height and area-vs-volume trajectory correlation on the local 10,915-city Gate 1 sample (UCDB attributes only; no thermal data read); UCDB footprint area distribution; hardware inventory",
+  "thermal_response_values_read": false,
+  "hardware_observed": {"ram_gb": 15.7, "free_disk_d_gb": 1679.5, "cores_logical": 20},
+  "scripts_added": ["scripts/aggregate_lst_zonal.py (header inspection + windowed zonal mean; tested on a synthetic raster only)"],
+  "tests_added": "tests/test_pivot_design_1006_1.py",
+  "random_seed": null,
+  "unverified_items": [
+    "Zenodo 10.5281/zenodo.17778992 contents: format, variable, scale factor, nodata, per-zip sizes, licence, extent, any day/night split (only search snippets seen)",
+    "whether a pre-aggregated urban LST city table exists (none found)",
+    "existence of a multi-epoch building-height/compactness/greenness source (none verified)",
+    "first-draft literature citations (removed; see prior_art_audit.md)"
+  ]
+}

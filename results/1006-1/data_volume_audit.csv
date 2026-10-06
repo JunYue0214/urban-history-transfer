@@ -1,0 +1,8 @@
+pivot,dataset,download_gb,processed_gb,ram_estimate,global_raster_processing,flag_gt_50GB,hardware_verdict,basis
+A,Xiang & Quan LST 2003-2023,25.2,<0.1 (city table),stream per file/year; 4-8 GB peak if windowed,YES (zonal stats; not pixel-wise modelling),NO (below 50 GB),MARGINAL-TO-SUFFICIENT,"verified: 25.2 GB total (search snippet). This machine: 15.7 GB RAM, ~1.68 TB free on D:. Feasible only with windowed reads; would not fit in memory if loaded whole. Daily files unpacked may exceed the zipped size (unverified)."
+A,YCEO SUHI v4 (existing),0,0,<1,NO,NO,SUFFICIENT,already local
+B,GHSL BUV/BUS (existing),0,0,<1,NO,NO,SUFFICIENT,already local; but largely redundant with area trajectory
+B,MTUC polygons (existing),0,<0.1,<4,NO,NO,SUFFICIENT,vector shape metrics from existing gpkg
+B,building-height history,unknown,unknown,unknown,probably YES,UNKNOWN,UNKNOWN,no source verified
+C,reuse of existing tables,0,0,<1,NO,NO,SUFFICIENT,
+D,vegetation/ET/runoff tables,unknown,unknown,unknown,probably YES,UNKNOWN,UNKNOWN,no source verified

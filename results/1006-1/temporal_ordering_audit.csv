@@ -1,0 +1,6 @@
+pivot,h_window,r_window,class,note
+A (primary design),1975-2010 rebased on B(2015),2018-2023 climatology,strict precedence (H ends 2015; R starts 2018),needs the 2018-2023 zip; unverified until the Zenodo record is read
+A (fallback),1975-2015,2003-2017 zips,partial overlap,only if the 2018-2023 slice is unusable; would repeat the Gate 2 ambiguity
+B,source-dependent,2003-2018 (YCEO SUHI) or LST,partial at best,no source verified; GHSL epochs end 2020
+C,1975-2015,must be independent of 2003-2018 SUHI (none identified),undetermined,
+D,1975-2015,variable; most candidate responses are contemporaneous or recent,usually partial/contemporaneous,

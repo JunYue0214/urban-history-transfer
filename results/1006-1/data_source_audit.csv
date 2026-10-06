@@ -1,0 +1,10 @@
+pivot,dataset,status,evidence,coverage,unit,format,verified_download_size,raster_processing_needed,caveats
+A,YCEO SUHI v4 cluster means,LOCAL,validated in 1005-7,10136 clusters,cluster polygon,shapefile,5 MB,NO,SUHI contrast only; contains no urban-side LST
+A,Xiang & Quan gapless daily-mean LST 2003-2023,PROPOSED,Zenodo 10.5281/zenodo.17778992 via search snippet (page not read),global gridded 1 km,pixel,zipped rasters (format unverified),25.2 GB (4 zips),YES (zonal statistics over ~2-11k polygons),daily MEAN LST (day+night blended); modelled/gap-filled (RMSE 1.84 K); no night-only band known; not read directly
+A,Pre-aggregated city-level urban LST table,NOT FOUND,no source located; the first draft assumed one exists - that was unverified,n/a,n/a,n/a,n/a,NO if it existed,do not plan on it
+A,Yang et al. 2024 UHII (Figshare 24821538),PROPOSED,known from 1005-6,10196 cities,city,README + Baidu/Google Drive links,unknown,unknown,SUHI-type contrast (urban minus reference); does not remove the response-mixing concern
+B,GHS-UCDB built volume GH_BUV_TOT 1975-2020,LOCAL,verified here: all 10 epochs present,10915 centres,centre,gpkg,0,NO,implied mean height BUV/BUS varies modestly (median ratio to 2020: 1.09 in 1975); volume- and area-ratio trajectories correlate 0.977-0.990 per epoch => little independent morphological information
+B,MTUC per-epoch polygon layers,LOCAL,1005-5 audit: 12 per-epoch polygon layers in the gpkg,11686 entities,polygon per epoch,gpkg,0,NO (vector only),boundary shape of population-defined centres; not built-up morphology; subset 4739 with complete history
+B,WSF3D / other building-height history,NOT VERIFIED,not located in this session,unknown,unknown,unknown,unknown,probably YES,no evidence of a multi-epoch product; do not assume
+C,independent SUHI product,PROPOSED,only Yang 2024 identified,see above,see above,see above,unknown,unknown,would reuse the SUHI response; independence of the response is partial at best
+D,city-level vegetation/ET/runoff tables,NOT FOUND,no source located,unknown,unknown,unknown,unknown,probably YES,not audited
