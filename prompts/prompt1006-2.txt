@@ -1,0 +1,89 @@
+Execution ID: 1006-2
+
+Purpose
+-------
+Apply the ChatGPT-authored package for the 1006-2 urban-LST archive verification step.
+This is an engineering/data-verification execution only. Do not download research data and do not run Gate 2B modelling.
+
+Authoritative package files
+---------------------------
+- scripts/python1006_2.py
+- scripts/aggregate_lst_zonal.py
+- tests/test_python1006_2.py
+
+Use these files as supplied. Do not redesign or rewrite them unless a minimal compatibility fix is required for the current repository.
+If a compatibility fix is needed, document the exact reason and diff in the report.
+
+Actions
+-------
+1. Copy package files into the repository using their relative paths.
+2. Read the existing project only as needed to verify imports/paths.
+3. Run:
+   - Python syntax/compile checks for the supplied Python files.
+   - the new synthetic tests only, or another equally short smoke test if pytest selection differs.
+4. DO NOT run scripts/python1006_2.py on real research data.
+5. DO NOT download research data.
+6. Create reports/report1006-2.md as the engineering report.
+7. Commit only 1006-2-related changes and push origin master.
+
+Engineering report requirements
+-------------------------------
+reports/report1006-2.md must include:
+- files created/modified
+- whether the supplied code was used unchanged; if not, exact compatibility changes and why
+- syntax/smoke-test results
+- exact human run command
+- expected raw archive path
+- known limitations
+- Git branch, commit hash, push status
+
+Also include concise PI-planning sections:
+
+## Project Structure and Code Map
+- relevant repository tree
+- main entry points
+- reusable modules
+- input -> processing -> output flow
+
+## Code Documentation Status
+- important well-documented modules
+- important opaque/under-documented logic
+- technical debt relevant to the next round
+
+## Reuse Map for Next Round
+- functions/modules to reuse
+- safe extension points
+- code that must not be duplicated
+- likely hook for full LST aggregation
+
+Git
+---
+Use session-only proxy if needed:
+  HTTP_PROXY=http://127.0.0.1:7890
+  HTTPS_PROXY=http://127.0.0.1:7890
+Never set global/system proxy.
+
+Do not modify frozen 1005-x results or the 1006-1 Gate-2 negative-result freeze.
+
+After push, stop. The human will run the real archive verification separately.
+
+
+Mandatory close-out sequence
+----------------------------
+After the implementation and short tests are complete:
+
+1. Write `reports/report1006-2.md`.
+2. Ensure the authoritative prompt for this execution is archived at:
+   `prompts/prompt1006-2.txt`
+   If you are executing from the staging package, copy the package prompt there before cleanup.
+3. Clean the staging directory completely:
+   `D:\claudecode\urban-history-transfer\chatgpt\`
+   Remove the ZIP and any extracted temporary package contents from that directory only.
+   Do not delete anything outside `chatgpt\`.
+4. In `reports/report1006-2.md`, explicitly record:
+   - `Prompt archived: YES/NO`
+   - `chatgpt staging directory cleaned: YES/NO`
+5. Then run `git status`, stage only this execution's repository files, commit, and push `origin master`.
+6. Report the final commit hash and push status, then stop.
+
+Do not skip the prompt archive or staging cleanup even when all code/tests already pass.
