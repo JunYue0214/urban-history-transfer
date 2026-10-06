@@ -61,7 +61,7 @@ Outputs: `results/python1006_2/python1006_2_results.md`, `_summary.json`, `_mani
 
 ## 7. Git
 
-Branch: `master`. Commit hash and push status: see §11 (filled after the push).
+Branch: `master`. Code commit `d163666b313c579504ffcb1956152c47982a6271`, pushed to `origin master` (`03bb5b1..d163666`, exit code 0). Details in §11.
 
 ---
 
@@ -128,4 +128,7 @@ Package files applied byte-for-byte. Tests are synthetic and offline (the extra 
 
 ## 11. Commit and push
 
-Filled in below after the push.
+* Branch: `master`
+* Code commit: `d163666b313c579504ffcb1956152c47982a6271` ("1006-2: apply ChatGPT package for urban-LST archive verification runner (no data, synthetic tests only)"), 5 files: the prompt, the two scripts, the test module and this report.
+* Push: **SUCCESS**, `03bb5b1..d163666  master -> master`, exit code 0 (session-only proxy `127.0.0.1:7890`; PowerShell shows git's progress line as an error record, which is cosmetic).
+* This report originally said "filled after the push"; this section was added in a small follow-up commit so the report records the real hash. That follow-up commit's own hash is not recorded here (a file cannot contain its own commit hash); see `git log`.
