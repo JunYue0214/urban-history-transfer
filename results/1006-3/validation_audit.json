@@ -1,0 +1,82 @@
+{
+  "execution_id": "1006-3",
+  "source_prompt": "prompts/prompt1006-3.txt",
+  "validated_at_utc": "2026-10-10T04:22:45.058406+00:00",
+  "python_executable": "C:\\Users\\admin\\Miniconda3\\envs\\py311\\python.exe",
+  "python_version": "3.11.16 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:36:16) [MSC v.1942 64 bit (AMD64)]",
+  "package_versions": {
+    "requests": "2.34.2",
+    "pytest": "9.1.1",
+    "rasterio": "1.4.4"
+  },
+  "checks": [
+    {
+      "check": "authorized_environment",
+      "reproduce_command": "conda run -n py311 python scripts/verify_project_environment.py",
+      "return_code": 0,
+      "stdout": "OK: running under Python 3.11 (executable='C:\\\\Users\\\\admin\\\\Miniconda3\\\\envs\\\\py311\\\\python.exe').\n  python_major: 3\n  python_minor: 11\n  python_executable: C:\\Users\\admin\\Miniconda3\\envs\\py311\\python.exe\n  sys_prefix: C:\\Users\\admin\\Miniconda3\\envs\\py311\n  conda_default_env: py311\n",
+      "stderr": ""
+    },
+    {
+      "check": "syntax",
+      "reproduce_command": "conda run -n py311 python -m py_compile scripts/python1006_3.py tests/test_python1006_3.py",
+      "return_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "check": "targeted_tests",
+      "reproduce_command": "conda run -n py311 python -m pytest -q tests/test_python1006_2.py tests/test_python1006_3.py",
+      "return_code": 0,
+      "stdout": "........                                                                 [100%]\n============================== warnings summary ===============================\ntests/test_python1006_2.py::test_synthetic_zip_and_raster\ntests/test_python1006_2.py::test_zonal_mean_synthetic\n  C:\\Users\\admin\\Miniconda3\\envs\\py311\\Lib\\site-packages\\rasterio\\transform.py:178: PendingDeprecationWarning: Use `@` matmul instead of `*` mul operator for matrix multiplication\n    return Affine.translation(west, north) * Affine.scale(xsize, -ysize)\n\ntests/test_python1006_2.py::test_zonal_mean_synthetic\n  C:\\Users\\admin\\Miniconda3\\envs\\py311\\Lib\\site-packages\\rasterio\\windows.py:360: PendingDeprecationWarning: Use `@` matmul instead of `*` mul operator for matrix multiplication\n    x, y = transform * (window.col_off or 0.0, window.row_off or 0.0)\n\ntests/test_python1006_2.py::test_zonal_mean_synthetic\n  C:\\Users\\admin\\Miniconda3\\envs\\py311\\Lib\\site-packages\\rasterio\\windows.py:361: PendingDeprecationWarning: Use `@` matmul instead of `*` mul operator for matrix multiplication\n    return Affine.translation(\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n8 passed, 4 warnings in 1.32s\n",
+      "stderr": ""
+    },
+    {
+      "check": "immutable_output_guard",
+      "passed": true,
+      "network_calls": 0
+    },
+    {
+      "check": "explicit_network_opt_in_guard",
+      "passed": true,
+      "network_calls": 0
+    },
+    {
+      "check": "prompt_and_handoff_exact_bytes",
+      "passed": true,
+      "prompt_sha256": "3bab4aad9341867705a0abca62f07dad71659b5d01382c7e65afab27b6a0eac1",
+      "handoff_sha256": "1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc"
+    },
+    {
+      "check": "frozen_gate2_hashes",
+      "passed": true,
+      "files": {
+        "results/1005-9/gate2_decision.json": "aa55dd87e3dfc9d17db9aab9f68113ca8779b191c49f6771fd8b5df25f4e00c4",
+        "results/1006-1/gate2_negative_result_freeze.md": "1fa60afd9583e7846e36806823ff6f18b9c97d4b05f8b53a51c9d5332c4c6b60",
+        "results/1005-9/analysis_sample_summary.json": "094771c947cc46ad46de2e365b37da371047a5f5ed5d9a3bb46bda37f8dddacb",
+        "results/1005-9/boundary_sensitivity_results.csv": "5692c6ee183e5e7aba903295dcf904d432795788100c6836529c25f4d07ab3c7",
+        "results/1005-9/common_support_results.csv": "e8d9e36416c3377e1de1131d109e27a9adba34afeea0186ea32092b0b2301501",
+        "results/1005-9/context_state_sensitivity.csv": "73c7800a98535ee40db9735c2588372bbc089de5403a2b11c4d721b636f4e8d2",
+        "results/1005-9/geometry_sensitivity_results.csv": "00dfda9dc276d5cf05b664cdb7e5642af289f8b08b1d3867c9364f17ef7979ff",
+        "results/1005-9/history_null_results.csv": "189f2fd284de3d5a62cd84ccf55ceb146aca0e8cf20e7d98b44ba918637c67e1",
+        "results/1005-9/history_null_shuffled_draws.csv": "7d6619c7b3741faac22f49f84b849074e3135b9bf668ef0c1c51356cb7f048df",
+        "results/1005-9/primary_model_metrics.csv": "d69e38aae107c9523e355981af4546e1dbdf778a8e3ef7324143ee5682f5d024",
+        "results/1005-9/primary_oof_predictions.csv": "e10250d6edb119aeaf05ba171b8bd08293407bb746b3f0babfad43d0a8be1caf",
+        "results/1005-9/region_holdout_results.csv": "a9d24f8664a8c6b5fee4eb8e24f0d9c9cefaa3940fd9dccddcf55510245cf78a",
+        "results/1005-9/spatial_residual_diagnostics.csv": "d8cbc199ebbfe7108485c9753ef01df9bbb0e749176ef52e6824a8844740e888",
+        "results/1005-9/strict_precedence_results.csv": "ea2a2e04c6effe7cc44feb4bb808e42ebb0ed672f1922ee24800664b4a28fbda",
+        "results/1005-9/subgroup_results.csv": "3386113cb4380231520871155d859a083b360dc00366531943b35a51ef869e39",
+        "results/1005-9/transfer_results.csv": "4b427cad52cee465e59d7cc8e53ee77aa4bc83c4974c417e58c0ac414223e9c4",
+        "results/1005-9/twin_results.csv": "41125dac57d5c01820656b529519c8e45602da5def362204cea85c74120dd9c4",
+        "results/1005-9/twin_summary.json": "9e7ed1bee48768802cfccbf3950aefdafdc9e577426d018458e69669ba69a696"
+      }
+    }
+  ],
+  "prior_user_execution_input_sha256": {
+    "results/python1006_2/python1006_2_DONE.txt": "3ff7b785e7b73ec9be1ed31bb07e34bdbc9ccaefc79319bc092c98f233a19d26",
+    "results/python1006_2/python1006_2_manifest.json": "e4ff6ceb8ddb80febef136c69855a833a0078c1caf4ae15477f5053009a53559",
+    "results/python1006_2/python1006_2_results.md": "03fd29a461cbb81e70cdd0089de87150d6cec3f8b7e6db9e35ae829138147ddd",
+    "results/python1006_2/python1006_2_summary.json": "90c3b6a54d7888683ffb1e820cc3787c7b2f4ddc9fc511aaf1dbb46e3306199b"
+  },
+  "all_passed": true
+}

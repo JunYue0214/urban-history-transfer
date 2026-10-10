@@ -1,0 +1,28 @@
+{
+  "execution_id": "1006-3",
+  "created_at_utc": "2026-10-10T04:31:58.958867+00:00",
+  "input_package": {
+    "original_path": "chatgpt/codex_takeover_urban_history_transfer_v2.zip",
+    "bytes": 9347,
+    "sha256": "7e4bb02f4063f6851c122ac61389c32f94104193667685585304a80e13f9b8d2",
+    "zip_integrity": "PASS",
+    "member_sha256": {
+      "CODEX_PROMPT_1006-3.txt": "3bab4aad9341867705a0abca62f07dad71659b5d01382c7e65afab27b6a0eac1",
+      "CODEX_HANDOFF.md": "1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc"
+    }
+  },
+  "byte_preserved_evidence_sha256": {
+    "results/1006-3/acquisition_plan.md": "a8ca2918aa94f60c5fd6eb9de6f23cb030abd558de99e70cd7e1c380d5a86012",
+    "results/1006-3/CODEX_HANDOFF.md": "1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc",
+    "results/1006-3/daily_file_manifest.csv": "94c77b68ebfd91a1df5aed4db8f4f9f31f983c91fd7b0d8183950ccfd9783e0e",
+    "results/1006-3/exploratory_access_observations.json": "7008457272b9438d9d26df88f2ae0bcf814d710efe50eb85d330379adf85dc00",
+    "results/1006-3/inventory_audit.json": "2956a4e67158ecca295e81d94a4b4cfa801c5bca4c28821c509d66f79af32eff",
+    "results/1006-3/paper_evidence.json": "87cda9be3cb92e38e1441dc165ca63ebd6d7c6c318505b019f17b8e4e1c3c07b",
+    "results/1006-3/source_decision.json": "9a9144a8c5bda139f854e523fbc752f2267683e47818d5836080f2131d000fb8",
+    "results/1006-3/source_evidence.json": "d14b89c44608dc1fc43b5bf0fd0ffb6c7540ff71b3dcff736d048754e9c04574",
+    "results/1006-3/tpdc_citation_evidence.json": "a71994e041b93ca8178fcd447b5228708127f6a6d90fcda34fb55141e7e306c5",
+    "results/1006-3/validation_audit.json": "1d20a84d86c113082ee6ea4587b7cc7743a2f70755bb2ae6dab25c1f9ef4992c",
+    "prompts/prompt1006-3.txt": "3bab4aad9341867705a0abca62f07dad71659b5d01382c7e65afab27b6a0eac1"
+  },
+  "note": "Immutable source/prompt/plan evidence only. This manifest, the mutable-in-progress report and subsequent close-out receipt are excluded to avoid recursive hashes."
+}

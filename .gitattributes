@@ -1,0 +1,3 @@
+# Preserve the exact takeover prompt and byte-stable 1006-3 audit evidence.
+prompts/prompt1006-3.txt -text whitespace=cr-at-eol
+results/1006-3/** -text whitespace=cr-at-eol

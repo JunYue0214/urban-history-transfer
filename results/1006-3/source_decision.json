@@ -1,0 +1,206 @@
+{
+  "execution_id": "1006-3",
+  "source_prompt": "prompts/prompt1006-3.txt",
+  "decided_at_utc": "2026-10-10T04:25:34.284720+00:00",
+  "decision": "FULL_SOURCE_LOCKED",
+  "decision_scope": "Authoritative product, public access and complete listed calendar locked; research payloads not acquired or analysis-ready.",
+  "locked_source": {
+    "title": "Global gapless 1 km daily mean land surface temperature dataset (2003-2023)",
+    "authors": [
+      "XIANG Junhao",
+      "QUAN Jinling"
+    ],
+    "host": "National Tibetan Plateau / Third Pole Environment Data Center (TPDC)",
+    "dataset_id": "2f302c7f-00bc-4ace-af30-5fa9277ed16e",
+    "doi": "10.11888/Terre.tpdc.303150",
+    "cstr": "18406.11.Terre.tpdc.303150",
+    "landing_url": "https://data.tpdc.ac.cn/en/data/2f302c7f-00bc-4ace-af30-5fa9277ed16e",
+    "metadata_updated": "2026-09-16 14:41:19",
+    "paper_doi": "10.1038/s41597-026-08223-x",
+    "paper_citation": "Xiang, J., Quan, J. & Zhan, W. (2026). Global gapless 1 km daily mean land surface temperature (70 degrees N-60 degrees S, 2003-2023) via integrated approaches. Scientific Data.",
+    "data_license": "CC BY 4.0",
+    "license_code": "1",
+    "share_policy": "A: Open Access",
+    "citation_requirement": "Attribute Xiang and Quan, dataset title, TPDC and dataset DOI; cite the three-author descriptor separately."
+  },
+  "locked_response": {
+    "definition": "UCDB urban-footprint mean daily-mean LST, 2018-2023 climatology; no rural-reference subtraction",
+    "unit_of_inference": "City / urban agglomeration",
+    "start": "2018-01-01",
+    "end": "2023-12-31",
+    "history": "H(t)=B(t)/B(2015), t=1975,...,2010",
+    "S": "Provisional S3 at 2020 (overlaps R window; not universally strict-precedence)",
+    "C": "C1; C0/C2 sensitivity",
+    "sample_data_usable_as_climatology": false,
+    "coverage_latitude": {
+      "north": 70.0,
+      "south": -60.0
+    }
+  },
+  "access": {
+    "verified_primary_method": "Anonymous public per-file HTTP POST, JSON {noToken:true}",
+    "endpoint_template": "https://data.tpdc.ac.cn/file/file/batchDownloadByFileId?fileId=<manifest-file-id>",
+    "representative_http_observation": {
+      "method": "POST",
+      "url": "https://data.tpdc.ac.cn/file/file/batchDownloadByFileId?fileId=149b7c59-ec00-49cd-ba66-10be4301b1b1",
+      "final_url": "https://data.tpdc.ac.cn/file/file/batchDownloadByFileId?fileId=149b7c59-ec00-49cd-ba66-10be4301b1b1",
+      "retrieved_at_utc": "2026-10-10T04:17:49.445041+00:00",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "advertised_content_length": "203815887",
+      "content_range": null,
+      "bytes_read": 65536,
+      "prefix_only": true,
+      "sha256_of_bytes_read": "17f87ae512aea0dbd68d14d6d94c0ff8d5b3524fa29bcb8cea8b7c6465e046ad"
+    },
+    "credentials_required_for_verified_http_route": false,
+    "contact_or_application_required_for_verified_http_route": false,
+    "temporal_subsetting": "Select year and daily file IDs before transfer",
+    "spatial_subsetting": "No documented or verified server-side spatial cutout; assume full daily raster transfer",
+    "http_range_status": "Range ignored in observed probe; interrupted transfers must restart the file unless a future endpoint is verified",
+    "ftp": "Guest credential endpoint responds; both advertised FTP hosts reset login. Not relied on for source lock."
+  },
+  "format": {
+    "organization": "Year directories; YYYY_MM_DD_DMLST.tif",
+    "format": "GeoTIFF",
+    "compression": "LZW",
+    "width": 32402,
+    "height": 15601,
+    "bands": 1,
+    "dtype": "int16",
+    "tile_shape": [
+      256,
+      256
+    ],
+    "projection": "Sinusoidal",
+    "sphere_radius_m": 6371007.181,
+    "pixel_size_m": [
+      926.6254331387497,
+      926.6254331387497
+    ],
+    "upper_left_xy_m": [
+      -12232382.342864634,
+      7783653.638365498
+    ],
+    "raw_nodata": 0,
+    "documented_scale": 0.01,
+    "temperature_unit_after_scale": "Kelvin",
+    "celsius_offset_after_scale": -273.15,
+    "conversion": "Mask raw zero before applying T_degC = raw_int16 * 0.01 - 273.15",
+    "embedded_scale_or_unit": "Not provided in inspected TIFF header / prior sample metadata; use documentation explicitly",
+    "verification_extent": "One complete-source header, three prior sample headers; every downloaded file still needs grid/schema validation"
+  },
+  "volume": {
+    "full_period": {
+      "listed_files": 7670,
+      "bytes": 1564747711145
+    },
+    "target_period": {
+      "listed_files": 2191,
+      "bytes": 447653756151,
+      "decimal_gb": 447.653756151,
+      "gib": 416.9100487148389
+    },
+    "target_years": [
+      {
+        "year": 2018,
+        "listed_files": 365,
+        "bytes": 74404979612
+      },
+      {
+        "year": 2019,
+        "listed_files": 365,
+        "bytes": 74650180964
+      },
+      {
+        "year": 2020,
+        "listed_files": 366,
+        "bytes": 74911292098
+      },
+      {
+        "year": 2021,
+        "listed_files": 365,
+        "bytes": 74624069230
+      },
+      {
+        "year": 2022,
+        "listed_files": 365,
+        "bytes": 74737313642
+      },
+      {
+        "year": 2023,
+        "listed_files": 365,
+        "bytes": 74325920605
+      }
+    ],
+    "target_largest_day_bytes": 209027206,
+    "all_target_days_under_1GB": true
+  },
+  "QA": {
+    "public_author_repo": "https://github.com/Xiang-junhao/Gapless-Daily-Mean-LST-GEE",
+    "tree_sha": "d3fe5f74c425f21e332587cde5a247a191a8b865",
+    "available_files": "Annual EATC failure mask, 1=failed fit",
+    "requires_GEE_generation": [
+      "Daily uint16 MODIS errors/count and Step-1 temporal-upscaling QA",
+      "Annual EATC fitting RMSE"
+    ],
+    "not_verified_available": "Full final Step-3 optimization uncertainty or exact final pixel-day fill-provenance mask",
+    "quality_rasters_downloaded": false,
+    "final_product_not_replaced_by_author_GEE_preliminary_reconstruction": true,
+    "city_domain_error_calibration": "Not established by the reported overall or independent station RMSE"
+  },
+  "hardware_feasibility": {
+    "drive_free_bytes_at_audit": {
+      "C:/": 325585063936,
+      "D:/": 1795106619392
+    },
+    "largest_single_year_bytes": 74911292098,
+    "native_pixels_per_raster": 505503602,
+    "int16_single_full_raster_bytes": 1011007204,
+    "int16_target_full_stack_bytes": 2215116783964,
+    "city_day_rows_upper_bound": 23914765,
+    "city_day_three_numeric_fields_bytes": 573954360,
+    "transfer_hours_at_MiB_per_second": {
+      "1": 118.58774718999862,
+      "5": 23.717549437999725,
+      "10": 11.858774718999863,
+      "25": 4.743509887599945
+    },
+    "note": "Storage/throughput arithmetic only; not a benchmark or a RAM guarantee.",
+    "D_free_after_target_raw_only_bytes": 1347452863241,
+    "recommended_storage": "Raw on D; one-year batches; optional month cache on C; yearly city intermediates",
+    "recommended_processing": "Sparse tile-to-city membership mapping, deterministic tile order, bounded block reads and sums/counts; compare with zonal_mean reference",
+    "compute_runtime_benchmarked": false,
+    "GPU_required": false
+  },
+  "research_data_state": "PROPOSED",
+  "large_download_approved": false,
+  "ready_for_analysis": false,
+  "gate2b_authorized": false,
+  "gate2b_run": false,
+  "full_raster_downloads": 0,
+  "source_audit_consistency_checks": {
+    "manifest_file_ids_unique": true,
+    "target_expected_calendar_independently_checked": true,
+    "byte_sums_consistent": true,
+    "representative_content_length_matches_manifest": true
+  },
+  "pending_scientific_decisions": {
+    "status": "PENDING_SCIENTIFIC_DECISION",
+    "items": [
+      "Daily/period meaning of >=9 valid pixels, temporal support/exclusion and QA sensitivity rules, and equal-calendar-day weighting before response modeling",
+      "Common-population and boundary/period harmonization needed before attributing SUHI-vs-LST differences to rural-reference mixing",
+      "Strict-precedence S sensitivity and boundary-vintage leakage audit",
+      "Prespecified negative-control outcome and response-reconstruction sensitivity"
+    ]
+  },
+  "next_action": "Stop after 1006-3. Recommend a future authorized human acquisition of a fixed one-month engineering pilot, then hash/calendar/grid validation and bounded-memory benchmarking before scaling to six years.",
+  "evidence_artifacts": [
+    "inventory_audit.json",
+    "daily_file_manifest.csv",
+    "source_evidence.json",
+    "paper_evidence.json",
+    "tpdc_citation_evidence.json",
+    "validation_audit.json"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "execution_id": "1006-3",
+  "url": "https://data.tpdc.ac.cn/view/metadataView/detail/",
+  "http_status": 200,
+  "retrieved_at_utc": "2026-10-10T04:23:41.948606+00:00",
+  "metadata_response_bytes": 13593,
+  "metadata_response_sha256": "e8165646af2faa6ed1fb737ff6b9b5da36f7112ad66e3afde216e810af0d21d9",
+  "metadata_fields": {
+    "author": null,
+    "authorEn": null,
+    "cstr": "18406.11.Terre.tpdc.303150",
+    "doi": "10.11888/Terre.tpdc.303150",
+    "license": "1",
+    "doiId": null,
+    "doiType": "1",
+    "journalName": "Earth System Science Data",
+    "reference": null
+  },
+  "author_fields": {
+    "authorVOList": [
+      {
+        "name": "项俊皓",
+        "nameEn": "XIANG Junhao",
+        "unit": "中国科学院地理科学与资源研究所地理信息科学与技术全国重点实验室",
+        "daid": "D-0668-2025"
+      },
+      {
+        "name": "全金玲",
+        "nameEn": "QUAN Jinling",
+        "unit": "中国科学院地理科学与资源研究所地理信息科学与技术全国重点实验室",
+        "daid": "D-0710-2025"
+      }
+    ]
+  },
+  "normalization": "Only public name, institution and author identifier retained; contact details omitted."
+}

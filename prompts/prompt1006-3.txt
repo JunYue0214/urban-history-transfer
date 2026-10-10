@@ -1,0 +1,141 @@
+You are now the primary execution agent for:
+
+`D:\claudecode\urban-history-transfer`
+
+First process the takeover package in:
+`D:\claudecode\urban-history-transfer\chatgpt\`
+
+Read `CODEX_HANDOFF.md` completely before acting.
+
+MACRO GOAL
+==========
+Advance this project toward a globally important urban-science paper with a realistic path to
+Nature Cities-level scientific quality.
+
+The paper must remain genuinely global/large-scale, methodologically rigorous, falsifiable,
+and reproducible. Do not trade scientific validity for a positive result or journal targeting.
+
+The central scientific question is:
+
+Among global cities with comparable present state S and environmental context C, does
+developmental history H retain independent out-of-sample information about environmental
+response R, and can that history improve transfer across cities?
+
+Gate 1 already established historical equifinality.
+Gate 2 failed for YCEO SUHI.
+The current task tests whether that failure could be due to rural-reference mixing by seeking
+a defensible urban-side LST response.
+
+NON-NEGOTIABLE CONSTRAINTS
+==========================
+- global / continental / city / agglomeration scale
+- no neighborhood-scale drift
+- no unsupported causal claims
+- no post-hoc fishing to rescue failed hypotheses
+- preserve frozen Gate 2 FAIL
+- strict temporal ordering where possible
+- use out-of-sample/spatial validation
+- important empirical numbers must come from code
+- reuse existing code before creating new code
+- do not require giant in-memory raster stacks
+- do not automatically start large research-data downloads
+
+HARDWARE
+========
+- CPU: Intel Core i7-12700, 12 cores / 20 threads
+- RAM: 16 GB (~15.7 GB usable)
+- GPU: NVIDIA RTX 3060, 12 GB
+- SSD: Samsung 980 500 GB
+- HDD: Seagate 2 TB (~1.82 TB)
+- Windows workstation
+
+Design workflows around these limits. RAM is the main bottleneck. Prefer streaming, windowed
+I/O, spatial indexing, and pre-aggregation. Treat multi-hundred-GB/TB datasets without
+selective access as a major feasibility issue.
+
+IMMEDIATE EXECUTION: 1006-3
+===========================
+Do NOT run Gate 2B yet.
+
+Resolve the response-data source.
+
+The Zenodo record DOI `10.5281/zenodo.17778992` describes a 2003–2023 global gapless 1 km
+daily-mean LST product, but its TIFF archives are sample data. The downloaded
+`2018-2023.zip` contains only 36 TIFFs / 36 dates, so it cannot be used as a complete
+2018–2023 daily climatology.
+
+Tasks:
+1. Find the authoritative paper/documentation for the Xiang & Quan product.
+2. Find the authoritative COMPLETE DAILY dataset location.
+3. Verify:
+   - host/repository
+   - access method
+   - license/citation
+   - temporal completeness
+   - file organization / format
+   - CRS
+   - scale/nodata
+   - QA/imputation information
+   - total volume
+   - 2018–2023 volume
+   - temporal/spatial subsetting capability
+   - credential/contact/request requirements
+4. Assess feasibility on the stated hardware.
+5. Do not start a large download without explicit human approval.
+6. Do not silently substitute a different response product.
+7. Do not average the 36 sample TIFFs as a climatology.
+8. Do not modify frozen 1005-x/Gate-2 results.
+9. Do not run Gate 2B models.
+
+FINAL 1006-3 DECISION
+=====================
+Return exactly one:
+
+`FULL_SOURCE_LOCKED`
+- complete daily source is verified and practically obtainable
+- provide the minimal acquisition + verification plan
+
+`ALTERNATIVE_SOURCE_REQUIRED`
+- original complete source is not practically obtainable
+- compare only defensible alternatives with temporal ordering, scale, access, volume, and compute
+
+`PIVOT_A_BLOCKED`
+- no defensible urban-side response route is feasible
+- recommend whether to proceed to Pivot B or close the history hypothesis / prepare the negative-result paper
+
+OUTPUTS
+=======
+Always create:
+- prompts/prompt1006-3.txt
+- reports/report1006-3.md
+- small structured audit files under results/1006-3/ when useful
+
+Do not create python1006_3.py unless code is genuinely needed.
+
+The report must include:
+- authoritative sources and exactly what each verifies
+- final decision
+- data volume/access/hardware feasibility
+- scientific consequences
+- recommended next action
+- project structure/code map
+- reusable modules
+- technical debt relevant to the next step
+- Git status/commit/push
+- Prompt archived: YES/NO
+- chatgpt staging directory cleaned: YES/NO
+
+CLOSE-OUT
+=========
+1. Save this exact prompt as prompts/prompt1006-3.txt.
+2. Write reports/report1006-3.md.
+3. Run only necessary checks/tests.
+4. Commit only 1006-3-related changes.
+5. Push origin master.
+6. Use only session-local proxy if needed:
+   HTTP_PROXY=http://127.0.0.1:7890
+   HTTPS_PROXY=http://127.0.0.1:7890
+7. Never change global Git proxy.
+8. Clear D:\claudecode\urban-history-transfer\chatgpt\ after prompt archive.
+9. Record prompt archive and staging cleanup status.
+10. Report final commit hash and push status, then stop.

@@ -1,0 +1,28 @@
+{
+  "execution_id": "1006-3",
+  "observed_date": "2026-10-10",
+  "evidence_level": "Initial exploratory observations summarized before the reproducible source audit; not repeated by python1006_3.py",
+  "additional_complete_source_header_probe": {
+    "name": "2018_05_16_DMLST.tif",
+    "file_id": "9397200c-1f30-4993-ac7b-44a21db52612",
+    "http_status": 200,
+    "advertised_content_length": 205942019,
+    "application_bytes_read": 65536,
+    "range_honored": false,
+    "full_file_downloaded": false
+  },
+  "ftp": {
+    "public_guest_session_endpoint": "https://data.tpdc.ac.cn/file/ftp/createNoLoginDownloadFtpUser?metadataId=2f302c7f-00bc-4ace-af30-5fa9277ed16e",
+    "endpoint_success": true,
+    "public_hosts": [
+      "ftp2.tpdc.ac.cn",
+      "ftp3.tpdc.ac.cn"
+    ],
+    "public_port": 6201,
+    "both_login_probes": "ConnectionResetError",
+    "user_account_registered": false,
+    "temporary_credentials_saved_or_printed": false
+  },
+  "author_contacted": false,
+  "research_payload_scope": "Two TIFF prefixes in total; no full research raster or QA raster downloaded in 1006-3. Application-read limits do not measure lower-level transport buffering."
+}

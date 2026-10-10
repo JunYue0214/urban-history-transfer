@@ -1,0 +1,73 @@
+{
+  "execution_id": "1006-3",
+  "source_prompt": "prompts/prompt1006-3.txt",
+  "doi": "10.1038/s41597-026-08223-x",
+  "article_url": "https://www.nature.com/articles/s41597-026-08223-x?error=cookies_not_supported",
+  "reference_pdf_url": "https://www.nature.com/articles/s41597-026-08223-x_reference.pdf?error=cookies_not_supported",
+  "final_pdf_url": "https://www.nature.com/articles/s41597-026-08223-x_reference.pdf?error=cookies_not_supported",
+  "http_status": 200,
+  "retrieved_at_utc": "2026-10-10T04:20:37.018973+00:00",
+  "pdf_bytes": 3825351,
+  "pdf_sha256": "83fd2321a8ea7cd56c382898394c5ea8e43ff6fee6139ffec295935a47346197",
+  "pdf_pages": 51,
+  "version": "Accelerated accepted manuscript; ARTICLE IN PRESS",
+  "paper_license": "CC BY-NC-ND 4.0; distinct from TPDC data CC BY 4.0",
+  "excerpt_normalization": "Whitespace only",
+  "excerpts": [
+    {
+      "pdf_page": 1,
+      "marker": "Cite this article as:",
+      "excerpt": "26-08223-x Received: 13 April 2026 Accepted: 25 August 2026 Cite this article as: Xiang, J., Quan, J., Zhan, W. Global gapless 1 km daily mean land surface temperature (70°N–60°S, 2003–2023) via integrated approaches. Sci Data (2026). https://doi.org/10.1038/ s41597-026-08223-x Junhao Xiang, Jinling Quan & Wenfeng Zhan We are pr"
+    },
+    {
+      "pdf_page": 3,
+      "marker": "Validation demonstrates",
+      "excerpt": " MODIS observations with all -weather in situ measurements. Validation demonstrates progressive accuracy improvements across steps, with final RMSEs of 2.073 K (daily) and 1.511 K (monthly) against independent ground observations . Comparisons with existing gap -filled products and reanalysis datasets demonstrate improved statistical accuracy—particularly over cropland, grassla"
+    },
+    {
+      "pdf_page": 6,
+      "marker": "Additionally, daily aggregated",
+      "excerpt": "polation and as an input feature in the optimization model. Additionally, daily aggregated ERA5-Land surface air temperature (SAT) and albedo 50 (9 km, DOI: https://doi.org/10.24381/cds.e9c9c792) and the ASTER Global DEM 51 (100 m, DOI: https://doi.org/10.5067/COMMUNITY/ASTER_GED/AG100.003) were incorporated as auxiliary variables respectively for interpolation and optimization and reprojected to the 1 km MODIS sinusoidal grid (Table 1). The use of reanalysis-based SAT and albedo data was primarily motivated by their ready accessibility and efficient large-scale processing within the Google Earth Engine (GEE) platform, whic h substantially enhances the efficiency of global long -term implementation. P"
+    },
+    {
+      "pdf_page": 16,
+      "marker": "For Step 3",
+      "excerpt": "dard deviation (SD), and coefficient of determination (R²). For Step 3, 30% of sites ( n=59) excluded from training were used to independently evaluate the data reliability over unseen regions (Figure 1), and a sample-based 10-fold cross-validation was conducted to assess robustness."
+    },
+    {
+      "pdf_page": 17,
+      "marker": "Data Records",
+      "excerpt": " types, as well as seasonal robustness and spatial quality. Data Records The generated product 74 covers land surfaces between 70°N and 60°S from 2003 to 2023, freely available from https://cstr.cn/18406.11.Terre.tpdc.303150. It is organized by year and day. Namely, each file provides the global gapless daily mean LST for a single day, expressed in Kelvin and scaled by a factor of 100. Files follow the naming convention “YYYY_MM_DD_DMLST.tif”, where <YYYY>, <MM>, and <DD> denote the year, month, and day, respectively, and <DMLST> represents daily mean land surface temperature . The dataset is provided in GeoTIFF format with a spatial resolution of 1 km in sinusoidal projection. It can be accessed or processed using tools such as ENVI, ArcGIS, and Python. In addition , three types of pixel -level quality information can be access"
+    },
+    {
+      "pdf_page": 17,
+      "marker": "In addition",
+      "excerpt": " or processed using tools such as ENVI, ArcGIS, and Python. In addition , three types of pixel -level quality information can be accessed through https://github.com/Xiang-junhao/Gapless-Daily-Mean-LST-GEE. First, for each pixel -day, the average LST errors of the four instantaneous MODIS observations, the number of valid MODIS observations per day, and the validity of temporal upscaling (Step 1) are encoded into a single 16- bit unsigned integer (see Table 2 for the encoding scheme). Second, for each pixel-year, the EATC fitting error is provided as the RMSE between the input daily mean LSTs from Step 1 and their EATC-fitted values from Step 2. Third, an EATC fitting failure flag is provided for each pixel-year, with a value of 1 indicating a failed EATC fit in the corresponding year . The first two types of quality information can be generated globally for all study years using the accompanying GEE scripts (examples in Figure S3 and Figure S4). The third type is directly provided as 1-km GeoTIFF"
+    },
+    {
+      "pdf_page": 19,
+      "marker": "1.838",
+      "excerpt": "e optimized daily mean LSTs achieve bias = −0.037 K, RMSE = 1.838 K, and R ² = 0.972, further improving accuracy by 0.566 K over Step 2. This demonstrates effective mitigation of clear -sky restrictions, enhancing real all-weather daily mean LST generation."
+    },
+    {
+      "pdf_page": 21,
+      "marker": "Independent validation",
+      "excerpt": " EFDC, and (d) TPDC. Colors indicate the density of points. Independent validation of XGBoost-optimized daily mean LST Figure 5 illustrates the accuracy of the XGBoost -optimized daily mean LST . Results from the training ( Figure 5a) and sample -based cross -validation ( Figure 5c) are highly consistent, with RMSEs of 1.734 K and 1.761 K and R² of 0.975 and 0.974 . These findi"
+    },
+    {
+      "pdf_page": 39,
+      "marker": "59",
+      "excerpt": " the overall accuracy against in situ measurements from the 59 independent stations: daily RMSEs are 2.658 K (ERA5 -Land), 2.380 K (GLDAS), and 2.060 K (this study), and monthly RMSEs are 2.161 K, 1.940 K, and 1.511 K, respectively ( Figure 18). These results demonstrate the advantage of high-resolution daily mean LST data in characterizing complex landscape variability."
+    },
+    {
+      "pdf_page": 44,
+      "marker": "Data Availability",
+      "excerpt": " inherent difference in physical meaning between variables. Data Availability The generated product 74 is freely available from the TPDC repository: https://cstr.cn/18406.11.Terre.tpdc.303150. Refer to Data Records for a detailed data description. Code Availability The code used in this data descriptor is available on GitHub: https://github.com/Xiang- junhao/Gapless-Daily-Mean-LST-GEE. References 1 Cunha, A. P. M., Alvala, R. C., Nobre, C. A. & Carvalho, M. A. Monitoring vege"
+    }
+  ],
+  "pdf_persisted": false,
+  "notes": [
+    "PDF page numbers include front matter.",
+    "Page 21 reports independent daily RMSE 2.073 K; the cross-product comparison on page 39 reports 2.060 K. These are kept separate, not treated as city-domain error guarantees."
+  ]
+}
