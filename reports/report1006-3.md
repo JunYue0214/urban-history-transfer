@@ -289,6 +289,7 @@ downloader, large aggregation pipeline or Gate 2B run was started here.
 | `results/1006-3/validation_audit.json` | Interpreter/package versions, exact targeted commands/results, guards, frozen hashes and prior-input hashes |
 | `results/1006-3/acquisition_plan.md` | Minimal future human acquisition/validation/streaming plan |
 | `results/1006-3/artifact_manifest.json` | Package/member hashes and immutable prompt/source/plan evidence hashes |
+| `results/1006-3/closeout_audit.json` | Verified source push, exact committed archives, completed cleanup, frozen/prior-input rechecks and stop status |
 
 No raw research rasters or archives are committed. All changes are additions
 specific to 1006-3; older scripts, reports, results and raw files are unchanged.
@@ -311,6 +312,10 @@ specific to 1006-3; older scripts, reports, results and raw files are unchanged.
   unique file IDs, matching totals and representative Content-Length.
 - Frozen hashes: **18/18 match**. Prompt/handoff copy hashes match originals.
   The full 129-test suite was not rerun because no frozen analytical code changed.
+- Source commit allowlist: **16 files**. All **11** immutable prompt/evidence
+  hashes match both disk bytes and committed Git blobs. New source/report/evidence
+  whitespace checks pass. After cleanup, all **18** frozen files and **4** prior
+  user-run files were rechecked unchanged; `chatgpt` exists with **0 items**.
 
 The reproducible runner consumed 6,350,970 application bytes of metadata and
 one bounded header combined. Across source exploration plus the runner,
@@ -363,6 +368,16 @@ citation and close-out snapshots were supplementary bounded/local checks.
    exact prompt/handoff bytes are verified by hash rather than rewritten to
    satisfy a source-code marker heuristic. New code/report/evidence whitespace
    checks are run separately from those immutable input archives.
+8. Automatic approval review rejected the initial computed-path cleanup command
+   with `blocked by policy`; it executed no deletion. A separate read-only check
+   verified the directory, exactly three ordinary files and their hashes.
+   Native PowerShell nonrecursive deletion using those three explicit literal
+   file paths succeeded, and an independent check confirmed the empty directory.
+9. The source commit pushed successfully over direct connectivity. The first
+   direct close-out push later failed to connect to github.com:443. A separate
+   session-local HTTP/HTTPS proxy check succeeded and confirmed remote master
+   still held the source commit. The close-out push uses that authorized local
+   proxy; no global Git configuration is changed.
 
 ## Project Structure and Code Map
 
@@ -454,10 +469,21 @@ scientific recommendations are planning only.
 
 Starting branch: `master`; remote:
 `https://github.com/JunYue0214/urban-history-transfer.git`.
-Only 1006-3 files are to be staged. Prior human `results/python1006_2/` remains
-untracked and untouched. Commit/push verification is completed in the close-out
-update; no global Git proxy is changed. A session-local proxy may be used for
-the authorized push if direct connectivity fails.
+
+Source audit commit: **`c5fa8df4baa940f85c2fcdfb856815190931feb8`**,
+`1006-3: lock complete TPDC daily LST source and bounded acquisition plan`.
+**Push SUCCESS** to `origin master`; `git ls-remote` independently confirmed
+that remote master equals that commit. The commit contains only the 16
+1006-3-related additions, excluding staging inputs and prior human-run files.
+The source push used direct connectivity; no global Git proxy was changed.
+
+The close-out follow-up commit contains only this updated report and
+`results/1006-3/closeout_audit.json`. Its hash is obtained from Git history
+because a committed file cannot contain its own commit hash. Its final push
+and remote equality are verified after committing, then reported to the human.
+After the failed direct close-out push, only its retry/check command sessions
+set `HTTP_PROXY` and `HTTPS_PROXY` to `http://127.0.0.1:7890` as authorized.
+Prior human `results/python1006_2/` remains untracked and untouched.
 
 ## Close-out
 
@@ -466,6 +492,13 @@ Prompt archived: **YES**. Exact SHA-256:
 Handoff exact SHA-256:
 `1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc`.
 
-chatgpt staging directory cleaned: **PENDING** until the verified commit/push
-and authorized cleanup. The final close-out update records the actual state.
-Stop after 1006-3; no automatic acquisition, Gate 2B or next prompt.
+chatgpt staging directory cleaned: **YES**. Only the verified takeover ZIP
+and its two extracted input files were removed after the source commit/push;
+the directory is preserved and independently verified to contain **0 items**.
+`closeout_audit.json` records the exact archives, actual source commit/push,
+cleanup and unchanged frozen/prior-user hashes. Tracked worktree was clean
+before writing this close-out update, with only prior human results untracked.
+
+Work stops after 1006-3. No large research-data acquisition, Gate 2B,
+sample climatology or next execution was started. The unique decision remains
+**FULL_SOURCE_LOCKED**, with research data still **PROPOSED**.

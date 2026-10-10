@@ -1,0 +1,123 @@
+{
+  "execution_id": "1006-3",
+  "closed_at_utc": "2026-10-10T04:38:08.215540+00:00",
+  "final_decision": "FULL_SOURCE_LOCKED",
+  "source_commit": "c5fa8df4baa940f85c2fcdfb856815190931feb8",
+  "source_commit_file_count": 16,
+  "source_commit_paths": [
+    ".gitattributes",
+    "prompts/prompt1006-3.txt",
+    "reports/report1006-3.md",
+    "results/1006-3/CODEX_HANDOFF.md",
+    "results/1006-3/acquisition_plan.md",
+    "results/1006-3/artifact_manifest.json",
+    "results/1006-3/daily_file_manifest.csv",
+    "results/1006-3/exploratory_access_observations.json",
+    "results/1006-3/inventory_audit.json",
+    "results/1006-3/paper_evidence.json",
+    "results/1006-3/source_decision.json",
+    "results/1006-3/source_evidence.json",
+    "results/1006-3/tpdc_citation_evidence.json",
+    "results/1006-3/validation_audit.json",
+    "scripts/python1006_3.py",
+    "tests/test_python1006_3.py"
+  ],
+  "push": {
+    "remote": "origin",
+    "branch": "master",
+    "origin_master_observed": "c5fa8df4baa940f85c2fcdfb856815190931feb8",
+    "source_commit_push_verified": true,
+    "session_local_proxy_used": false,
+    "global_git_proxy_changed": false
+  },
+  "archive": {
+    "prompt_archived": true,
+    "immutable_evidence_and_prompt_files": 11,
+    "head_blob_matches_disk_and_manifest": true,
+    "sha256": {
+      "results/1006-3/acquisition_plan.md": "a8ca2918aa94f60c5fd6eb9de6f23cb030abd558de99e70cd7e1c380d5a86012",
+      "results/1006-3/CODEX_HANDOFF.md": "1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc",
+      "results/1006-3/daily_file_manifest.csv": "94c77b68ebfd91a1df5aed4db8f4f9f31f983c91fd7b0d8183950ccfd9783e0e",
+      "results/1006-3/exploratory_access_observations.json": "7008457272b9438d9d26df88f2ae0bcf814d710efe50eb85d330379adf85dc00",
+      "results/1006-3/inventory_audit.json": "2956a4e67158ecca295e81d94a4b4cfa801c5bca4c28821c509d66f79af32eff",
+      "results/1006-3/paper_evidence.json": "87cda9be3cb92e38e1441dc165ca63ebd6d7c6c318505b019f17b8e4e1c3c07b",
+      "results/1006-3/source_decision.json": "9a9144a8c5bda139f854e523fbc752f2267683e47818d5836080f2131d000fb8",
+      "results/1006-3/source_evidence.json": "d14b89c44608dc1fc43b5bf0fd0ffb6c7540ff71b3dcff736d048754e9c04574",
+      "results/1006-3/tpdc_citation_evidence.json": "a71994e041b93ca8178fcd447b5228708127f6a6d90fcda34fb55141e7e306c5",
+      "results/1006-3/validation_audit.json": "1d20a84d86c113082ee6ea4587b7cc7743a2f70755bb2ae6dab25c1f9ef4992c",
+      "prompts/prompt1006-3.txt": "3bab4aad9341867705a0abca62f07dad71659b5d01382c7e65afab27b6a0eac1"
+    },
+    "package_and_member_hashes": {
+      "original_path": "chatgpt/codex_takeover_urban_history_transfer_v2.zip",
+      "bytes": 9347,
+      "sha256": "7e4bb02f4063f6851c122ac61389c32f94104193667685585304a80e13f9b8d2",
+      "zip_integrity": "PASS",
+      "member_sha256": {
+        "CODEX_PROMPT_1006-3.txt": "3bab4aad9341867705a0abca62f07dad71659b5d01382c7e65afab27b6a0eac1",
+        "CODEX_HANDOFF.md": "1012703984a9d34dc051ad9420cf82b711471190d761256a3907c625d11e09bc"
+      }
+    }
+  },
+  "cleanup": {
+    "directory": "D:\\claudecode\\urban-history-transfer\\chatgpt",
+    "directory_preserved": true,
+    "verified_files_removed": [
+      "CODEX_HANDOFF.md",
+      "CODEX_PROMPT_1006-3.txt",
+      "codex_takeover_urban_history_transfer_v2.zip"
+    ],
+    "remaining_items": 0,
+    "completed": true,
+    "method": "Native PowerShell nonrecursive Remove-Item with three explicitly verified literal file paths",
+    "initial_computed_path_call": "Automatic approval review rejected the command: blocked by policy. No deletion executed; read-only verification followed by the narrower literal-path command succeeded."
+  },
+  "preservation": {
+    "frozen_files_rechecked": 18,
+    "frozen_sha256": {
+      "results/1005-9/gate2_decision.json": "aa55dd87e3dfc9d17db9aab9f68113ca8779b191c49f6771fd8b5df25f4e00c4",
+      "results/1006-1/gate2_negative_result_freeze.md": "1fa60afd9583e7846e36806823ff6f18b9c97d4b05f8b53a51c9d5332c4c6b60",
+      "results/1005-9/analysis_sample_summary.json": "094771c947cc46ad46de2e365b37da371047a5f5ed5d9a3bb46bda37f8dddacb",
+      "results/1005-9/boundary_sensitivity_results.csv": "5692c6ee183e5e7aba903295dcf904d432795788100c6836529c25f4d07ab3c7",
+      "results/1005-9/common_support_results.csv": "e8d9e36416c3377e1de1131d109e27a9adba34afeea0186ea32092b0b2301501",
+      "results/1005-9/context_state_sensitivity.csv": "73c7800a98535ee40db9735c2588372bbc089de5403a2b11c4d721b636f4e8d2",
+      "results/1005-9/geometry_sensitivity_results.csv": "00dfda9dc276d5cf05b664cdb7e5642af289f8b08b1d3867c9364f17ef7979ff",
+      "results/1005-9/history_null_results.csv": "189f2fd284de3d5a62cd84ccf55ceb146aca0e8cf20e7d98b44ba918637c67e1",
+      "results/1005-9/history_null_shuffled_draws.csv": "7d6619c7b3741faac22f49f84b849074e3135b9bf668ef0c1c51356cb7f048df",
+      "results/1005-9/primary_model_metrics.csv": "d69e38aae107c9523e355981af4546e1dbdf778a8e3ef7324143ee5682f5d024",
+      "results/1005-9/primary_oof_predictions.csv": "e10250d6edb119aeaf05ba171b8bd08293407bb746b3f0babfad43d0a8be1caf",
+      "results/1005-9/region_holdout_results.csv": "a9d24f8664a8c6b5fee4eb8e24f0d9c9cefaa3940fd9dccddcf55510245cf78a",
+      "results/1005-9/spatial_residual_diagnostics.csv": "d8cbc199ebbfe7108485c9753ef01df9bbb0e749176ef52e6824a8844740e888",
+      "results/1005-9/strict_precedence_results.csv": "ea2a2e04c6effe7cc44feb4bb808e42ebb0ed672f1922ee24800664b4a28fbda",
+      "results/1005-9/subgroup_results.csv": "3386113cb4380231520871155d859a083b360dc00366531943b35a51ef869e39",
+      "results/1005-9/transfer_results.csv": "4b427cad52cee465e59d7cc8e53ee77aa4bc83c4974c417e58c0ac414223e9c4",
+      "results/1005-9/twin_results.csv": "41125dac57d5c01820656b529519c8e45602da5def362204cea85c74120dd9c4",
+      "results/1005-9/twin_summary.json": "9e7ed1bee48768802cfccbf3950aefdafdc9e577426d018458e69669ba69a696"
+    },
+    "all_frozen_hashes_match": true,
+    "prior_user_files_rechecked": 4,
+    "prior_user_execution_input_sha256": {
+      "results/python1006_2/python1006_2_DONE.txt": "3ff7b785e7b73ec9be1ed31bb07e34bdbc9ccaefc79319bc092c98f233a19d26",
+      "results/python1006_2/python1006_2_manifest.json": "e4ff6ceb8ddb80febef136c69855a833a0078c1caf4ae15477f5053009a53559",
+      "results/python1006_2/python1006_2_results.md": "03fd29a461cbb81e70cdd0089de87150d6cec3f8b7e6db9e35ae829138147ddd",
+      "results/python1006_2/python1006_2_summary.json": "90c3b6a54d7888683ffb1e820cc3787c7b2f4ddc9fc511aaf1dbb46e3306199b"
+    },
+    "all_prior_user_hashes_match": true,
+    "prior_user_results_preserved_untracked": true,
+    "tracked_worktree_clean_before_closeout_receipt": true
+  },
+  "stop": {
+    "large_download_started": false,
+    "complete_research_rasters_downloaded": 0,
+    "gate2b_run": false,
+    "sample_climatology_computed": false,
+    "next_execution_started": false,
+    "work_stops_after_1006_3": true
+  },
+  "closeout_commit": {
+    "resolution": "The follow-up Git commit containing this receipt and the updated report.",
+    "first_direct_push_attempt": "Failed to connect to github.com:443 after 21072 ms; no connection established. Subsequent session-local-proxy ls-remote confirmed master still held the source commit.",
+    "session_local_proxy_used_for_closeout": true,
+    "proxy_scope": "HTTP_PROXY and HTTPS_PROXY set only in retry/check command sessions to http://127.0.0.1:7890; no global Git configuration change.",
+    "note": "The receipt records the already verified source push and cleanup. The follow-up commit cannot include its own hash; its final remote equality is checked after push and reported to the human."
+  }
+}
